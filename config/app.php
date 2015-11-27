@@ -150,6 +150,7 @@ return [
          */
         Intervention\Image\ImageServiceProvider::class,
         yajra\Datatables\DatatablesServiceProvider::class,
+        Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
 
     ],
 
@@ -205,6 +206,7 @@ return [
          */
         'Image'     => Intervention\Image\Facades\Image::class,
         'Datatables' => yajra\Datatables\Datatables::class,
+        'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
 
     ],
 
