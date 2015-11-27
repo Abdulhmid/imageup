@@ -149,6 +149,7 @@ return [
          * Additional Packages
          */
         Intervention\Image\ImageServiceProvider::class,
+        yajra\Datatables\DatatablesServiceProvider::class,
 
     ],
 
@@ -203,6 +204,7 @@ return [
          * Additional Alias
          */
         'Image'     => Intervention\Image\Facades\Image::class,
+        'Datatables' => yajra\Datatables\Datatables::class,
 
     ],
 
