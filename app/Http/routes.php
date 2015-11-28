@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller('/', 'HomeController');
+
+Route::group(["middleware" => "auth"], function (){
+  Route::controllers([
+       '/admin'         => 'AdminController'
+  ]);
 });
+
+Route::controllers([
+    'auth'      => 'Auth\AuthController',
+    'password'  => 'Auth\PasswordController',
+]);
