@@ -13,12 +13,12 @@ class CreateTableGroups extends Migration
      */
     public function up()
     {
-      if (!Schema::hasTable($this->groups)) {
+      if (!Schema::hasTable($this->table)) {
 
-          Schema::create($this->groups, function (Blueprint $table) {
+          Schema::create($this->table, function (Blueprint $table) {
 
               /** Primary key  */
-              $table->increments('groups_id');
+              $table->increments('group_id');
 
               /** Main data  */
               $table->string('group_name', 255);
@@ -38,6 +38,6 @@ class CreateTableGroups extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists($this->groups);
+        Schema::dropIfExists($this->table);
     }
 }

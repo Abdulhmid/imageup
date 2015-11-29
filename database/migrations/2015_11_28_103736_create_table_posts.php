@@ -3,9 +3,9 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableComments extends Migration
+class CreateTablePosts extends Migration
 {
-    protected $table = "comments";
+    protected $table = "posts";
     /**
      * Run the migrations.
      *
@@ -21,20 +21,14 @@ class CreateTableComments extends Migration
                 $table->increments('id');
 
                 /** Main data  */
-                $table->text('comment')->nullable();
-                $table->text('comment_image')->nullable();
+                $table->text('article')->nullable();
+                $table->text('image')->nullable();
                 $table->text('hastag')->nullable();
+                $table->text('link')->nullable();
                 $table->string('created_by')->default('anonim');
 
                 /* Action */
                 $table->timestamps();
-
-                // Relation
-                $table->integer('post_id')->unsigned()->nullable();
-
-                $table->foreign('post_id')
-                        ->references('id')->on('posts')
-                        ->onDelete('cascade')->onUpdate('cascade');
 
             });
         }

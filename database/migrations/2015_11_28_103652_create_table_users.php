@@ -5,6 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTableUsers extends Migration
 {
+    protected $table = 'users';
     /**
      * Run the migrations.
      *
@@ -12,7 +13,33 @@ class CreateTableUsers extends Migration
      */
     public function up()
     {
-        //
+      if (!Schema::hasTable($this->table)) {
+
+          Schema::create($this->table, function (Blueprint $table) {
+
+            $table->increments('id');
+
+            $table->string('name');
+            $table->string('email');
+            $table->string('password', 60)->nullable();
+            $table->string('phone',15)->nullable();
+            $table->string('photo')->nullable();
+            $table->text('address')->nullable();
+            $table->rememberToken();
+            $table->tinyInteger('active')->default(0);
+            $table->timestamp('last_login')->nullable();
+            $table->string('created_by')->nullable();
+            $table->timestamps();
+
+            // Relation
+            $table->integer('group_id')->unsigned()->nullable();
+
+            $table->foreign('group_id')
+                    ->references('group_id')->on('groups')
+                    ->onDelete('cascade')->onUpdate('cascade');
+
+          });
+      }
     }
 
     /**
@@ -22,6 +49,6 @@ class CreateTableUsers extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists($this->table);
     }
 }

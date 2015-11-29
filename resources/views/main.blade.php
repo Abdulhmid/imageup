@@ -9,7 +9,7 @@
 	<link type="text/css" href="{{ url('bootstrap/css/bootstrap-responsive.min.css') }}" rel="stylesheet">
 	<link type="text/css" href="{{ url('css/theme.css') }}" rel="stylesheet">
 	<link type="text/css" href="{{ url('images/icons/css/font-awesome.css') }}" rel="stylesheet">
-	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
+	<!-- <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'> -->
 	@yield('style')
 </head>
 <body>

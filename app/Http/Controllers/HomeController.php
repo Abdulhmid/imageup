@@ -21,7 +21,15 @@ class HomeController extends Controller
 
 	public function getIndex()
 	{
-		return view($this->folder.".index", ['title' => $this->title]);
+		  return view($this->folder.".index", ['title' => $this->title]);
 	}
+
+  public function getLogin(){
+      return view($this->folder.".login", ['title' => $this->title]);
+  }
+
+  public function getRegister(){
+      return view($this->folder.".register", ['title' => $this->title]);
+  }
 
 }
