@@ -27,9 +27,7 @@
 							<div class="control-group">
 								<div class="controls clearfix">
 									<button type="submit" class="btn btn-primary pull-right">Login</button>
-									<label class="checkbox">
-										<input type="checkbox"> Remember me
-									</label>
+									<a href="">Lupa Password</a>
 								</div>
 							</div>
 						</div>

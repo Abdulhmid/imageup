@@ -26,6 +26,8 @@
             <div class="media-body">
               <div class="row-fluid">
                 <textarea class="span12" style="height: 70px; resize: none;"></textarea>
+                <input type="text" class="span6" id="tags" placeholder="Hastags">
+                <input type="text" style="margin-left: 23px;" class="span6" id="link" placeholder="Link">
               </div>
               <div class="clearfix">
                 <a href="#" class="btn btn-primary pull-right">

@@ -19,16 +19,18 @@ class CreateTableUsers extends Migration
 
             $table->increments('id');
 
-            $table->string('name');
+            $table->string('username');
+            $table->string('fullname');
             $table->string('email');
             $table->string('password', 60)->nullable();
             $table->string('phone',15)->nullable();
             $table->string('photo')->nullable();
             $table->text('address')->nullable();
+            $table->enum('gender', ['male','female'])->default('male');
             $table->rememberToken();
             $table->tinyInteger('active')->default(0);
             $table->timestamp('last_login')->nullable();
-            $table->string('created_by')->nullable();
+            $table->string('created_by')->nullable('system');
             $table->timestamps();
 
             // Relation
