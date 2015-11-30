@@ -26,8 +26,8 @@
             <div class="media-body">
               <div class="row-fluid">
                 <textarea class="span12" style="height: 70px; resize: none;"></textarea>
-                <input type="text" class="span6" id="tags" placeholder="Hastags">
-                <input type="text" style="margin-left: 23px;" class="span6" id="link" placeholder="Link">
+                <input type="text" class="span6" id="tags" name="tags" placeholder="Hastags">
+                <input type="text" style="margin-left: 23px;" class="span6" id="link" name="link" placeholder="Link">
               </div>
               <div class="clearfix">
                 <a href="#" class="btn btn-primary pull-right">
@@ -76,16 +76,12 @@
 
                 <div class="stream-options">
                   <a href="#" class="btn btn-small">
-                    <i class="icon-thumbs-up shaded"></i>
-                    Like
-                  </a>
-                  <a href="#" class="btn btn-small">
                     <i class="icon-reply shaded"></i>
-                    Reply
+                    Komentar
                   </a>
                   <a href="#" class="btn btn-small">
                     <i class="icon-retweet shaded"></i>
-                    Repost
+                    Bagikan
                   </a>
                 </div>
               </div>
@@ -114,18 +110,13 @@
                   </div>
                 </div><!--/.stream-headline-->
 
-                <div class="stream-options">
-                  <a href="#" class="btn btn-small">
-                    <i class="icon-thumbs-up shaded"></i>
-                    Like
-                  </a>
                   <a href="#" class="btn btn-small">
                     <i class="icon-reply shaded"></i>
-                    Reply
+                    Komentar
                   </a>
                   <a href="#" class="btn btn-small">
                     <i class="icon-retweet shaded"></i>
-                    Repost
+                    Bagikan
                   </a>
                 </div>
               </div>
@@ -147,18 +138,14 @@
                 </div><!--/.stream-headline-->
 
                 <div class="stream-options">
-                  <a href="#" class="btn btn-small">
-                    <i class="icon-thumbs-up shaded"></i>
-                    Like
-                  </a>
-                  <a href="#" class="btn btn-small">
-                    <i class="icon-reply shaded"></i>
-                    Reply
-                  </a>
-                  <a href="#" class="btn btn-small">
-                    <i class="icon-retweet shaded"></i>
-                    Repost
-                  </a>
+                    <a href="#" class="btn btn-small">
+                      <i class="icon-reply shaded"></i>
+                      Komentar
+                    </a>
+                    <a href="#" class="btn btn-small">
+                      <i class="icon-retweet shaded"></i>
+                      Bagikan
+                    </a>
                 </div>
 
                 <div class="stream-respond">
@@ -283,22 +270,18 @@
 
                 <div class="stream-options">
                   <a href="#" class="btn btn-small">
-                    <i class="icon-thumbs-up shaded"></i>
-                    Like
-                  </a>
-                  <a href="#" class="btn btn-small">
                     <i class="icon-reply shaded"></i>
-                    Reply
+                    Komentar
                   </a>
                   <a href="#" class="btn btn-small">
                     <i class="icon-retweet shaded"></i>
-                    Repost
+                    Bagikan
                   </a>
                 </div>
               </div>
             </div><!--/.media .stream-->
 
-                              <div class="media stream">
+            <div class="media stream">
               <a href="#" class="media-avatar medium pull-left">
                 <img src="images/user.png">
               </a>
@@ -310,13 +293,6 @@
                   </h5>
                   <div class="stream-text">
                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-
-
-
-
-
-
-
                                           </div>
                   <div class="stream-attachment photo">
                     <div class="responsive-photo">
@@ -327,16 +303,12 @@
 
                 <div class="stream-options">
                   <a href="#" class="btn btn-small">
-                    <i class="icon-thumbs-up shaded"></i>
-                    Like
-                  </a>
-                  <a href="#" class="btn btn-small">
                     <i class="icon-reply shaded"></i>
-                    Reply
+                    Komentar
                   </a>
                   <a href="#" class="btn btn-small">
                     <i class="icon-retweet shaded"></i>
-                    Repost
+                    Bagikan
                   </a>
                 </div>
               </div>
@@ -367,16 +339,12 @@
 
                 <div class="stream-options">
                   <a href="#" class="btn btn-small">
-                    <i class="icon-thumbs-up shaded"></i>
-                    Like
-                  </a>
-                  <a href="#" class="btn btn-small">
                     <i class="icon-reply shaded"></i>
-                    Reply
+                    Komentar
                   </a>
                   <a href="#" class="btn btn-small">
                     <i class="icon-retweet shaded"></i>
-                    Repost
+                    Bagikan
                   </a>
                 </div>
               </div>

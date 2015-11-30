@@ -27,24 +27,25 @@
 
 				<div class="nav-collapse collapse navbar-inverse-collapse">
 					<ul class="nav pull-right">
-						<li class="nav-user dropdown" style="display:none"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<img src="images/user.png" class="nav-avatar" />
-								<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-										<li><a href="#">Your Profile</a></li>
-										<li><a href="#">Edit Profile</a></li>
-										<li><a href="#">Account Settings</a></li>
-										<li class="divider"></li>
-										<li><a href="#">Logout</a></li>
-								</ul>
-						</li>
-						<li><a href="{{ url('register') }}">
-							Daftar
-						</a></li>
+						@if(!empty(Auth::user()))
+							<li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<img src="images/user.png" class="nav-avatar" />
+									<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="#">{{ Auth::user()->fullname }}</a></li>
+											<li class="divider"></li>
+											<li><a href="{{ url('/logout') }}">Logout</a></li>
+									</ul>
+							</li>
+						@else
+							<li><a href="{{ url('register') }}">
+								Daftar
+							</a></li>
 
-						<li><a href="{{ url('login') }}">
-							Masuk
-						</a></li>
+							<li><a href="{{ url('login') }}">
+								Masuk
+							</a></li>
+						@endif
 					</ul>
 
 				</div><!-- /.nav-collapse -->
