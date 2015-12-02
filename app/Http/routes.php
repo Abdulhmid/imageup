@@ -11,15 +11,15 @@
 |
 */
 
-Route::controller('/', 'HomeController');
+Route::controllers([
+    'auth'      => 'Auth\AuthController',
+    'password'  => 'Auth\PasswordController',
+]);
 
-Route::group(["middleware" => "auth"], function (){
+Route::group([/*"middleware" => "auth"*/], function (){
   Route::controllers([
        '/admin'         => 'AdminController'
   ]);
 });
 
-Route::controllers([
-    'auth'      => 'Auth\AuthController',
-    'password'  => 'Auth\PasswordController',
-]);
+Route::controller('/', 'HomeController');
