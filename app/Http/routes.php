@@ -16,9 +16,10 @@ Route::controllers([
     'password'  => 'Auth\PasswordController',
 ]);
 
-Route::group([/*"middleware" => "auth"*/], function (){
+Route::group(["middleware" => "auth"], function (){
   Route::controllers([
-       '/admin'         => 'AdminController'
+       '/admin'       => 'AdminController',
+       '/users'       => 'UsersController'
   ]);
 });
 

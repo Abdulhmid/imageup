@@ -17,7 +17,7 @@
 					</div>
 				@endif
 				<div class="module module-login span4 offset4">
-					<form class="form-vertical" action="{{ url('/login') }}" method="post" role="form" style="display: block;">
+					<form class="form-vertical" action="{{ url('/auth/login') }}" method="post" role="form" style="display: block;">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<div class="module-head">
 							<h3>Sign In</h3>

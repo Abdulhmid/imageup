@@ -7,6 +7,11 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Contracts\Auth\Guard;
+use App\Models as Md;
+
+use App\Http\Requests;
 
 class AuthController extends Controller
 {
@@ -28,8 +33,10 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Guard $auth, Md\Users $users)
     {
+        $this->auth = $auth;
+        $this->model = $users;
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
@@ -62,4 +69,46 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function postLogin(Request $request){
+      $this->validate($request, [
+  			'email' => 'required|email|exists:users,email', 'password' => 'required',
+  		]);
+
+  		$credentials = $request->only('email', 'password');
+
+  		$user = $this->findUser($credentials['email']);
+
+  		if ($user->active == 0)
+  		{
+  			return redirect('/')
+  					->withInput($request->only('email', 'remember'))
+  					->withErrors([
+  						'email' => "Your account not activated yet.",
+  					]);
+  		}
+
+  		if ( $this->auth->attempt($credentials, $request->has('remember')))
+  		{
+  			$this->updateLastLogin($user);
+  			return redirect()->intended('/');
+  		}
+
+  		return redirect('/admin')
+  					->withInput($request->only('email', 'remember'))
+  					->withErrors([
+  						'email' => $this->getFailedLoginMessage(),
+  					]);
+    }
+
+    protected function updateLastLogin($user)
+  	{
+  		$user->update(['last_login' => \Carbon\Carbon::now()]);
+  	}
+
+    protected function findUser($email)
+  	{
+  		return \App\Models\Users::select('id','email','active')->whereEmail($email)->first();
+  	}
+
 }
