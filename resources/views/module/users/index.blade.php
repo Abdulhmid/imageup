@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('style')
-
+<link href="{!! asset('scripts/datatables/dataTables.bootstrap.css') !!} "rel="stylesheet" type="text/css"/>
 @stop
 
 @section('content')
@@ -10,7 +10,7 @@
         <h3>DataTables</h3>
       </div>
       <div class="module-body table">
-        <table cellpadding="0" id="datatables" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
+        <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
           <thead>
             <tr>
               <th>Nama Lengkap</th>
@@ -28,27 +28,28 @@
 @stop
 
 @section('script')
-<script src="{{ url('scripts/datatables/jquery.dataTables.js') }}" type="text/javascript">
+<script src="{!! asset('scripts/datatables/jquery.dataTables.js') !!}" type="text/javascript"></script>
+
 <script type="text/javascript">
   $(document).ready(function() {
-    var oTable = $('#datatables').DataTable({
-			"dom": '<"tableHeader"<"row"<"col-md-6"f><"col-md-6"p>>><"newProcessing"r>t<"tableFooter"<"row"<"col-md-8"li><"col-md-4"p>>>',
+    var oTable = $('.datatable-1').dataTable({
+			// "dom": '<"tableHeader"<"row"<"col-md-6"f><"col-md-6"p>>><"newProcessing"r>t<"tableFooter"<"row"<"col-md-8"li><"col-md-4"p>>>',
 			"processing": true,
-			// "bPaginate": true,
-			// "bLengthChange": true,
-			// "bFilter": true,
-			// "bSort": true,
-			// "bInfo": true,
-			// "bAutoWidth": true,
-			// "serverSide": true,
-			// "ajax": "{!! url(GLobalHelpers::indexUrl().'/data') !!}",
-			// "columns": [
-			// {data: 'fullname', name: 'fullname'},
-			// {data: 'email', name: 'email'},
-      // {data: 'active', name: 'active'},
-			// {data: 'created_at', name: 'created_at'},
-			// {data: 'action', name: 'action', searchable : false}
-			// ],
+			"bPaginate": true,
+			"bLengthChange": true,
+			"bFilter": true,
+			"bSort": true,
+			"bInfo": true,
+			"bAutoWidth": true,
+			"serverSide": true,
+			"ajax": "{!! url(GLobalHelpers::indexUrl().'/data') !!}",
+			"columns": [
+			{data: 'fullname', name: 'fullname'},
+			{data: 'email', name: 'email'},
+      {data: 'active', name: 'active'},
+			{data: 'created_at', name: 'created_at'},
+			{data: 'action', name: 'action', searchable : false}
+			],
 			fnDrawCallback: function(){
 				$('[data-toggle="tooltip"]').tooltip();
 			}

@@ -1,113 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Edmin</title>
-	<link type="text/css" href="{{ url('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-	<link type="text/css" href="{{ url('bootstrap/css/bootstrap-responsive.min.css') }}" rel="stylesheet">
-	<link type="text/css" href="{{ url('css/theme.css') }}" rel="stylesheet">
-	<link type="text/css" href="{{ url('images/icons/css/font-awesome.css') }}" rel="stylesheet">
-	<!-- <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'> -->
-</head>
-<body>
+	<meta charset="UTF-8">
+	<title> {!! isset($title) ? $title : "Pusat Parkir" !!} | Pusat Parkir</title>
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon"  href="{!! asset('photo/logo-square.png') !!}"/>
+	<!-- Bootstrap 3.3.2 -->
+	<link href="{!! asset('plugins/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet" type="text/css" />
+	<!-- FontAwesome 4.3.0 -->
+	<link href="{!! asset('plugins/icon/font-awesome/css/font-awesome.min.css') !!}" rel="stylesheet" type="text/css" />
+	<!-- Ionicons 2.0.0 -->
+	<link href="{!! asset('plugins/icon/ionicons/css/ionicons.min.css') !!}" rel="stylesheet" type="text/css" />
+	<!-- Theme style -->
+	<link href="{!! asset('plugins/css/AdminLTE/AdminLTE.min.css') !!}" rel="stylesheet" type="text/css" />
+	<link href="{!! asset('plugins/css/additional.css') !!}" rel="stylesheet" type="text/css" />
+	    <!-- AdminLTE Skins. Choose a skin from the css/skins
+	    folder instead of downloading all of them to reduce the load. -->
+	    <link href="{!! asset('plugins/css/AdminLTE/skins/_all-skins.min.css') !!}" rel="stylesheet" type="text/css" />
 
-	<div class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
+	    @yield('style')
 
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-					<i class="icon-reorder shaded"></i>
-				</a>
+	</head>
+	<body class="skin-own">
+		<div class="wrapper">
 
-			  	<a class="brand" href="{{ url('/admin') }}">
-			  		Edmin
-			  	</a>
-
-				<div class="nav-collapse collapse navbar-inverse-collapse">
-					<ul class="nav nav-icons">
-						<li class="active"><a href="#">
-							<i class="icon-envelope"></i>
-						</a></li>
-						<li><a href="#">
-							<i class="icon-eye-open"></i>
-						</a></li>
-						<li><a href="#">
-							<i class="icon-bar-chart"></i>
-						</a></li>
-					</ul>
-
-					<form class="navbar-search pull-left input-append" action="#">
-						<input type="text" class="span3">
-						<button class="btn" type="button">
-							<i class="icon-search"></i>
-						</button>
-					</form>
-
-					<ul class="nav pull-right">
-						<li><a href="{{ url('/') }}" target="_blank">
-							Website
-						</a></li>
-						<li class="nav-user dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<img src="images/user.png" class="nav-avatar" />
-								<b class="caret"></b>
+			@include('includes.header')
+			<!-- Left side column. contains the logo and sidebar -->
+			@include('includes.sidebar')
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper" style="min-height:648px">
+				<section class="content-header">
+					<h1>
+						{!! $title !!}
+					</h1>
+					<ol class="breadcrumb">
+						<li>
+							<a href="{!! URL::to('/dashboard')!!}">
+							<i class="fa fa-dashboard"></i> <b>Home</b>
 							</a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Your Profile</a></li>
-								<li><a href="#">Edit Profile</a></li>
-								<li><a href="#">Account Settings</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Logout</a></li>
-							</ul>
 						</li>
-					</ul>
-				</div><!-- /.nav-collapse -->
+						{!! GlobalHelp::breadcrumb() !!}
+					</ol>
+				</section>
+
+					@yield('content')
+
 			</div>
-		</div><!-- /navbar-inner -->
-	</div><!-- /navbar -->
+			{{-- <footer class="main-footer">
+				<div class="pull-right hidden-xs">
+					<b>Version</b> 2.0
+				</div>
+				<strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+			</footer> --}}
+		</div><!-- ./wrapper -->
+
+		@yield('modal')
+
+		<!-- jQuery 2.1.3 -->
+		<script src="{!! asset('plugins/jQuery/jQuery-2.1.3.min.js') !!}" type="text/javascript"></script>
+		<!-- jQuery UI 1.11.2 -->
+		  <script src="{!! asset('plugins/jQueryUI/jquery-ui.min.js') !!}" type="text/javascript"></script>
+		<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+		<script>
+			$.widget.bridge('uibutton', $.ui.button);
+		</script>
+		<!-- Bootstrap 3.3.2 JS -->
+		<script src="{!! asset('plugins/bootstrap/js/bootstrap.min.js') !!} " type="text/javascript"></script>
+		<!-- AdminLTE App -->
+	       	<script src="{!! asset('js/app.min.js') !!}" type="text/javascript"></script>
+
+		@yield('script')
+		<script type="text/javascript">
+			$('.autohide').delay(5000).fadeOut('slow');
+		</script>
 
 
-
-	<div class="wrapper">
-		<div class="container">
-			<div class="row">
-				<div class="span3">
-
-					@include('includes.sidebar')
-
-				</div><!--/.span3-->
-
-
-				<div class="span9">
-					<div class="content">
-
-						<div class="module">
-							<div class="module-head">
-								<h3>News Feed</h3>
-							</div>
-							<div class="module-body">
-									@yield('content')
-							</div><!--/.module-body-->
-						</div><!--/.module-->
-
-					</div><!--/.content-->
-				</div><!--/.span9-->
-			</div>
-		</div><!--/.container-->
-	</div><!--/.wrapper-->
-
-	<div class="footer">
-		<div class="container">
-
-
-			<b class="copyright">&copy; 2014 Edmin - EGrappler.com </b> All rights reserved.
-		</div>
-	</div>
-
-	<script src="{{ url('scripts/jquery-1.9.1.min.js') }}" type="text/javascript"></script>
-	<script src="{{ url('scripts/jquery-ui-1.10.1.custom.min.js') }}" type="text/javascript"></script>
-	<script src="{{ url('bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
-	@yield('script')
-</body>
+	</body>
+	</html>
