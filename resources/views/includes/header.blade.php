@@ -206,10 +206,10 @@
                                     <!-- User image -->
                                     <?php //$info = Helper::getPhotoAndInfo(); ?>
                                     <li class="user-header" style="background-color: rgb(144, 196, 83);">
-                                            <img src="{!! GLobalHelp::checkImage(Auth::user()->photo) !!}" class="img-circle" alt="User Image"/>
+                                            <img src="{!! GLobalHelpers::checkImage(Auth::user()->photo) !!}" class="img-circle" alt="User Image"/>
     									<p>
     										{!! Auth::user()->name !!}
-    										<small>Member since {!! GLobalHelp::formatDate(Auth::user()->created_at, 'd F Y') !!}</small>
+    										<small>Member since {!! GLobalHelpers::formatDate(Auth::user()->created_at, 'd F Y') !!}</small>
     									</p>
     								</li>
     								<!-- Menu Body -->

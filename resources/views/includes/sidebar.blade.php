@@ -5,11 +5,11 @@
         <!-- Sidebar user panel -->
         {{--<div class="user-panel">--}}
             {{--<div class="pull-left image">--}}
-                {{--<img src="{!! GLobalHelp::checkImage(Auth::user()->photo) !!}" class="img-circle" alt="User Image" />--}}
+                {{--<img src="{!! GLobalHelpers::checkImage(Auth::user()->photo) !!}" class="img-circle" alt="User Image" />--}}
             {{--</div>--}}
             {{--<div class="pull-left info">--}}
                 {{--<p>{!! Auth::user()->name !!}</p>--}}
-                {{-- <a href="#"> Last Login : {!! GLobalHelp::formatDate(Auth::user()->last_login, 'd-M-y \a\t H:i') !!} </a> --}}
+                {{-- <a href="#"> Last Login : {!! GLobalHelpers::formatDate(Auth::user()->last_login, 'd-M-y \a\t H:i') !!} </a> --}}
             {{--</div>--}}
         {{--</div>--}}
 

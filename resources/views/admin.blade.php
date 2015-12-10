@@ -21,7 +21,7 @@
 	    @yield('style')
 
 	</head>
-	<body class="skin-own">
+	<body class="fixed sidebar-collapse skin-red">
 		<div class="wrapper">
 
 			@include('includes.header')
@@ -39,7 +39,7 @@
 							<i class="fa fa-dashboard"></i> <b>Home</b>
 							</a>
 						</li>
-						{!! GlobalHelp::breadcrumb() !!}
+						{!! GLobalHelpers::breadcrumb() !!}
 					</ol>
 				</section>
 

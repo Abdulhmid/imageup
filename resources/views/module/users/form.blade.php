@@ -1,4 +1,4 @@
-@extends('main')
+@extends('admin')
 
 @section('style')
 <link href="{!! asset('plugins/datepicker/datepicker3.css') !!} "rel="stylesheet" type="text/css"/>
@@ -13,12 +13,12 @@
 			<div class="box-header">
 				<div class="row">
 					<div class="col-xs-6">
-						<h3 class="box-title">{!! ucfirst(GLobalHelp::actionUrl()) !!} {!! $title !!}</h3>
+						<h3 class="box-title">{!! ucfirst(GLobalHelpers::actionUrl()) !!} {!! $title !!}</h3>
 					</div>
 					<div class="col-xs-6">
 						<div class="pull-right">
-							<a href="{!! url(GLobalHelp::indexUrl()) !!}" class="btn btn-default">
-								<i class="fa fa-arrow-left"></i> Back
+							<a href="{!! url(GLobalHelpers::indexUrl()) !!}" class="btn btn-default">
+								<i class="fa fa-arrow-left"></i> Kembali
 							</a>
 						</div>
 					</div>
@@ -26,7 +26,7 @@
 			</div>
 			<div class="box-body">
 				@if(Session::has('message'))
-				{!! GlobalHelp::messages(Session::get('message')) !!}
+				{!! GLobalHelpers::messages(Session::get('message')) !!}
 				@endif
 
 				{{-- Form --}}
@@ -35,7 +35,7 @@
 				{!! form_rest($form) !!}
 
 			</div>
-				@include('include.form_button')
+				@include('includes.form_button')
 
 				{!! form_end($form) !!}
 

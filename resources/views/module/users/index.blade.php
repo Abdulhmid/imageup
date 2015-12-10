@@ -1,39 +1,61 @@
 @extends('admin')
 
 @section('style')
-<link href="{!! asset('scripts/datatables/dataTables.bootstrap.css') !!} "rel="stylesheet" type="text/css"/>
+<link href="{!! asset('plugins/datatables/dataTables.bootstrap.css') !!} "rel="stylesheet" type="text/css"/>
 @stop
 
 @section('content')
-    <div class="module">
-      <div class="module-head">
-        <h3>DataTables</h3>
-      </div>
-      <div class="module-body table">
-        <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
-          <thead>
-            <tr>
-              <th>Nama Lengkap</th>
-              <th>Email</th>
-              <th>Status</th>
-              <th>Engine version</th>
-              <th>CSS grade</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
-    </div>
+<section class="content">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="box">
+				<div class="box-header">
+					@if(Session::has('message'))
+					{!! GLobalHelpers::messages(Session::get('message')) !!}
+					@endif
+					<div class="row">
+						<div class="col-xs-6">
+							<h3 class="box-title">Daftar Pengguna</h3>
+						</div>
+						<div class="col-xs-6">
+							<div class="pull-right">
+								<a href="{!! url(GLobalHelpers::lastUrl().'/create') !!}" id="sap" class="btn btn-success">
+									<i class="fa fa-plus"></i> Tambah
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-body">
+					<table id="table" class="table table-bordered table-hover listTable">
+						<thead>
+							<tr>
+                <th>Photo</th>
+                <th>Name</th>
+								<th>Created By</th>
+								<th>Created At</th>
+								<th width="5%">Action</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 @stop
 
 @section('script')
-<script src="{!! asset('scripts/datatables/jquery.dataTables.js') !!}" type="text/javascript"></script>
+<script src="{!! asset('plugins/datatables/jquery.dataTables.js') !!}" type="text/javascript"></script>
+<script src="{!! asset('plugins/datatables/dataTables.bootstrap.js') !!} " type="text/javascript"></script>
+<script src="{!! asset('plugins/sweet-alert/sweet-alert.js') !!} " type="text/javascript"></script>
+<script src="{!! asset('js/alert.js') !!} " type="text/javascript"></script>
 
 <script type="text/javascript">
   $(document).ready(function() {
-    var oTable = $('.datatable-1').dataTable({
-			// "dom": '<"tableHeader"<"row"<"col-md-6"f><"col-md-6"p>>><"newProcessing"r>t<"tableFooter"<"row"<"col-md-8"li><"col-md-4"p>>>',
+    var oTable = $('#table').dataTable({
+			"dom": '<"tableHeader"<"row"<"col-md-6"f><"col-md-6"p>>><"newProcessing"r>t<"tableFooter"<"row"<"col-md-8"li><"col-md-4"p>>>',
 			"processing": true,
 			"bPaginate": true,
 			"bLengthChange": true,
@@ -54,11 +76,6 @@
 				$('[data-toggle="tooltip"]').tooltip();
 			}
 		});
-
-    $('.dataTables_paginate').addClass("btn-group datatable-pagination");
-    $('.dataTables_paginate > a').wrapInner('<span />');
-    $('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
-    $('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
   } );
 </script>
 @stop
