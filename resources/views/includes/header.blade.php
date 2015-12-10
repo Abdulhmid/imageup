@@ -1,6 +1,6 @@
 <header class="main-header">
     			<!-- Logo -->
-    			<a href="{!! url('dashboard')!!}" class="logo"><img src="{!! asset('photo/logo-square.png') !!}" style="max-height:50px"> <b>Parkiran</b></a>
+    			<a href="{!! url('admin')!!}" class="logo"><img src="{!! asset('photo/logo-square.png') !!}" style="max-height:50px"> <b>Image Up</b></a>
     			<!-- Header Navbar: style can be found in header.less -->
     			<nav class="navbar navbar-static-top" role="navigation">
     				<!-- Sidebar toggle button-->

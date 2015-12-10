@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title> {!! isset($title) ? $title : "Pusat Parkir" !!} | Pusat Parkir</title>
+	<title> {!! isset($title) ? $title : "Mari Uploads" !!} | Mari Uploads</title>
 	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link rel="icon"  href="{!! asset('photo/logo-square.png') !!}"/>
 	<!-- Bootstrap 3.3.2 -->
@@ -46,12 +46,6 @@
 					@yield('content')
 
 			</div>
-			{{-- <footer class="main-footer">
-				<div class="pull-right hidden-xs">
-					<b>Version</b> 2.0
-				</div>
-				<strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-			</footer> --}}
 		</div><!-- ./wrapper -->
 
 		@yield('modal')
