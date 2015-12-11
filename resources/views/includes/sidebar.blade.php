@@ -15,29 +15,24 @@
 
         <ul class="sidebar-menu">
             <li class="header" style="color: azure;">MENU</li>
-            <li class="{!! $segment == 'dashboard' ? 'active' : '' !!}">
-                <a href="{!! url('dashboard') !!}">
+            <li class="{!! $segment == 'admin' ? 'active' : '' !!}">
+                <a href="{!! url('admin') !!}">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="{!! $segment == 'admin' ? 'active' : '' !!}">
-                <a href="{!! url('admin') !!}">
-                    <i class="fa fa-group"></i> <span>Admin</span>
+            <li class="{!! $segment == 'users' ? 'active' : '' !!}">
+                <a href="{!! url('users') !!}">
+                    <i class="fa fa-users"></i> <span>Users</span>
                 </a>
             </li>
-            <li class="{!! $segment == 'vehicle-type' ? 'active' : '' !!}">
-                <a href="{!! url('vehicle-type') !!}">
-                    <i class="fa fa-car"></i> <span>Vehicle Type</span>
+            <li class="{!! $segment == 'groups' ? 'active' : '' !!}">
+                <a href="{!! url('groups') !!}">
+                    <i class="fa fa-group"></i> <span>Groups</span>
                 </a>
             </li>
-            <li class="{!! $segment == 'holiday' ? 'active' : '' !!}" >
-                <a href="{!! url('holiday')!!}" >
-                    <i class="fa fa-umbrella"></i><span>Holiday</span>
-                </a>
-            </li>
-            <li class="{!! $segment == 'log-activity' ? 'active' : '' !!}" >
-                <a href="{!! url('log-activity')!!}" >
-                    <i class="fa fa-leanpub"></i><span>Log Activity</span>
+            <li class="{!! $segment == 'posting' ? 'active' : '' !!}" >
+                <a href="{!! url('posting')!!}" >
+                    <i class="fa fa-umbrella"></i><span>Posting</span>
                 </a>
             </li>
         </ul>
