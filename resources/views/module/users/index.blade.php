@@ -35,7 +35,7 @@
                 <th>Name</th>
 								<th>Created By</th>
 								<th>Created At</th>
-								<th width="5%">Action</th>
+								<th width="15%">Action</th>
 							</tr>
 						</thead>
 					</table>

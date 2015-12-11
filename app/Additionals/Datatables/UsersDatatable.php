@@ -24,18 +24,18 @@ class UsersDatatable {
 	public function make()
 	{
 		return \Datatables::of($this->data)
-			->addColumn('action', '
-	        	<a href="{!! url(GlobalHelpers::indexUrl().\'/edit/\'.$id) !!}"
-						class="btn btn-success btn-xs" data-toggle="tooltip"
-						data-original-title="Edit">
-					<i class="fa fa-pencil"></i>
-				</a>
-				<a href="{!! url(GlobalHelpers::indexUrl().\'/delete/\'.$id) !!}"
-					class="btn btn-danger btn-xs" data-toggle="tooltip"
-					data-original-title="Delete"
-					onclick="swal_alert(this); return false;">
-					<i class="fa fa-trash-o"></i>
-				</a>')
+		->addColumn('action','
+			<a href="{!! url(GLobalHelpers::indexUrl().\'/edit/\'.$id) !!}"
+				class="btn btn-flat btn-default btn-sm" data-toggle="tooltip"
+				data-original-title="Edit">
+				<i class="fa fa-pencil"></i> Edit
+			</a>
+			<a href="{!! url(GLobalHelpers::indexUrl().\'/delete/\'.$id) !!}"
+				class="btn btn-flat btn-danger btn-sm btn-delete" data-toggle="tooltip"
+				data-original-title="Delete" onclick="swal_alert(this); return false;">
+				<i class="fa fa-trash-o"></i> Delete
+			</a>
+			')
 			->editColumn('photo','<img src="{!! GlobalHelpers::checkImage($photo) !!}"
 														style="max-height:100px" class="thumbnail"> ')
 			->editColumn('active','

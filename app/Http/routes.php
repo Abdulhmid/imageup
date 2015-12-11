@@ -19,6 +19,7 @@ Route::controllers([
 Route::group(["middleware" => "auth"], function (){
   Route::controllers([
        '/admin'       => 'AdminController',
+       '/groups'       => 'GroupsController',
        '/users'       => 'UsersController'
   ]);
 });
