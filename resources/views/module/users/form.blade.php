@@ -37,6 +37,7 @@
                         {!! form_row($form->username, ['default_value' => isset($row) ? $row->username: '']) !!}
                         {!! form_row($form->fullname, ['default_value' => isset($row) ? $row->fullname: '']) !!}
                         {!! form_row($form->email, ['default_value' => isset($row) ? $row->email: '']) !!}
+												{!! form_row($form->group_id) !!}
                         {!! form_row($form->password,['default_value' => '']) !!}
                         {!! form_row($form->password_confirmation) !!}
                         {!! form_row($form->active) !!}

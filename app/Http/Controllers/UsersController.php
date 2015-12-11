@@ -59,14 +59,14 @@ class UsersController extends Controller
 
             $input['photo'] = isset($photo) ? $photo : "" ;
             $input['active'] = $input['active'];
-            $input['group_id']     = NULL;
+            $input['group_id']     = $input['group_id'];
             $input['created_by']    = \Auth::user()->username;
             $input['password']      = bcrypt($input['password']);
             $query = $this->model->create($input);
             $result = $query->id;
         else :
             $input['active'] = $input['active'];
-            $input['group_id']     = NULL;
+            $input['group_id']     = $input['group_id'];
 
             if(\Input::hasFile('photo'))
                 $input['photo'] = isset($photo) ? $photo : "";

@@ -25,6 +25,11 @@ class UsersForm extends Form
               		]
       		 	     ]
 	        ])
+          ->add('group_id', 'select', [
+               'empty_value' => '- Pilih Groups -',
+               'choices' => \App\Models\Groups::lists('group_name','group_id')->toArray(),
+               'label' => 'Group'
+           ])
     		->add('photo','file',[
                 'attr' => [
                     'id' => 'file',

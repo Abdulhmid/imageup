@@ -18,7 +18,7 @@ class UsersDatatable {
 	{
 		$this->data = $this
 			->model
-			->select('id','fullname','email','photo','active','created_by','created_at');
+			->select('id','photo','fullname','photo','active','created_by','created_at');
 	}
 
 	public function make()

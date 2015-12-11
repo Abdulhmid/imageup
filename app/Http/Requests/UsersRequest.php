@@ -24,8 +24,10 @@ class UsersRequest extends Request
     public function rules()
     {
         $rules = [
-            'active' => 'required',
-            'photo'  => 'max:2000|mimes:jpeg,gif,png'
+            'active'    => 'required',
+            'fullname'  => 'required',
+            'group_id'  => 'required',
+            'photo'     => 'max:2000|mimes:jpeg,gif,png'
         ];
 
         $lastUrl = \GLobalHelpers::lastUrl();

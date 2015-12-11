@@ -33,6 +33,7 @@
 							<tr>
                 <th>Photo</th>
                 <th>Name</th>
+								<th>Status</th>
 								<th>Created By</th>
 								<th>Created At</th>
 								<th width="15%">Action</th>
@@ -67,9 +68,10 @@
 			"serverSide": true,
 			"ajax": "{!! url(GLobalHelpers::indexUrl().'/data') !!}",
 			"columns": [
+			{data: 'photo', name: 'photo'},
 			{data: 'fullname', name: 'fullname'},
-			{data: 'email', name: 'email'},
       {data: 'active', name: 'active'},
+			{data: 'created_by', name: 'created_by'},
 			{data: 'created_at', name: 'created_at'},
 			{data: 'action', name: 'action', searchable : false}
 			],
