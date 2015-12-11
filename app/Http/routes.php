@@ -11,10 +11,7 @@
 |
 */
 
-Route::controllers([
-    'auth'      => 'Auth\AuthController',
-    'password'  => 'Auth\PasswordController',
-]);
+Route::controller('/frontend', 'FrontendActionController');
 
 Route::group(["middleware" => "auth"], function (){
   Route::controllers([
@@ -26,3 +23,7 @@ Route::group(["middleware" => "auth"], function (){
 });
 
 Route::controller('/', 'HomeController');
+Route::controllers([
+    'auth'      => 'Auth\AuthController',
+    'password'  => 'Auth\PasswordController',
+]);
