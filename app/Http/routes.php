@@ -10,8 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::controller('/frontend', 'FrontendActionController');
+Route::controllers([
+    'auth'      => 'Auth\AuthController',
+    'password'  => 'Auth\PasswordController',
+]);
+Route::controller('/post', 'FrontendController');
 
 Route::group(["middleware" => "auth"], function (){
   Route::controllers([
@@ -23,7 +26,3 @@ Route::group(["middleware" => "auth"], function (){
 });
 
 Route::controller('/', 'HomeController');
-Route::controllers([
-    'auth'      => 'Auth\AuthController',
-    'password'  => 'Auth\PasswordController',
-]);

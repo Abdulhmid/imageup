@@ -23,7 +23,7 @@
             <a href="#" class="media-avatar medium pull-left">
               <img src="images/user.png">
             </a>
-            {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/frontend/status', 'class'=>'form-horizontal')) !!}
+            {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/post/status', 'class'=>'form-horizontal')) !!}
               <div class="media-body">
                 <div class="row-fluid">
                   <textarea class="span12" style="height: 70px; resize: none;"></textarea>

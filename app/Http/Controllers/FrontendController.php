@@ -18,7 +18,7 @@ class FrontendController extends Controller
 
   public function postStatus()
   {
-    echo "string";
+    echo "stridsdng";
   }
 
 }
