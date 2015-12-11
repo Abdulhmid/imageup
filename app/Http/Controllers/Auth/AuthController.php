@@ -88,17 +88,17 @@ class AuthController extends Controller
   					]);
   		}
 
-  		if ( $this->auth->attempt($credentials, $request->has('remember')))
-  		{
-  			$this->updateLastLogin($user);
-  			return redirect()->intended('/');
-  		}
+      if ( $this->auth->attempt($credentials, $request->has('remember')) )
+      {
+          $this->updateLastLogin($user);
+          return redirect()->intended('/');
+      }
 
-  		return redirect('/admin')
-  					->withInput($request->only('email', 'remember'))
-  					->withErrors([
-  						'email' => $this->getFailedLoginMessage(),
-  					]);
+      return redirect($this->loginPath())
+                  ->withInput($request->only('username', 'remember'))
+                  ->withErrors([
+                      'username' => "$this->getFailedLoginMessage()",
+                  ]);
     }
 
     protected function updateLastLogin($user)
