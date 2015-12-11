@@ -26,12 +26,12 @@
             {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/post/status', 'class'=>'form-horizontal')) !!}
               <div class="media-body">
                 <div class="row-fluid">
-                  <textarea class="span12" style="height: 70px; resize: none;"></textarea>
+                  <textarea class="span12" name="post" style="height: 70px; resize: none;"></textarea>
                   <input type="text" class="span6" id="tags" name="tags" placeholder="Hastags">
                   <input type="text" style="margin-left: 23px;" class="span6" id="link" name="link" placeholder="Link">
                 </div>
                 <div class="clearfix">
-                  <button class="btn btn-success pull-right"  type="submit" name="save_continue" value="Save and Continue">
+                  <button class="btn btn-success pull-right" id="send-btn" type="button" value="Publish">
               			<i class="fa fa-check" style="margin-right:5px"></i> Publish
               		</button>
                 </div>
@@ -359,5 +359,23 @@
 @stop
 
 @section('script')
-
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#send-btn').click(function(){
+    console.log("Dsd");
+    $.ajax({
+      url: 'post/status',
+      // url: {!! url(GLobalHelpers::indexUrl().'/post/status') !!},
+      type: "post",
+      data: {'post':$('input[name=post]').val(),
+             'tags':$('input[name=tags]').val(),
+             'link':$('input[name=link]').val(),
+             '_token': $('input[name=_token]').val()},
+      success: function(data){
+        alert(data);
+      }
+    });
+  });
+});
+</script>
 @stop
