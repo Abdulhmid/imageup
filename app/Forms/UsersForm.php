@@ -8,6 +8,35 @@ class UsersForm extends Form
 {
     public function buildForm()
     {
-        // Add fields here...
+      $this
+    		->add('username','text')
+        ->add('fullname','text')
+    		->add('email','text')
+    		->add('password','password')
+    		->add('password_confirmation','password')
+    		->add('active','choice',[
+      			'choices' 		=> [1 => 'Active', 0 => 'Not Active'],
+      			'label'			=> "Status",
+      			'expanded' 		=> true,
+                  'multiple'      => false,
+            		'choice_options' => [
+              		'wrapper' => [
+              			'class' => 'choice-wrapper'
+              		]
+      		 	     ]
+	        ])
+    		->add('photo','file',[
+                'attr' => [
+                    'id' => 'file',
+                    'onchange' => 'readUrl(this)'
+                ]
+            ])
+            ->add('upload','button',[
+                'label' => '<i class="fa fa-upload"></i> Browse',
+                'attr' => [
+                    'class' => 'form-control btn bg-gray',
+                    'onclick' => 'chooseFile()'
+                ]
+            ]);
     }
 }

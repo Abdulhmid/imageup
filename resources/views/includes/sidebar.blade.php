@@ -20,8 +20,8 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="{!! $segment == 'manage-admin' ? 'active' : '' !!}">
-                <a href="{!! url('manage-admin') !!}">
+            <li class="{!! $segment == 'admin' ? 'active' : '' !!}">
+                <a href="{!! url('admin') !!}">
                     <i class="fa fa-group"></i> <span>Admin</span>
                 </a>
             </li>

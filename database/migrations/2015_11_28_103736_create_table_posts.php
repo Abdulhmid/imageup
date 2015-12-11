@@ -25,6 +25,8 @@ class CreateTablePosts extends Migration
                 $table->text('image')->nullable();
                 $table->text('hastag')->nullable();
                 $table->text('link')->nullable();
+                $table->integer('count')->nullable();
+                $table->text('level')->nullable();
                 $table->string('created_by')->default('anonim');
 
                 /* Action */

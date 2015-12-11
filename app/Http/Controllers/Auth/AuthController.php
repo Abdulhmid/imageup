@@ -94,7 +94,7 @@ class AuthController extends Controller
           return redirect()->intended('/');
       }
 
-      return redirect($this->loginPath())
+      return redirect("/admin")
                   ->withInput($request->only('username', 'remember'))
                   ->withErrors([
                       'username' => "$this->getFailedLoginMessage()",
