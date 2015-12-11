@@ -31,9 +31,9 @@ class GLobalHelpers {
 		else
 		{
 			if($user == true)
-			  return asset("/photo/not_found.gif");
+			  return asset("/images/noimage.png");
 			else
-				return asset("/photo/noimage.png");
+				return asset("/images/noimage.png");
 		}
 	}
 
