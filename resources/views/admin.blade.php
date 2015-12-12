@@ -21,7 +21,7 @@
 	    @yield('style')
 
 	</head>
-	<body class="fixed sidebar-collapse skin-red">
+	<body class="skin-red">
 		<div class="wrapper">
 
 			@include('includes.header')

@@ -2,6 +2,7 @@
 
 @section('style')
 <link href="{!! asset('plugins/datatables/dataTables.bootstrap.css') !!} "rel="stylesheet" type="text/css"/>
+<link href="{!! asset('plugins/sweet-alert/sweet-alert.css') !!} "rel="stylesheet" type="text/css"/>
 @stop
 
 @section('content')
@@ -32,9 +33,10 @@
 							<tr>
                 <th>Photo</th>
                 <th>Name</th>
+								<th>Status</th>
 								<th>Created By</th>
 								<th>Created At</th>
-								<th width="5%">Action</th>
+								<th width="15%">Action</th>
 							</tr>
 						</thead>
 					</table>
@@ -66,9 +68,10 @@
 			"serverSide": true,
 			"ajax": "{!! url(GLobalHelpers::indexUrl().'/data') !!}",
 			"columns": [
+			{data: 'photo', name: 'photo'},
 			{data: 'fullname', name: 'fullname'},
-			{data: 'email', name: 'email'},
       {data: 'active', name: 'active'},
+			{data: 'created_by', name: 'created_by'},
 			{data: 'created_at', name: 'created_at'},
 			{data: 'action', name: 'action', searchable : false}
 			],

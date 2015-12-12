@@ -10,15 +10,17 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 Route::controllers([
     'auth'      => 'Auth\AuthController',
     'password'  => 'Auth\PasswordController',
 ]);
+Route::controller('/post', 'FrontendController');
 
 Route::group(["middleware" => "auth"], function (){
   Route::controllers([
        '/admin'       => 'AdminController',
+       '/groups'       => 'GroupsController',
+       '/posting'       => 'PostingController',
        '/users'       => 'UsersController'
   ]);
 });

@@ -23,21 +23,21 @@
             <a href="#" class="media-avatar medium pull-left">
               <img src="images/user.png">
             </a>
-            <div class="media-body">
-              <div class="row-fluid">
-                <textarea class="span12" style="height: 70px; resize: none;"></textarea>
-                <input type="text" class="span6" id="tags" name="tags" placeholder="Hastags">
-                <input type="text" style="margin-left: 23px;" class="span6" id="link" name="link" placeholder="Link">
+            {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/post/status', 'class'=>'form-horizontal')) !!}
+              <div class="media-body">
+                <div class="row-fluid">
+                  <textarea class="span12" name="post" style="height: 70px; resize: none;"></textarea>
+                  <input type="text" class="span6" id="tags" name="tags" placeholder="Hastags">
+                  <input type="text" style="margin-left: 23px;" class="span6" id="link" name="link" placeholder="Link">
+                </div>
+                <div class="clearfix">
+                  <button class="btn btn-success pull-right" id="send-btn" type="button" value="Publish">
+              			<i class="fa fa-check" style="margin-right:5px"></i> Publish
+              		</button>
+                </div>
               </div>
-              <div class="clearfix">
-                <a href="#" class="btn btn-primary pull-right">
-                  Update Status
-                </a>
-                <a href="#" class="btn btn-small" rel="tooltip" data-placement="top" data-original-title="Upload a photo">
-                  <i class="icon-camera shaded"></i>
-                </a>
-              </div>
-            </div>
+            {!! Form::close() !!}
+
           </div>
 
           <div class="stream-list">
@@ -59,14 +59,7 @@
                   </h5>
                   <div class="stream-text">
                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-
-
-
-
-
-
-
-                                          </div>
+                  </div>
                   <div class="stream-attachment photo">
                     <div class="responsive-photo">
                       <img src="images/img.jpg" />
@@ -366,5 +359,23 @@
 @stop
 
 @section('script')
-
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#send-btn').click(function(){
+    console.log("Dsd");
+    $.ajax({
+      url: 'post/status',
+      // url: {!! url(GLobalHelpers::indexUrl().'/post/status') !!},
+      type: "post",
+      data: {'post':$('input[name=post]').val(),
+             'tags':$('input[name=tags]').val(),
+             'link':$('input[name=link]').val(),
+             '_token': $('input[name=_token]').val()},
+      success: function(data){
+        alert(data);
+      }
+    });
+  });
+});
+</script>
 @stop

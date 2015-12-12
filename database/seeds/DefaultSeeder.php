@@ -22,7 +22,6 @@ class DefaultSeeder extends Seeder
         'fullname' => "SUoer Admin",
   			'email'=>'admin@image.me',
   			'password'=>bcrypt('12345'),
-  			'phone'=>"085640111222",
   			'photo'=>"",
   			'group_id'=>NULL,
   			'remember_token'=>NULL,
