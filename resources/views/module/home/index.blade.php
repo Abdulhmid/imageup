@@ -27,9 +27,12 @@
               <div class="media-body">
                 <div class="row-fluid">
                   <textarea class="span12" name="post" style="height: 70px; resize: none;"></textarea>
+                </div><br/>
+                <div class="row-fluid">
                   <input type="text" class="span6" id="tags" name="tags" placeholder="Hastags">
                   <input type="text" style="margin-left: 23px;" class="span6" id="link" name="link" placeholder="Link">
                 </div>
+                <br/>
                 <div class="clearfix">
                   <button class="btn btn-success pull-right" id="send-btn" type="button" value="Publish">
               			<i class="fa fa-check" style="margin-right:5px"></i> Publish

@@ -77,10 +77,7 @@ class HomeController extends Controller
       'username' => 'required|min:5',
 			'email' => 'required|email|unique:users',
       'password' => 'required|confirmed',
-      'fullname' => 'required',
-      'gender' => 'required',
-      'phone' => 'required',
-      'address' => 'required'
+      'fullname' => 'required'
 		]);
 
     $input = $request->except('save_continue','password_confirmation');
@@ -88,7 +85,7 @@ class HomeController extends Controller
     $input['password'] = bcrypt($request->password);
     $query = $this->model->create($input);
 
-    return redirect('/')->with('message','Registrasi Berhasil!');
+    return redirect('/register')->with('message','Registrasi Berhasil, Cek email untuk melakukan Konfirmasi Pendaftaran');
 
   }
 
