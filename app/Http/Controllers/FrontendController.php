@@ -16,9 +16,9 @@ class FrontendController extends Controller
   }
 
 
-  public function postStatus()
+  public function getStatus(Request $request)
   {
-    echo "stridsdng";
+    echo $request->article;
   }
 
 }

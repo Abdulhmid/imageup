@@ -13,34 +13,32 @@
 
   <div class="span12">
     <div class="content">
-
       <div class="module">
         <div class="module-head">
           <h3>News Feed</h3>
         </div>
         <div class="module-body">
           <div class="stream-composer media">
-            <a href="#" class="media-avatar medium pull-left">
-              <img src="images/user.png">
-            </a>
-            {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/post/status', 'class'=>'form-horizontal')) !!}
+              <a href="#" class="media-avatar medium pull-left">
+                <img src="images/user.png">
+              </a>
               <div class="media-body">
                 <div class="row-fluid">
-                  <textarea class="span12" name="post" style="height: 70px; resize: none;"></textarea>
-                </div><br/>
-                <div class="row-fluid">
-                  <input type="text" class="span6" id="tags" name="tags" placeholder="Hastags">
-                  <input type="text" style="margin-left: 23px;" class="span6" id="link" name="link" placeholder="Link">
+                  <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
                 </div>
-                <br/>
                 <div class="clearfix">
-                  <button class="btn btn-success pull-right" id="send-btn" type="button" value="Publish">
-              			<i class="fa fa-check" style="margin-right:5px"></i> Publish
-              		</button>
+                  <button type="button" id="send-btn" class="btn btn-primary pull-right">Updated Status</button>
+                  <a href="#" class="btn btn-small" rel="tooltip" data-placement="top" data-original-title="Upload a photo">
+                    <i class="icon-camera shaded"></i>
+                  </a>
+                  <a href="#" class="btn btn-small" rel="tooltip" data-placement="top" data-original-title="Upload a video">
+                    <i class="icon-facetime-video shaded"></i>
+                  </a>
+                  <a href="#" class="btn btn-small" rel="tooltip" data-placement="top" data-original-title="Pin your location">
+                    <i class="icon-map-marker shaded"></i>
+                  </a>
                 </div>
               </div>
-            {!! Form::close() !!}
-
           </div>
 
           <div class="stream-list">
@@ -365,12 +363,12 @@
 <script type="text/javascript">
 $(document).ready(function(){
   $('#send-btn').click(function(){
-    console.log("Dsd");
+    console.log("sads");
     $.ajax({
       url: 'post/status',
       // url: {!! url(GLobalHelpers::indexUrl().'/post/status') !!},
-      type: "post",
-      data: {'post':$('input[name=post]').val(),
+      type: "get",
+      data: {'article':$('#article').val(),
              'tags':$('input[name=tags]').val(),
              'link':$('input[name=link]').val(),
              '_token': $('input[name=_token]').val()},
