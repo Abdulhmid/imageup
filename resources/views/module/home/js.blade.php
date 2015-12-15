@@ -1,7 +1,6 @@
 <script type="text/javascript">
 $(document).ready(function(){
   $('#send-btn').click(function(){
-    console.log("sads");
     $.ajax({
       url: 'post/status',
       // url: {!! url(GLobalHelpers::indexUrl().'/post/status') !!},

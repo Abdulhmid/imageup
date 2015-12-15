@@ -1,7 +1,40 @@
 @extends('main')
 
 @section('style')
+  <style type="text/css">
+    .fileUpload input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
 
+    .fileUpload {
+        /* position: relative; */
+        /* overflow: hidden; */
+        margin: 10px;
+    }
+
+    .btn-mini {
+        border: 0px;
+        color: #fff;
+        background: #284a87;
+        padding: 4px 8px;
+        border-radius: 4px;
+        /* margin-top: -2px; */
+        font-size: 13px;
+        text-shadow: 0px 1px 1px #135C8C;
+        box-shadow: 0px 0px 1px #135C8C, inset 0px 0px 3px rgba(19, 92, 140, 0.45);
+        -moz-box-shadow: 0px 0px 1px #135C8C, inset 0px 0px 3px rgba(19, 92, 140, 0.45);
+        -webkit-box-shadow: 0px 0px 1px #135C8C, inset 0px 0px 3px rgba(19, 92, 140, 0.45);
+    }
+
+  </style>
 @stop
 
 @section('content')
@@ -27,12 +60,15 @@
                   <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
                 </div>
                 <div class="row-fluid" id="imagePost" style="display:none">
-                  <div class="btn-box-row row-fluid">
-                    <a href="#" class="btn-box small span2">
-    									<i class="icon-key"></i>
-    									<b>Small</b>
-    								</a>
+                  <div class="input-file-upload">
+                    <div class="fileUpload btn-mini" style="width:150px; text-align:center;">
+                        <span><i class="fa fa-picture-o" style="margin-right:7px"></i> Upload Gambar</span>
+                        <input id="file-3" type="file" name="files[]" multiple class="upload btn btn-primary" required="true"/>
+                    </div>
+                    <!-- The container for the uploaded files -->
+                    <div id="files" class="files-input" style="margin:0px;"></div>
                   </div>
+
                 </div>
                 <div class="row-fluid">
                   <input type="text" style="display:none" placeholder="enter your hastag" class="span12" id="hastag" />
