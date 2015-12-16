@@ -15,7 +15,6 @@ class FrontendController extends Controller
     echo "string";
   }
 
-
   public function getStatus(Request $request)
   {
     echo $request->article;

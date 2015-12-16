@@ -1,0 +1,76 @@
+.input-file-upload {
+  background:#fff;
+  /*padding: 15px;*/
+  overflow: hidden;
+  border:1px solid #ddd;
+  border-top: 0px !important;
+  border-bottom: 0px !important;
+}
+
+  .fileUpload {
+      position: relative;
+      /* overflow: hidden; */
+      margin: 10px;
+  }
+
+  .files-input {
+    background:#fafafa;
+    /*padding: 15px;*/
+    overflow: hidden;
+    border:1px solid #ddd;
+    border-top: 0px !important;
+  }
+
+  .input-file-upload {
+    background:#fff;
+    /*padding: 15px;*/
+    overflow: hidden;
+    border:1px solid #ddd;
+    border-top: 0px !important;
+    border-bottom: 0px !important;
+  }
+
+  .content-file {
+    padding: 5px;
+    float: left;
+    background: #ffffff;
+    width: 110px;
+    height: 122px;
+    box-shadow: 0px 0px 3px #ddd;
+    margin: 19px;
+    position: relative;
+  }
+
+   .content-file .progress  {
+    height: 5px;
+   }
+
+   .fileUpload {
+    position: relative;
+    /*overflow: hidden;*/
+    margin: 10px;
+  }
+  .fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+  .btn-mini {
+    border: 0px;
+        color: #fff;
+        background: #284a87;
+        padding: 4px 8px;
+        border-radius: 4px;
+        /* margin-top: -2px; */
+        font-size: 13px;
+        text-shadow: 0px 1px 1px #135C8C;
+        box-shadow: 0px 0px 1px #135C8C, inset 0px 0px 3px rgba(19, 92, 140, 0.45);
+        -moz-box-shadow: 0px 0px 1px #135C8C, inset 0px 0px 3px rgba(19, 92, 140, 0.45);
+        -webkit-box-shadow: 0px 0px 1px #135C8C, inset 0px 0px 3px rgba(19, 92, 140, 0.45);
+  }
