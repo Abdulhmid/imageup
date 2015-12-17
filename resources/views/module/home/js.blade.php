@@ -5,7 +5,8 @@
 
 <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/load-image.all.min.js') !!}"></script>
 <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/canvas-to-blob.min.js') !!}"></script>
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/bootstrap.min.js') !!}"></script>
+<!-- <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/bootstrap.min.js') !!}"></script> -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
 <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.iframe-transport.js') !!}"></script>
@@ -93,7 +94,8 @@ $(function () {
                });
 
             $('#fileupload').fileupload({
-               url: "{!! url('/post/uploads') !!}",
+              //  url: "{!! url('/post/uploads') !!}",
+               url: "{{ url('/post/upload') }}",
                dataType: 'json',
                acceptFileTypes: /(\.|\/)(gif|jpe?g|png|zip|rar)$/i,
                maxFileSize: 10000000, // 5 MB
@@ -151,7 +153,6 @@ $(function () {
                        .prop('disabled', !!data.files.error);
                }
             }).on('fileuploadprogressall', function (e, data) {
-               // console.log(e);
                var progress = parseInt(data.loaded / data.total * 100, 10);
                $(this).find('.progress .progress-bar').css(
                    'width',
@@ -186,7 +187,7 @@ $(function () {
                    $(this).parent().parent().remove();
                }
             });
-            
+
 });
 
 </script>

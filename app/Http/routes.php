@@ -14,7 +14,8 @@ Route::controllers([
     'auth'      => 'Auth\AuthController',
     'password'  => 'Auth\PasswordController',
 ]);
-Route::controller('/post', 'FrontendController');
+Route::controller('post', 'FrontendController');
+// Route::post('/post/uploads', 'FrontendController@postUploads');
 
 Route::group(["middleware" => "auth"], function (){
   Route::controllers([

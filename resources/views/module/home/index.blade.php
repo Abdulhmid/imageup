@@ -31,7 +31,7 @@
           		        <div class="input-file-upload">
           			        <div class="fileUpload btn-mini" style="width:150px; text-align:center;">
           							    <span><i class="fa fa-picture-o" style="margin-right:7px"></i> Upload Gambar</span>
-          							    <input id="fileupload" type="file" name="files[]" multiple="" class="upload form-control" required="true">
+          							    <input id="fileupload" type="file" name="files[]" multiple class="upload form-control" required="true">
           							</div>
           						</div>
           					    <!-- The container for the uploaded files -->
