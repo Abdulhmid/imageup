@@ -25,7 +25,7 @@
               <div class="media-body">
                 <div class="row-fluid">
                   <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
-                </div>
+                </div><br/>
                 <div class="row-fluid" id="imagePost" style="display:none">
                   <div class="form-group">
           		        <div class="input-file-upload">
