@@ -24,8 +24,8 @@
             });
 
             $('#fileImage').fileupload({
-              //  url: "{!! url('/post/uploads') !!}",
-              url: '/post/store',
+               url: "{!! url('/post/uploads') !!}",
+              // url: '/post/store',
               dataType: 'json',
               acceptFileTypes: /(\.|\/)(gif|jpe?g|png|zip|rar)$/i,
               maxFileSize: 10000000, // 5 MB
@@ -39,7 +39,6 @@
                previewMaxHeight: 100,
                previewCrop: true,
                progress: function(e, data){
-                   console.log("ii"+data);
                    var index = data.index;
                    var progress = parseInt(data._progress.loaded / data._progress.total * 100, 10);
                    $(data.context).find('.progress-bar').css('width',progress+"%");
@@ -83,14 +82,14 @@
                        .prop('disabled', !!data.files.error);
                }
             }).on('fileuploadprogressall', function (e, data) {
-              // console.log("kl");return false;
+              console.log(data);//return false;
                var progress = parseInt(data.loaded / data.total * 100, 10);
                $(this).find('.progress .progress-bar').css(
                    'width',
                    progress + '%'
                );
             }).on('fileuploaddone', function (e, data) {
-              //  console.log("kl");return false;
+                console.log("kl898");//return false;
                $.each(data.result, function (index, file) {
                    if (file.url) {
                        $(data.context.children()[index]).find('.progress').fadeOut('medium',function(){

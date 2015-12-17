@@ -25,5 +25,5 @@ Route::group(["middleware" => "auth"], function (){
   ]);
 });
 
-Route::controller('post', 'UploadjlkjlksController');
+Route::controller('post', 'UploadsController');
 Route::controller('/', 'HomeController');

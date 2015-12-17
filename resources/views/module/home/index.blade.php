@@ -15,7 +15,7 @@
     <div class="content">
       <div class="module">
         <div class="module-head">
-          <h3>News Feed</h3>
+          <h3>Newsjhkhkhj Feed</h3>
         </div>
         <div class="module-body">
           <div class="stream-composer media">
