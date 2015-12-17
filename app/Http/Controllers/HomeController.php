@@ -100,6 +100,17 @@ class HomeController extends Controller
 		]);
   }
 
+  public function postUploads(){
+    // echo "string";
+    //   exit();
+    //   $image =$request->file('filesImage');
+    //   var_dump($image); exit();
+    //   $filename  = time() . '.' . $image->getClientOriginalExtension();
+    //   \Image::make($image->getRealPath())->resize(580, 367)->save('images/'.$filename);
+    //   $fullname = '/images/'.$filename;
+    //   return \Response::json(array('name' => $fullname));
+  }
+
   protected function updateLastLogin($user)
 	{
 		$user->update(['last_login' => \Carbon\Carbon::now()]);

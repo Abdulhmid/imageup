@@ -1,57 +1,6 @@
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/vendor/jquery.ui.widget.js') !!}"></script>
-<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script>
+ jQuery(document).ready(function($) {
 
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/load-image.all.min.js') !!}"></script>
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/canvas-to-blob.min.js') !!}"></script>
-<!-- <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/bootstrap.min.js') !!}"></script> -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.iframe-transport.js') !!}"></script>
-<!-- The basic File Upload plugin -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload.js') !!}"></script>
-<!-- The File Upload processing plugin -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-process.js') !!}"></script>
-<!-- The File Upload image preview & resize plugin -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-image.js') !!}"></script>
-<!-- The File Upload audio preview plugin -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-audio.js') !!}"></script>
-<!-- The File Upload video preview plugin -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-video.js') !!}"></script>
-<!-- The File Upload validation plugin -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-validate.js') !!}"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-  $('#send-btn').click(function(){
-    $.ajax({
-      url: 'post/status',
-      // url: {!! url(GLobalHelpers::indexUrl().'/post/status') !!},
-      type: "get",
-      data: {'article':$('#article').val(),
-             'tags':$('input[name=tags]').val(),
-             'link':$('input[name=link]').val(),
-             '_token': $('input[name=_token]').val()},
-      success: function(data){
-        alert(data);
-      }
-    });
-  });
-
-  // Link Action In Post
-  $('a.hastag').click(function (event)
-  {$("#hastag").show();$("#link").hide();$("#imagePost").hide();});
-  $('a.link').click(function (event)
-  {$("#hastag").hide();$("#link").show();$("#imagePost").hide();});
-  $('a.imageLink').click(function (event)
-  { $("#hastag").hide();$("#link").hide(); $("#imagePost").show(); });
-
-});
-
-$(function () {
-    'use strict';
     // Change this to the location of your server-side upload handler:
     var url = window.location.hostname === 'blueimp.github.io' ?
                 '//jquery-file-upload.appspot.com/' : 'server/php/',
@@ -74,31 +23,12 @@ $(function () {
                 });
             });
 
-            uploadButton = $('<button/>')
-               .addClass('btn btn-primary')
-               .prop('disabled', true)
-               .text('Processing...')
-               .on('click', function () {
-                   var $this = $(this),
-                       data = $this.data();
-                   $this
-                       .off('click')
-                       .text('Abort')
-                       .on('click', function () {
-                           $this.remove();
-                           data.abort();
-                       });
-                   data.submit().always(function () {
-                       $this.remove();
-                   });
-               });
-
             $('#fileImage').fileupload({
               //  url: "{!! url('/post/uploads') !!}",
-               url: "{{ url('/post/upload') }}",
-               dataType: 'json',
-               acceptFileTypes: /(\.|\/)(gif|jpe?g|png|zip|rar)$/i,
-               maxFileSize: 10000000, // 5 MB
+              url: "{{ URL::to('uploads') }}",
+              dataType: 'json',
+              acceptFileTypes: /(\.|\/)(gif|jpe?g|png|zip|rar)$/i,
+              maxFileSize: 10000000, // 5 MB
                // Enable image resizing, except for Android and Opera,
                // which actually support image resizing, but fail to
                // send Blob objects via XHR requests:
@@ -128,7 +58,7 @@ $(function () {
                    node.appendTo(data.context);
                });
             }).on('fileuploadprocessalways', function (e, data) {
-               console.log(data);
+               console.log("p");
                $('.button-submit').attr('disabled','');
                var index = data.index,
                    file = data.files[index],
@@ -153,13 +83,14 @@ $(function () {
                        .prop('disabled', !!data.files.error);
                }
             }).on('fileuploadprogressall', function (e, data) {
+              console.log("kl");return false;
                var progress = parseInt(data.loaded / data.total * 100, 10);
                $(this).find('.progress .progress-bar').css(
                    'width',
                    progress + '%'
                );
             }).on('fileuploaddone', function (e, data) {
-               // console.log(data);return false;
+              //  console.log("kl");return false;
                $.each(data.result, function (index, file) {
                    if (file.url) {
                        $(data.context.children()[index]).find('.progress').fadeOut('medium',function(){

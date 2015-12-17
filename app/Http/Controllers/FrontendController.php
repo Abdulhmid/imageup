@@ -10,12 +10,18 @@ use App\Http\Controllers\Controller;
 class FrontendController extends Controller
 {
 
+  public function __construct()
+  {
+
+  }
+
+
   public function getIndex()
   {
     echo "string";
   }
 
-  public function postUpload()
+  public function postStore()
   {
       $image = \Input::file('files');
       var_dump($image); exit();
