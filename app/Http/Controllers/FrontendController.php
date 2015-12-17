@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Image;
+use Intervention\Image\ImageManager;
 
 class FrontendController extends Controller
 {
@@ -18,17 +20,16 @@ class FrontendController extends Controller
 
   public function getIndex()
   {
-    echo "string";
+    echo "strim,nmn,nnnsg";
   }
 
-  public function postStore()
+  public function getUploads(Request $request)
   {
-      $image = \Input::file('files');
-      var_dump($image); exit();
-     $filename  = time() . '.' . $image->getClientOriginalExtension();
-     \Image::make($image->getRealPath())->resize(580, 367)->save('images/'.$filename);
-     $fullname = '/images/'.$filename;
-    return \Response::json(array('name' => $fullname));
+      // $image = \Input::file('files');
+      // $filename  = time() . '.' . $image->getClientOriginalExtension();
+      // \Image::make($image->getRealPath())->resize(580, 367)->save('images/'.$filename);
+      // $fullname = '/images/'.$filename;
+      // return \Response::json(array('name' => $fullname));
   		// $file = \Input::file('files');
       // var_dump($file);exit();
       // // $file = $request->file;

@@ -25,7 +25,7 @@
 
             $('#fileImage').fileupload({
               //  url: "{!! url('/post/uploads') !!}",
-              url: "{{ URL::to('uploads') }}",
+              url: '/post/store',
               dataType: 'json',
               acceptFileTypes: /(\.|\/)(gif|jpe?g|png|zip|rar)$/i,
               maxFileSize: 10000000, // 5 MB
@@ -39,7 +39,7 @@
                previewMaxHeight: 100,
                previewCrop: true,
                progress: function(e, data){
-                   console.log(data);
+                   console.log("ii"+data);
                    var index = data.index;
                    var progress = parseInt(data._progress.loaded / data._progress.total * 100, 10);
                    $(data.context).find('.progress-bar').css('width',progress+"%");
@@ -70,7 +70,7 @@
                        .prepend(file.preview);
                }else{
                    node
-                       .prepend('<div class="file-preview"><i class="icon-file3"></i></div>');
+                       .prepend('<div class="file-preview"><i class=""></i></div>');
                }
                if (file.error) {
                    node
@@ -83,7 +83,7 @@
                        .prop('disabled', !!data.files.error);
                }
             }).on('fileuploadprogressall', function (e, data) {
-              console.log("kl");return false;
+              // console.log("kl");return false;
                var progress = parseInt(data.loaded / data.total * 100, 10);
                $(this).find('.progress .progress-bar').css(
                    'width',

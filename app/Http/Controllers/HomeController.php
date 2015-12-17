@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Models\Users;
+use Image;
+use Intervention\Image\ImageManager;
 
 class HomeController extends Controller
 {
@@ -101,14 +103,11 @@ class HomeController extends Controller
   }
 
   public function postUploads(){
-    // echo "string";
-    //   exit();
-    //   $image =$request->file('filesImage');
-    //   var_dump($image); exit();
-    //   $filename  = time() . '.' . $image->getClientOriginalExtension();
-    //   \Image::make($image->getRealPath())->resize(580, 367)->save('images/'.$filename);
-    //   $fullname = '/images/'.$filename;
-    //   return \Response::json(array('name' => $fullname));
+      $image = \Input::file("files");
+      $filename  = time() . '.' . $image->getClientOriginalExtension();
+      \Image::make($image->getRealPath())->resize(580, 367)->save('images/'.$filename);
+      $fullname = '/images/'.$filename;
+      return \Response::json(array('name' => $fullname));
   }
 
   protected function updateLastLogin($user)
