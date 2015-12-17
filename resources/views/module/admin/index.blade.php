@@ -155,6 +155,6 @@
 
 </section><!-- /.content -->
 @stop
-
+<script src="{!! asset('plugins/jQuery/jQuery-2.1.3.min.js') !!}" type="text/javascript"></script>
 @section('script')
 @stop
