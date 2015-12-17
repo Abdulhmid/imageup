@@ -93,7 +93,7 @@ $(function () {
                    });
                });
 
-            $('#fileupload').fileupload({
+            $('#fileImage').fileupload({
               //  url: "{!! url('/post/uploads') !!}",
                url: "{{ url('/post/upload') }}",
                dataType: 'json',
