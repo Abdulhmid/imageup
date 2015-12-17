@@ -25,7 +25,7 @@
               <div class="media-body">
                 <div class="row-fluid">
                   <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
-                </div>
+                </div><br/>
                 <div class="row-fluid" id="imagePost" style="display:none">
                   <div class="form-group">
           		        <div class="input-file-upload">
@@ -114,7 +114,7 @@
                     <div class="responsive-video">
 
 
-                                                  <iframe src="" width="560" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="">Google Car</a> from <a href="">Henk Rogers</a> on <a href="">Vimeo</a>.</p>
+                          <iframe src="" width="560" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="">Google Car</a> from <a href="">Henk Rogers</a> on <a href="">Vimeo</a>.</p>
 
 
                     </div>
