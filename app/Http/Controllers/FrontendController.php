@@ -32,6 +32,7 @@ class FrontendController extends Controller
           'name' => $name,
           'size' => $size,
           'type' => $mime,
+          'pathPublic' => "images/posting/".$name,
           'url' => \URL::to('images/posting/')
         );
         return $result;

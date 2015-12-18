@@ -27,7 +27,7 @@
               url: "{{ url('/post/upload') }}",
               // url: '/post/store',
               dataType: 'json',
-              acceptFileTypes: /(\.|\/)(gif|jpe?g|png|zip|rar)$/i,
+              acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
               maxFileSize: 10000000, // 5 MB
                // Enable image resizing, except for Android and Opera,
                // which actually support image resizing, but fail to
@@ -44,7 +44,6 @@
                    $(data.context).find('.progress-bar').css('width',progress+"%");
                }
             }).on('fileuploadadd', function (e, data) {
-               console.log(data);
                var acceptFileTypes = /^image\/(gif|jpe?g|png)$/i;
                data.context = $('<div/>').appendTo('#files');
                $.each(data.files, function (index, file) {
@@ -84,20 +83,18 @@
                        .prop('disabled', !!data.files.error);
                }
             }).on('fileuploadprogressall', function (e, data) {
-              console.log(data);//return false;
                var progress = parseInt(data.loaded / data.total * 100, 10);
                $(this).find('.progress .progress-bar').css(
                    'width',
                    progress + '%'
                );
             }).on('fileuploaddone', function (e, data) {
-                console.log("kl898");//return false;
                $.each(data.result, function (index, file) {
                    if (file.url) {
                        $(data.context.children()[index]).find('.progress').fadeOut('medium',function(){
                            $(this).remove();
                        });
-                       $(data.context.children()[index]).append('<input type="hidden" name="nama_file[]" value="'+file.name+'">');
+                       $(data.context.children()[index]).append('<input type="hidden" name="nama_file[]" value="'+file.pathPublic+'">');
 
                    } else if (file.error) {
                        data.context.remove();
