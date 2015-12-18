@@ -45,7 +45,7 @@
                 </div><br/>
                 <div class="row-fluid" id="imagePost" style="display:none">
                   <div class="form-group">
-          		        <div class="input-file-upload">
+          		        <div class="input-file-upload" style="margin-top: -28px;">
           			        <div class="fileUpload btn-mini" style="width:150px; text-align:center;">
           							    <span><i class="fa fa-picture-o" style="margin-right:7px"></i> Upload Gambar</span>
           							    <input id="fileImage" type="file" name="files[]" multiple class="upload form-control" >
@@ -142,6 +142,7 @@
                       <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
                     </div><br/>
                     <div class="row-fluid" id="">
+                      {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/status', 'method' => 'post', 'id'=>'formpostcomment')) !!}
                       <div class="form-group">
               		        <div class="input-file-upload" style="margin-top: -25px;">
               			        <div class="fileUpload btn-mini" style="width:63px; text-align:center;">
@@ -153,6 +154,7 @@
               						<div id="filesComment" class="files-input" style="margin:0px;"></div>
                           <button class="btn btn-info" style="float:right;margin-top:2px;">Kirim</button>
                       </div>
+                      {!! Form::close() !!}
                     </div>
                   </div>
 
@@ -238,12 +240,48 @@
       });
     });
 
+    $("#formpostcomment").submit(function(event) {
+
+      /* stop form from submitting normally */
+      event.preventDefault();
+
+      /* get some values from elements on the page: */
+      var $form = $( this ),
+          url = $form.attr( 'action' );
+
+      /* Send the data using post */
+      var posting = $.post( url, {
+
+          image: $('input[name="nama_file[]"]').map(function() {
+           return $(this).val(); }).get().join(),
+          article : $('#article').val(),
+          hastag  : $('#hastag').val(),
+          link  : $('#link').val(),
+      } );
+
+      /* Alerts the results */
+      posting.done(function( data ) {
+        $(':input','#formoid')
+          .removeAttr('checked')
+          .removeAttr('selected')
+          .not(':button, :submit, :reset, :radio, :checkbox')
+          .val('');
+        $("#files").children().text("");
+        $( ".content-file" ).remove();
+        $("#hastag").tagit("removeAll");
+
+        // Action Prepend To Tag Div Comment
+        $("#postComment").prepend("");
+
+      });
+    });
+
     $('a.hastag').click(function (event){
       $("#link").hide();$("#imagePost").hide();
       $('#hastag').tagit({
         showAutocompleteOnFocus : true,
         triggerKeys : ['enter', 'space', 'comma', 'tab'],
-        placeholderText: "Function Alias Name"
+        placeholderText: "Tags"
       });
       $(".tagit").show(); $(".tagit-hidden-field").hide(); });
     $('a.link').click(function (event){
