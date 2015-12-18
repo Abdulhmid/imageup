@@ -28,6 +28,8 @@
               <a href="#" class="media-avatar medium pull-left">
                 <img src="images/user.png">
               </a>
+              {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/post/status', 'method' => 'post', 'class'=>'form-horizontal','id'=>'formoid')) !!}
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="media-body">
                 <div class="row-fluid">
                   <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
@@ -50,7 +52,7 @@
                   <input type="text" style="display:none" placeholder="enter your link" class="span12" id="link" />
                 </div>
                 <div class="clearfix">
-                  <button type="button" id="send-btn" class="btn btn-primary pull-right">Updated Status</button>
+                  <button type="submit" id="send-btn" class="btn btn-primary pull-right">Updated Status</button>
                   <a href="#" class="imageLink btn btn-small" rel="tooltip" data-placement="top" data-original-title="Upload a photo">
                     <i class="icon-camera shaded"></i>
                   </a>
@@ -62,6 +64,7 @@
                   </a>
                 </div>
               </div>
+              {!! Form::close() !!}
           </div>
 
           <div class="stream-list">
@@ -210,18 +213,29 @@
 
   <script type="text/javascript">
   $(document).ready(function(){
-    $('#send-btn').click(function(){
-      $.ajax({
-        url: 'post/status',
-        // url: {!! url(GLobalHelpers::indexUrl().'/post/status') !!},
-        type: "get",
-        data: {'article':$('#article').val(),
-               'tags':$('input[name=tags]').val(),
-               'link':$('input[name=link]').val(),
-               '_token': $('input[name=_token]').val()},
-        success: function(data){
-          alert(data);
-        }
+
+    $("#formoid").submit(function(event) {
+
+      /* stop form from submitting normally */
+      event.preventDefault();
+
+      /* get some values from elements on the page: */
+      var $form = $( this ),
+          url = $form.attr( 'action' );
+
+      /* Send the data using post */
+      var posting = $.post( url, {
+
+          image: $('input[name="nama_file[]"]').map(function() {
+           return $(this).val(); }).get().join(),
+          // image: $('[name="nama_file[]"]').val(),
+          article: $('#article').val()
+      } );
+
+      /* Alerts the results */
+      posting.done(function( data ) {
+        // console.log($('input[name=nama_file]').val());
+        alert(data);
       });
     });
 

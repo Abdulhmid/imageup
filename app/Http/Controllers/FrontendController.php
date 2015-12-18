@@ -39,9 +39,11 @@ class FrontendController extends Controller
       }
   }
 
-  public function getStatus(Request $request)
+  public function postStatus(Request $request)
   {
-    echo $request->article;
+    $rt = $request->image;
+    $article = $request->article;
+    return $rt;
   }
 
 }
