@@ -22,7 +22,6 @@ class CreateTablePosts extends Migration
 
                 /** Main data  */
                 $table->text('article')->nullable();
-                $table->text('image')->nullable();
                 $table->text('hastag')->nullable();
                 $table->text('link')->nullable();
                 $table->integer('count')->nullable();

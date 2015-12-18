@@ -229,7 +229,9 @@
           image: $('input[name="nama_file[]"]').map(function() {
            return $(this).val(); }).get().join(),
           // image: $('[name="nama_file[]"]').val(),
-          article: $('#article').val()
+          article : $('#article').val(),
+          hastag  : $('#hastag').val(),
+          link  : $('#link').val(),
       } );
 
       /* Alerts the results */

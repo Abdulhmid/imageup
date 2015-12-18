@@ -41,6 +41,7 @@ class FrontendController extends Controller
 
   public function postStatus(Request $request)
   {
+    $input = $request->onyl('image','article','hastag','link');
     $rt = $request->image;
     $article = $request->article;
     return $rt;
