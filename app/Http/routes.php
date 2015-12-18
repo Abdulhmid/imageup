@@ -25,5 +25,4 @@ Route::group(["middleware" => "auth"], function (){
   ]);
 });
 
-Route::controller('/post', 'FrontendController');
 Route::controller('/', 'HomeController');

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Models\Users;
+use App\Models as Md;
 use Image;
 use Intervention\Image\ImageManager;
 
@@ -22,10 +23,13 @@ class HomeController extends Controller
 	protected $url = "/";
 	protected $form;
 
-	public function __construct(Guard $auth, Users $users)
+	public function __construct(Guard $auth,
+                              Users $users,
+                              Md\Posts $post)
 	{
 		$this->auth = $auth;
     $this->model = $users;
+    $this->post = $post;
 	}
 
 	public function getIndex()
@@ -115,6 +119,50 @@ class HomeController extends Controller
   public function getLogout(){
     \Session::flush();
     return redirect('/');
+  }
+
+  /*
+  ** Post Method
+  */
+
+  public function postUpload(){
+      $image = \Input::file("files");
+      // var_dump($image);
+      if ($image[0]->isValid())
+      {
+        if(!file_exists('images/posting/')){
+          mkdir('images/posting/');
+        }
+        $name = time().preg_replace('/\s+/', '', $image[0]->getClientOriginalName());
+        $size = $image[0]->getSize();
+        $mime = $image[0]->getMimeType();
+        $destinationPath = 'images/posting/';
+        $image[0]->move($destinationPath,$name);
+        $result[0] = array(
+          'name' => $name,
+          'size' => $size,
+          'type' => $mime,
+          'pathPublic' => "images/posting/".$name,
+          'url' => \URL::to('images/posting/')
+        );
+        return $result;
+      }
+  }
+
+  public function postStatus(Request $request)
+  {
+    $input = $request->only('article','hastag','link');
+    $image = $request->image;
+    $query = $this->post->create($input);
+    /*
+    ** Add Image
+    */
+    $explodeImage = explode(",", $image);
+    foreach ($explodeImage as $key => $value) {
+      \DB::table('post_detail')->insert(
+          ['image' => $value, 'post_id' => $query->id]
+      );
+    }
   }
 
 }
