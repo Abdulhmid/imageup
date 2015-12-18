@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateDetailImagePostTable extends Migration
 {
-    protected $table = "posts";
+    protected $table = "post_detail";
     /**
      * Run the migrations.
      *

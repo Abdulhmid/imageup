@@ -6,13 +6,20 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models as Md;
 
 class FrontendController extends Controller
 {
 
+  public function __construct(Md\Groups $groups)
+  {
+      $this->model    = $groups;
+      $this->form     = GroupsForm::class;
+  }
+
   public function getIndex()
   {
-    echo "string";
+    echo "Hai";
   }
 
   public function postUpload(){
