@@ -24,7 +24,7 @@
             });
 
             $('#fileImage').fileupload({
-               url: "{!! url('/post/uploads') !!}",
+              url: "{{ url('/post/upload') }}",
               // url: '/post/store',
               dataType: 'json',
               acceptFileTypes: /(\.|\/)(gif|jpe?g|png|zip|rar)$/i,

@@ -15,15 +15,14 @@
     <div class="content">
       <div class="module">
         <div class="module-head">
-          <h3>Newsjhkhkhj Feed</h3>
+          <h3>News Feed</h3>
         </div>
         <div class="module-body">
           <div class="stream-composer media">
               <a href="#" class="media-avatar medium pull-left">
                 <img src="images/user.png">
               </a>
-              <div class="media-body">
-                <div class="row-fluid">
+              <div class="media-body">                <div class="row-fluid">
                   <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
                 </div><br/>
                 <div class="row-fluid" id="imagePost" style="display:none">
@@ -31,7 +30,7 @@
           		        <div class="input-file-upload">
           			        <div class="fileUpload btn-mini" style="width:150px; text-align:center;">
           							    <span><i class="fa fa-picture-o" style="margin-right:7px"></i> Upload Gambar</span>
-          							    <input id="fileImage" type="file" name="files" multiple class="upload form-control" >
+          							    <input id="fileImage" type="file" name="files[]" multiple class="upload form-control" >
           							</div>
           						</div>
           					    <!-- The container for the uploaded files -->
