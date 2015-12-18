@@ -20,19 +20,19 @@ class FrontendController extends Controller
       // var_dump($image);
       if ($image[0]->isValid())
       {
-        if(!file_exists('images/')){
-          mkdir('images/');
+        if(!file_exists('images/posting/')){
+          mkdir('images/posting/');
         }
-        $name = $image[0]->getClientOriginalName();
+        $name = time().preg_replace('/\s+/', '', $image[0]->getClientOriginalName());
         $size = $image[0]->getSize();
         $mime = $image[0]->getMimeType();
-        $destinationPath = 'images/';
+        $destinationPath = 'images/posting/';
         $image[0]->move($destinationPath,$name);
         $result[0] = array(
           'name' => $name,
           'size' => $size,
           'type' => $mime,
-          'url' => \URL::to('images/')
+          'url' => \URL::to('images/posting/')
         );
         return $result;
       }

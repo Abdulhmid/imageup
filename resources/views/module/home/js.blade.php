@@ -57,19 +57,21 @@
                    node.appendTo(data.context);
                });
             }).on('fileuploadprocessalways', function (e, data) {
-               console.log("p");
+
                $('.button-submit').attr('disabled','');
                var index = data.index,
                    file = data.files[index],
                    node = $(data.context.children()[index]);
-                   data.context.addClass('content-file').children().prepend('<span class="close-upload"><i class="icon-close"></i></span>');
+                   data.context.addClass('content-file').children().
+                            prepend('<span class="close-upload" id="">'+
+                                    '<i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></span>');
                if (file.preview) {
                    node
                        .prepend('<br>')
                        .prepend(file.preview);
                }else{
                    node
-                       .prepend('<div class="file-preview"><i class=""></i></div>');
+                       .prepend('<div class="file-preview"><i class="icon-close"></i></div>');
                }
                if (file.error) {
                    node
@@ -96,10 +98,12 @@
                            $(this).remove();
                        });
                        $(data.context.children()[index]).append('<input type="hidden" name="nama_file[]" value="'+file.name+'">');
+
                    } else if (file.error) {
                        data.context.remove();
                    }
                });
+
                $('.button-submit').removeAttr('disabled');
             }).on('fileuploadfail', function (e, data) {
                $.each(data.files, function (index) {
@@ -113,6 +117,7 @@
 
             $(document).on('click', '.close-upload', function(event) {
                event.preventDefault();
+               var fileName = this.id;
                if(confirm('Apakah anda yakin ?')){
                    $(this).parent().parent().remove();
                }

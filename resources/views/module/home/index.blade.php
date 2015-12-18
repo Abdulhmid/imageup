@@ -3,6 +3,12 @@
 @section('style')
   	<link href="{!! asset('css/additional.css') !!} "rel="stylesheet" type="text/css"/>
     @include('module.home.style')
+    <style type="">
+      .glyphicon {
+          top: -117px;
+          right: -92px;
+        }
+    </style>
 @stop
 
 @section('content')
@@ -22,7 +28,8 @@
               <a href="#" class="media-avatar medium pull-left">
                 <img src="images/user.png">
               </a>
-              <div class="media-body">                <div class="row-fluid">
+              <div class="media-body">
+                <div class="row-fluid">
                   <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
                 </div><br/>
                 <div class="row-fluid" id="imagePost" style="display:none">
