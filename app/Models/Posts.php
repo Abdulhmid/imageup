@@ -11,4 +11,13 @@ class Posts extends Model {
 			return $this->hasMany(Comments::class, 'post_id', 'id');
 	}
 
+	public function detail() {
+			return $this->hasMany(PostDetail::class, 'post_id', 'id');
+	}
+
+	public function scopePosting()
+	{
+	  	return self::with('detail')->select('*')->orderBy('id', 'desc')->get();
+	}
+
 }

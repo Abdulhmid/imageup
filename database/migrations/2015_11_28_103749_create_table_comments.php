@@ -22,8 +22,6 @@ class CreateTableComments extends Migration
 
                 /** Main data  */
                 $table->text('comment')->nullable();
-                $table->text('comment_image')->nullable();
-                $table->text('hastag')->nullable();
                 $table->string('created_by')->default('anonim');
 
                 /* Action */

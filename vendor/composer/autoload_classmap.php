@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CreateDetailImageCommentTable' => $baseDir . '/database/migrations/2015_12_18_160754_create_detail_image_comment_table.php',
     'CreateDetailImagePostTable' => $baseDir . '/database/migrations/2015_12_18_135104_create_detail_image_post_table.php',
     'CreateTableComments' => $baseDir . '/database/migrations/2015_11_28_103749_create_table_comments.php',
     'CreateTableGroups' => $baseDir . '/database/migrations/2015_11_28_103642_create_table_groups.php',

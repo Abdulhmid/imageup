@@ -34,7 +34,19 @@ class HomeController extends Controller
 
 	public function getIndex()
 	{
-		  return view($this->folder.".index", ['title' => $this->title]);
+      $post = with(new $this->post)->scopePosting()->toArray();
+
+      /*foreach ($post as $key => $value) {
+        echo $value['id'];
+        $image = $value['detail'];
+        foreach ($image as $key => $valueImage) {
+          echo $valueImage['image'];echo "</br>";
+        }
+      } */
+		  return view($this->folder.".index", [
+                    'title'     => $this->title,
+                    'dataPost'  => $post
+             ]);
 	}
 
   public function getLogin(){

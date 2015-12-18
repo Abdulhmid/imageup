@@ -8,6 +8,16 @@
           top: -117px;
           right: -92px;
         }
+      .content-file-comment {
+          padding: 5px;
+          float: left;
+          background: #ffffff;
+          width: 106px;
+          height: 108px;
+          box-shadow: 0px 0px 3px #ddd;
+          margin: 10px;
+          position: relative;
+      }
     </style>
 @stop
 
@@ -74,101 +84,60 @@
                 11 updates
               </a>
             </div>
-            <div class="media stream">
-              <a href="#" class="media-avatar medium pull-left">
-                <img src="images/user.png">
-              </a>
-              <div class="media-body">
-                <div class="stream-headline">
-                  <h5 class="stream-author">
-                    John Donga
-                    <small>08 July, 2014</small>
-                  </h5>
-                  <div class="stream-text">
-                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-                  </div>
-                  <div class="stream-attachment photo">
-                    <div class="responsive-photo">
-                      <img src="images/img.jpg" />
+            @foreach($dataPost as $key => $value)
+              <div class="media stream">
+                <a href="#" class="media-avatar medium pull-left">
+                  <img src="images/user.png">
+                </a>
+                <div class="media-body">
+                  <div class="stream-headline">
+                    <h5 class="stream-author">
+                      {!! $value['created_by'] !!}
+                      <small>{!! GLobalHelpers::formatDate($value['created_at']) !!}</small>
+                    </h5>
+                    <div class="stream-text">
+                       {!! $value['article'] !!}
+                    </div>
+                    <?php $image = $value['detail']; ?>
+                    <div class="stream-attachment photo">
+                      <div id="#" class="files-input" style="margin:0px;">
+                        @foreach($image as $key => $valueImage)
+                            <div class="content-file">
+                                <img src="{!! url($valueImage['image']) !!}" style="width:100px; height:113px">
+                            </div>
+                        @endforeach
+                      </div>
+                    </div>
+                  </div><!--/.stream-headline-->
+
+                  <div class="stream-options">
+                    <a href="#" class="comment btn btn-small" data-seq="{!! $value['id'] !!}">
+                      <i class="icon-reply shaded"></i>
+                      Komentar
+                    </a>
+                  </div> <br/>
+                  <div id="postComment" style="margin-left:21px">
+                    <div class="row-fluid">
+                      <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
+                    </div><br/>
+                    <div class="row-fluid" id="">
+                      <div class="form-group">
+              		        <div class="input-file-upload" style="margin-top: -25px;">
+              			        <div class="fileUpload btn-mini" style="width:63px; text-align:center;">
+              							    <span><i class="fa fa-picture-o" style="margin-right:7px"></i> Gambar</span>
+              							    <input id="fileImageCommentar" type="file" name="files[]" multiple class="upload form-control" >
+              							</div>
+              						</div>
+              					    <!-- The container for the uploaded files -->
+              						<div id="filesComment" class="files-input" style="margin:0px;"></div>
+                          <button class="btn btn-info" style="float:right;margin-top:2px;">Kirim</button>
+                      </div>
                     </div>
                   </div>
-                </div><!--/.stream-headline-->
 
-                <div class="stream-options">
-                  <a href="#" class="btn btn-small">
-                    <i class="icon-reply shaded"></i>
-                    Komentar
-                  </a>
-                  <a href="#" class="btn btn-small">
-                    <i class="icon-retweet shaded"></i>
-                    Bagikan
-                  </a>
                 </div>
-              </div>
-            </div><!--/.media .stream-->
-            <div class="media stream">
-              <a href="#" class="media-avatar medium pull-left">
-                <img src="images/user.png">
-              </a>
-              <div class="media-body">
-                <div class="stream-headline">
-                  <h5 class="stream-author">
-                    John Donga
-                    <small>08 July, 2014</small>
-                  </h5>
-                  <div class="stream-text">
-                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-                  </div>
-                  <div class="stream-attachment video">
-                    <div class="responsive-video">
-
-
-                          <iframe src="" width="560" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="">Google Car</a> from <a href="">Henk Rogers</a> on <a href="">Vimeo</a>.</p>
-
-
-                    </div>
-                  </div>
-                </div><!--/.stream-headline-->
-
-                  <a href="#" class="btn btn-small">
-                    <i class="icon-reply shaded"></i>
-                    Komentar
-                  </a>
-                  <a href="#" class="btn btn-small">
-                    <i class="icon-retweet shaded"></i>
-                    Bagikan
-                  </a>
-                </div>
-              </div>
-            </div><!--/.media .stream-->
-
-            <div class="media stream">
-              <a href="#" class="media-avatar medium pull-left">
-                <img src="images/user.png">
-              </a>
-              <div class="media-body">
-                <div class="stream-headline">
-                  <h5 class="stream-author">
-                    John Donga
-                    <small>08 July, 2014</small>
-                  </h5>
-                  <div class="stream-text">
-                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-                  </div>
-                </div><!--/.stream-headline-->
-
-                <div class="stream-options">
-                  <a href="#" class="btn btn-small">
-                    <i class="icon-reply shaded"></i>
-                    Komentar
-                  </a>
-                  <a href="#" class="btn btn-small">
-                    <i class="icon-retweet shaded"></i>
-                    Bagikan
-                  </a>
-                </div>
-              </div>
-            </div><!--/.media .stream-->
+              </div><!--/.media .stream-->
+            @endforeach
 
             <div class="media stream load-more">
               <a href="#">
@@ -186,29 +155,30 @@
 @stop
 
 @section('script')
-<script src="{{ url('plugins/jQuery/jQuery-2.1.3.min.js') }}" type="text/javascript"></script>
-<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/vendor/jquery.ui.widget.js') !!}"></script>
-<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+  <script src="{{ url('plugins/jQuery/jQuery-2.1.3.min.js') }}" type="text/javascript"></script>
+  <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+  <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/vendor/jquery.ui.widget.js') !!}"></script>
+  <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
 
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/load-image.all.min.js') !!}"></script>
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/canvas-to-blob.min.js') !!}"></script>
-<!-- <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/bootstrap.min.js') !!}"></script> -->
+  <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/load-image.all.min.js') !!}"></script>
+  <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/canvas-to-blob.min.js') !!}"></script>
+  <!-- <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/bootstrap.min.js') !!}"></script> -->
 
-<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.iframe-transport.js') !!}"></script>
-<!-- The basic File Upload plugin -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload.js') !!}"></script>
-<!-- The File Upload processing plugin -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-process.js') !!}"></script>
-<!-- The File Upload image preview & resize plugin -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-image.js') !!}"></script>
-<!-- The File Upload audio preview plugin -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-audio.js') !!}"></script>
-<!-- The File Upload video preview plugin -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-video.js') !!}"></script>
-<!-- The File Upload validation plugin -->
-<script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-validate.js') !!}"></script>
+  <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+  <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.iframe-transport.js') !!}"></script>
+  <!-- The basic File Upload plugin -->
+  <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload.js') !!}"></script>
+  <!-- The File Upload processing plugin -->
+  <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-process.js') !!}"></script>
+  <!-- The File Upload image preview & resize plugin -->
+  <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-image.js') !!}"></script>
+  <!-- The File Upload audio preview plugin -->
+  <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-audio.js') !!}"></script>
+  <!-- The File Upload video preview plugin -->
+  <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-video.js') !!}"></script>
+  <!-- The File Upload validation plugin -->
+  <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-validate.js') !!}"></script>
+  <script src="{!! asset('plugins/tag-it/tag-it.js') !!}" type="text/javascript"></script>
   @include('module.home.js')
 
   <script type="text/javascript">
@@ -262,6 +232,12 @@
     $('a.imageLink').click(function (event){
       $("#hastag").hide();$("#link").hide(); $("#imagePost").show();
       $(".tagit").hide(); $(".tagit-hidden-field").hide();
+    });
+
+    $('a.comment').click(function (event)
+    {
+        var id = $(this).data('seq');
+        console.log(id);
     });
 
   });
