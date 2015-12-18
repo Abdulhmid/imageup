@@ -1,6 +1,7 @@
+<script src="{!! asset('plugins/tag-it/tag-it.js') !!}" type="text/javascript"></script>
 <script>
  jQuery(document).ready(function($) {
-
+    $(".tagit").hide();
     // Change this to the location of your server-side upload handler:
     var url = window.location.hostname === 'blueimp.github.io' ?
                 '//jquery-file-upload.appspot.com/' : 'server/php/',

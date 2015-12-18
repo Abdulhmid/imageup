@@ -29,7 +29,6 @@
                 <img src="images/user.png">
               </a>
               {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/post/status', 'method' => 'post', 'class'=>'form-horizontal','id'=>'formoid')) !!}
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="media-body">
                 <div class="row-fluid">
                   <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
@@ -51,9 +50,10 @@
                   <input type="text" style="display:none" placeholder="enter your hastag" class="span12" id="hastag" />
                   <input type="text" style="display:none" placeholder="enter your link" class="span12" id="link" />
                 </div>
-                <div class="clearfix">
+                <div class="clearfix" style="margin-top:3px;">
                   <button type="submit" id="send-btn" class="btn btn-primary pull-right">Updated Status</button>
-                  <a href="#" class="imageLink btn btn-small" rel="tooltip" data-placement="top" data-original-title="Upload a photo">
+                  <a href="#" class="imageLink btn btn-small" rel="tooltip"
+                    data-placement="top" data-original-title="Upload a photo">
                     <i class="icon-camera shaded"></i>
                   </a>
                   <a href="#" class="hastag btn btn-small" rel="tooltip" data-placement="top" data-original-title="Upload a video">
@@ -213,7 +213,6 @@
 
   <script type="text/javascript">
   $(document).ready(function(){
-
     $("#formoid").submit(function(event) {
 
       /* stop form from submitting normally */
@@ -236,17 +235,34 @@
 
       /* Alerts the results */
       posting.done(function( data ) {
-        // console.log($('input[name=nama_file]').val());
-        alert(data);
+        $(':input','#formoid')
+          .removeAttr('checked')
+          .removeAttr('selected')
+          .not(':button, :submit, :reset, :radio, :checkbox')
+          .val('');
+        $("#files").children().text("");
+        $( ".content-file" ).remove();
+        $("#hastag").tagit("removeAll");
+
       });
     });
 
-    $('a.hastag').click(function (event)
-    {$("#hastag").show();$("#link").hide();$("#imagePost").hide();});
-    $('a.link').click(function (event)
-    {$("#hastag").hide();$("#link").show();$("#imagePost").hide();});
-    $('a.imageLink').click(function (event)
-    { $("#hastag").hide();$("#link").hide(); $("#imagePost").show(); });
+    $('a.hastag').click(function (event){
+      $("#link").hide();$("#imagePost").hide();
+      $('#hastag').tagit({
+        showAutocompleteOnFocus : true,
+        triggerKeys : ['enter', 'space', 'comma', 'tab'],
+        placeholderText: "Function Alias Name"
+      });
+      $(".tagit").show(); $(".tagit-hidden-field").hide(); });
+    $('a.link').click(function (event){
+      $("#hastag").hide();$("#link").show();$("#imagePost").hide();
+      $(".tagit").hide(); $(".tagit-hidden-field").hide();
+    });
+    $('a.imageLink').click(function (event){
+      $("#hastag").hide();$("#link").hide(); $("#imagePost").show();
+      $(".tagit").hide(); $(".tagit-hidden-field").hide();
+    });
 
   });
   </script>

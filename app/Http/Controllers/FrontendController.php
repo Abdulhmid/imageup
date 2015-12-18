@@ -11,10 +11,9 @@ use App\Models as Md;
 class FrontendController extends Controller
 {
 
-  public function __construct(Md\Groups $groups)
+  public function __construct(Md\Posts $model)
   {
-      $this->model    = $groups;
-      $this->form     = GroupsForm::class;
+      $this->model    = $model;
   }
 
   public function getIndex()
@@ -48,10 +47,19 @@ class FrontendController extends Controller
 
   public function postStatus(Request $request)
   {
-    $input = $request->onyl('image','article','hastag','link');
-    $rt = $request->image;
-    $article = $request->article;
-    return $rt;
+    $input = $request->only('article','hastag','link');
+    $image = $request->image;
+    $query = $this->model->create($input);
+    /*
+    ** Add Image
+    */
+    $explodeImage = explode(",", $image);
+    foreach ($explodeImage as $key => $value) {
+      \DB::table('post_detail')->insert(
+          ['image' => $value, 'post_id' => $query->id]
+      );
+    }
+
   }
 
 }
