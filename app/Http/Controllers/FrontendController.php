@@ -36,11 +36,6 @@ class FrontendController extends Controller
         );
         return $result;
       }
-      exit();
-      $filename  = time() . '.' . $image->getClientOriginalExtension();
-      \Image::make($image->getRealPath())->resize(580, 367)->save('images/'.$filename);
-      $fullname = '/images/'.$filename;
-      return \Response::json(array('name' => $fullname));
   }
 
   public function getStatus(Request $request)
