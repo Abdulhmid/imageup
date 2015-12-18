@@ -117,6 +117,27 @@
                     </a>
                   </div> <br/>
                   <div id="postComment" style="margin-left:21px">
+                    <div class="stream-headline">
+                      <h5 class="stream-author">
+                        {!! $value['created_by'] !!}
+                        <small>{!! GLobalHelpers::formatDate($value['created_at']) !!}</small>
+                      </h5>
+                      <div class="stream-text">
+                         {!! $value['article'] !!}
+                      </div>
+                      <?php $image = $value['detail']; ?>
+                      @if(!empty($image))
+                      <div class="stream-attachment photo">
+                        <div id="#" class="files-input" style="margin:0px;height: 125px;">
+                          @foreach($image as $key => $valueImage)
+                              <div class="content-file-comment">
+                                  <img src="{!! url($valueImage['image']) !!}" style="width:98px; height:96px">
+                              </div>
+                          @endforeach
+                        </div>
+                      </div>
+                      @endif
+                    </div><!--/.stream-headline-->
                     <div class="row-fluid">
                       <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
                     </div><br/>
