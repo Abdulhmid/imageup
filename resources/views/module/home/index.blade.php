@@ -208,7 +208,7 @@
   <script type="text/javascript">
   $(document).ready(function(){
     $("#formoid").submit(function(event) {
-
+      console.log("sds");
       /* stop form from submitting normally */
       event.preventDefault();
 
@@ -239,6 +239,7 @@
         $("#hastag").tagit("removeAll");
 
       });
+      return false;
     });
 
     // Submit Form Send Comment
