@@ -24,7 +24,7 @@ class CreateDetailImagePostTable extends Migration
               $table->text('image')->nullable();
 
               /* Action */
-              $table->timestamps();
+              $table->nullableTimestamps();
 
               // Relation
               $table->integer('post_id')->unsigned()->nullable();

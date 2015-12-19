@@ -24,7 +24,7 @@ class CreateDetailImageCommentTable extends Migration
               $table->text('image')->nullable();
 
               /* Action */
-              $table->timestamps();
+              $table->nullableTimestamps();
 
               // Relation
               $table->integer('comment_id')->unsigned()->nullable();
