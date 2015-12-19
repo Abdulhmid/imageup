@@ -138,24 +138,25 @@
                       </div>
                       @endif
                     </div><!--/.stream-headline-->
-                    <div class="row-fluid">
-                      <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
-                    </div><br/>
-                    <div class="row-fluid" id="">
-                      {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/status', 'method' => 'post', 'id'=>'formpostcomment')) !!}
-                      <div class="form-group">
-              		        <div class="input-file-upload" style="margin-top: -25px;">
-              			        <div class="fileUpload btn-mini" style="width:63px; text-align:center;">
-              							    <span><i class="fa fa-picture-o" style="margin-right:7px"></i> Gambar</span>
-              							    <input id="fileImageCommentar" type="file" name="files[]" multiple class="upload form-control" >
-              							</div>
-              						</div>
-              					    <!-- The container for the uploaded files -->
-              						<div id="filesComment" class="files-input" style="margin:0px;"></div>
-                          <button class="btn btn-info" style="float:right;margin-top:2px;">Kirim</button>
-                      </div>
-                      {!! Form::close() !!}
+                  </div>
+
+                  <div class="row-fluid" style="margin-left:21px;width: 80%;padding-right:15px;">
+                    <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
+                  </div><br/>
+                  <div class="row-fluid" id="" style="margin-left:21px;width: 80%;padding-right:15px;">
+                    {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/status', 'method' => 'post', 'id'=>'formpostcomment')) !!}
+                    <div class="form-group">
+                        <div class="input-file-upload" style="margin-top: -25px;">
+                          <div class="fileUpload btn-mini" style="width:63px; text-align:center;">
+                              <span><i class="fa fa-picture-o" style="margin-right:7px"></i> Gambar</span>
+                              <input id="fileImageCommentar" type="file" name="files[]" multiple class="upload form-control" >
+                          </div>
+                        </div>
+                          <!-- The container for the uploaded files -->
+                        <div id="filesComment" class="files-input" style="margin:0px;"></div>
+                        <button type="submit" class="btn btn-info" style="float:right;margin-top:2px;">Kirim</button>
                     </div>
+                    {!! Form::close() !!}
                   </div>
 
                 </div>
@@ -241,7 +242,6 @@
     });
 
     $("#formpostcomment").submit(function(event) {
-
       /* stop form from submitting normally */
       event.preventDefault();
 
@@ -271,7 +271,20 @@
         $("#hastag").tagit("removeAll");
 
         // Action Prepend To Tag Div Comment
-        $("#postComment").prepend("");
+        if (1 > 3 ) {
+          var addImage =  '<div class="stream-attachment photo">'+
+                          '<div id="#" class="files-input" style="margin:0px;height: 125px;">'+
+                          '<div class="content-file-comment">'+
+                          '<img src="http://localhost:8000/images/posting/14504565313-screen-shot.png" style="width:98px; height:96px">'+
+                          '</div></div></div>';
+        }else{
+          var addImage = "";
+        }
+        $("#postComment").append('<div class="stream-headline">'+
+                                  '<h5 class="stream-author">anonim<small>18 Dec 2015 at 16:35</small></h5>'+
+                                  '<div class="stream-text">Anonim</div>'+
+                                  addImage+'</div>'
+                                );
 
       });
     });
