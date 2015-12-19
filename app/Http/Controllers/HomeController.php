@@ -167,7 +167,8 @@ class HomeController extends Controller
     foreach ($explodeImage as $key => $value) {
       \DB::table('post_detail')->insert(
           ['image' => $value, 'post_id' => $query->id,
-           'created_at' => \Carbon\Carbon::now()]
+           'created_at' => \Carbon\Carbon::now(),
+           'updated_at' => \Carbon\Carbon::now()]
       );
     }
   }
