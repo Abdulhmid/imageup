@@ -195,7 +195,7 @@
                        $(data.context.children()[index]).find('.progress').fadeOut('medium',function(){
                            $(this).remove();
                        });
-                       $(data.context.children()[index]).append('<input type="hidden" name="nama_file[]" value="'+file.pathPublic+'">');
+                       $(data.context.children()[index]).append('<input type="hidden" name="nama_file_comment[]" value="'+file.pathPublic+'">');
 
                    } else if (file.error) {
                        data.context.remove();

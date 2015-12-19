@@ -140,11 +140,11 @@
                     </div><!--/.stream-headline-->
                   </div>
 
+                  {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/comment/'.$value['id'], 'method' => 'post', 'id'=>'formpostcomment')) !!}
                   <div class="row-fluid" style="margin-left:21px;width: 80%;padding-right:15px;">
-                    <textarea class="span12" id="article" style="height: 70px; resize: none;"></textarea>
+                    <textarea class="span12" id="commentPost" style="height: 70px; resize: none;"></textarea>
                   </div><br/>
                   <div class="row-fluid" id="" style="margin-left:21px;width: 80%;padding-right:15px;">
-                    {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/status', 'method' => 'post', 'id'=>'formpostcomment')) !!}
                     <div class="form-group">
                         <div class="input-file-upload" style="margin-top: -25px;">
                           <div class="fileUpload btn-mini" style="width:63px; text-align:center;">
@@ -156,8 +156,8 @@
                         <div id="filesComment" class="files-input" style="margin:0px;"></div>
                         <button type="submit" class="btn btn-info" style="float:right;margin-top:2px;">Kirim</button>
                     </div>
-                    {!! Form::close() !!}
                   </div>
+                  {!! Form::close() !!}
 
                 </div>
               </div><!--/.media .stream-->
@@ -241,48 +241,45 @@
       });
     });
 
+    // Submit Form Send Comment
     $("#formpostcomment").submit(function(event) {
-      /* stop form from submitting normally */
       event.preventDefault();
 
-      /* get some values from elements on the page: */
       var $form = $( this ),
           url = $form.attr( 'action' );
 
-      /* Send the data using post */
       var posting = $.post( url, {
-
-          image: $('input[name="nama_file[]"]').map(function() {
+          _token: "{{ csrf_token() }}",
+          image: $('input[name="nama_file_comment[]"]').map(function() {
            return $(this).val(); }).get().join(),
-          article : $('#article').val(),
-          hastag  : $('#hastag').val(),
-          link  : $('#link').val(),
+          comment : $('#commentPost').val(),
       } );
 
-      /* Alerts the results */
       posting.done(function( data ) {
-        $(':input','#formoid')
+        $(':input','#formpostcomment')
           .removeAttr('checked')
           .removeAttr('selected')
           .not(':button, :submit, :reset, :radio, :checkbox')
           .val('');
-        $("#files").children().text("");
-        $( ".content-file" ).remove();
-        $("#hastag").tagit("removeAll");
+        $("#filesComment").children().text("");
+        $( ".content-file-comment" ).remove();
+        var commentPostUser  = data['comment'];
+        var commentPostImage = data['imageComment'];
+        var newArray = $.map( commentPostImage, function(v){
+          return v === "" ? null : v;
+        });
 
         // Action Prepend To Tag Div Comment
-        if (1 > 3 ) {
-          var addImage =  '<div class="stream-attachment photo">'+
-                          '<div id="#" class="files-input" style="margin:0px;height: 125px;">'+
-                          '<div class="content-file-comment">'+
-                          '<img src="http://localhost:8000/images/posting/14504565313-screen-shot.png" style="width:98px; height:96px">'+
-                          '</div></div></div>';
+        if(newArray.length > 0) {
+          var valueLoopImage = "";
+          var addImage = data['imageCommentContent'] ;
         }else{
           var addImage = "";
         }
+
         $("#postComment").append('<div class="stream-headline">'+
                                   '<h5 class="stream-author">anonim<small>18 Dec 2015 at 16:35</small></h5>'+
-                                  '<div class="stream-text">Anonim</div>'+
+                                  '<div class="stream-text">'+commentPostUser+'</div>'+
                                   addImage+'</div>'
                                 );
 

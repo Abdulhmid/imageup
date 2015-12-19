@@ -25,24 +25,18 @@ class HomeController extends Controller
 
 	public function __construct(Guard $auth,
                               Users $users,
-                              Md\Posts $post)
+                              Md\Posts $post,
+                              Md\Comments $comments)
 	{
 		$this->auth = $auth;
     $this->model = $users;
     $this->post = $post;
+    $this->comments = $comments;
 	}
 
 	public function getIndex()
 	{
       $post = with(new $this->post)->scopePosting()->toArray();
-
-      /*foreach ($post as $key => $value) {
-        echo $value['id'];
-        $image = $value['detail'];
-        foreach ($image as $key => $valueImage) {
-          echo $valueImage['image'];echo "</br>";
-        }
-      } */
 		  return view($this->folder.".index", [
                     'title'     => $this->title,
                     'dataPost'  => $post
@@ -175,6 +169,37 @@ class HomeController extends Controller
           ['image' => $value, 'post_id' => $query->id]
       );
     }
+  }
+
+  public function postComment(Request $request, $id = "")
+  {
+    $input = $request->only('comment','post_id');
+    $input['post_id'] = $id  ;
+    $image = $request->image;
+    $query = $this->comments->create($input);
+    /*
+    ** Add Image
+    */
+    $explodeImage = explode(',', $image);
+    $imgValue = "";
+    foreach ($explodeImage as $key => $value) {
+      \DB::table('comment_detail')->insert(
+          ['image' => $value, 'comment_id' => $query->id,
+           'created_at' => \Carbon\Carbon::now()]
+      );
+      $imgValue .= '<div class="stream-attachment photo">'.
+                      '<div id="#" class="files-input" style="margin:0px;height: 125px;">'.
+                      '<div class="content-file-comment">'.
+                      '<img src="'.$value.'" style="width:98px; height:96px">'.
+                      '</div></div></div>';
+    }
+
+    $data['comment'] = $input['comment'];
+    $data['imageCommentContent'] = $imgValue;
+    $data['imageComment'] = $explodeImage;
+
+    return $data;
+
   }
 
 }
