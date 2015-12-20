@@ -37,6 +37,11 @@ class HomeController extends Controller
 	public function getIndex()
 	{
       $post = with(new $this->post)->scopePosting()->toArray();
+      //
+      // echo "<pre>";
+      // print_r($post);
+      // echo "</pre>";
+      // exit();
 		  return view($this->folder.".index", [
                     'title'     => $this->title,
                     'dataPost'  => $post
@@ -189,11 +194,9 @@ class HomeController extends Controller
           ['image' => $value, 'comment_id' => $query->id,
            'created_at' => \Carbon\Carbon::now()]
       );
-      $imgValue .= '<div class="stream-attachment photo">'.
-                      '<div id="#" class="files-input" style="margin:0px;height: 125px;">'.
-                      '<div class="content-file-comment">'.
+      $imgValue .=   '<div class="content-file-comment-list">'.
                       '<img src="'.$value.'" style="width:98px; height:96px">'.
-                      '</div></div></div>';
+                      '</div>';
     }
 
     $data['comment'] = $input['comment'];

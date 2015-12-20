@@ -18,6 +18,16 @@
           margin: 10px;
           position: relative;
       }
+      .content-file-comment-list{
+        padding: 5px;
+        float: left;
+        background: #ffffff;
+        width: 106px;
+        height: 108px;
+        box-shadow: 0px 0px 3px #ddd;
+        margin: 10px;
+        position: relative;
+      }
     </style>
 @stop
 
@@ -116,30 +126,38 @@
                       Komentar
                     </a>
                   </div> <br/>
-                  <div id="postComment" style="margin-left:21px">
-                    <div class="stream-headline">
-                      <h5 class="stream-author">
-                        {!! $value['created_by'] !!}
-                        <small>{!! GLobalHelpers::formatDate($value['created_at']) !!}</small>
-                      </h5>
-                      <div class="stream-text">
-                         {!! $value['article'] !!}
-                      </div>
-                      <?php $image = $value['detail']; ?>
-                      @if(!empty($image))
-                      <div class="stream-attachment photo">
-                        <div id="#" class="files-input" style="margin:0px;height: 125px;">
-                          @foreach($image as $key => $valueImage)
-                              <div class="content-file-comment">
-                                  <img src="{!! url($valueImage['image']) !!}" style="width:98px; height:96px">
-                              </div>
-                          @endforeach
+                  <!-- List Commentar  -->
+                  <?php $comment = $value['comments']; ?>
+                  @if(!empty($comment))
+                    @foreach($comment as $key => $valueComment)
+                    <div id="postComment" style="margin-left:21px">
+                      <div class="stream-headline">
+                        <h5 class="stream-author">
+                          {!! $valueComment['created_by'] !!}
+                          <small>{!! GLobalHelpers::formatDate($valueComment['created_at']) !!}</small>
+                        </h5>
+                        <div class="stream-text">
+                           {!! $valueComment['comment'] !!}
                         </div>
-                      </div>
-                      @endif
-                    </div><!--/.stream-headline-->
-                  </div>
+                        <?php $imageComment = ""; ?>
+                        @if(!empty($imageComment))
+                        <div class="stream-attachment photo">
+                          <div id="#" class="files-input" style="margin:0px;height: 125px;">
+                            @foreach($imageComment as $key => $valueImageComment)
+                                <div class="content-file-comment-list">
+                                    <img src="{!! url($valueImageComment['image']) !!}" style="width:98px; height:96px">
+                                </div>
+                            @endforeach
+                          </div>
+                        </div>
+                        @endif
+                      </div><!--/.stream-headline-->
+                    </div>
+                    @endforeach
+                  @endif
+                  <!-- End List Coomentar -->
 
+                  <!-- Action Reply Comment  -->
                   {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/comment/'.$value['id'], 'method' => 'post', 'id'=>'formpostcomment')) !!}
                   <div class="row-fluid" style="margin-left:21px;width: 80%;padding-right:15px;">
                     <textarea class="span12" id="commentPost" style="height: 70px; resize: none;"></textarea>
@@ -158,6 +176,7 @@
                     </div>
                   </div>
                   {!! Form::close() !!}
+                  <!-- End Action Command    -->
 
                 </div>
               </div><!--/.media .stream-->
@@ -273,17 +292,20 @@
         // Action Prepend To Tag Div Comment
         if(newArray.length > 0) {
           var valueLoopImage = "";
-          var addImage = data['imageCommentContent'] ;
+          var addImage =  '<div class="stream-attachment photo">'+
+                          '<div id="#" class="files-input" style="margin:0px;">'+
+                          data['imageCommentContent']+'</div></div>' ;
         }else{
           var addImage = "";
         }
 
         $("#postComment").append('<div class="stream-headline">'+
-                                  '<h5 class="stream-author">anonim<small>18 Dec 2015 at 16:35</small></h5>'+
+                                  '<h5 class="stream-author">'+'anomin'+
+                                  '<small>20 Dec 2015 at 14:39</small></h5>'+
                                   '<div class="stream-text">'+commentPostUser+'</div>'+
-                                  addImage+'</div>'
+                                  addImage+
+                                  '</div>'
                                 );
-
       });
     });
 

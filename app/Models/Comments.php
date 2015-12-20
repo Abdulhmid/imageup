@@ -11,4 +11,8 @@ class Comments extends Model {
 			return $this->hasOne(Post::class, 'post_id', 'id');
 	}
 
+	public function detail() {
+			return $this->hasMany(CommentsDetail::class, 'comment_id', 'id');
+	}
+
 }

@@ -7,17 +7,20 @@ class Posts extends Model {
 	protected $table = 'posts';
 	protected $guarded = ['id'];
 
-	public function comments() {
-			return $this->hasMany(Comments::class, 'post_id', 'id');
-	}
-
 	public function detail() {
 			return $this->hasMany(PostDetail::class, 'post_id', 'id');
 	}
 
+	public function comments() {
+			return $this->hasMany(
+					Comments::class,
+					'post_id',
+					'id');
+	}
+
 	public function scopePosting()
 	{
-	  	return self::with('detail')->select('*')->orderBy('id', 'desc')->get();
+	  	return $this->with(['detail','comments'])->select('*')->orderBy('id', 'desc')->get();
 	}
 
 }
