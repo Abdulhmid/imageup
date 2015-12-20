@@ -2,33 +2,8 @@
 
 @section('style')
   	<link href="{!! asset('css/additional.css') !!} "rel="stylesheet" type="text/css"/>
+    <link href="{!! asset('css/additional-post.css') !!} "rel="stylesheet" type="text/css"/>
     @include('module.home.style')
-    <style type="">
-      .glyphicon {
-          top: -117px;
-          right: -92px;
-        }
-      .content-file-comment {
-          padding: 5px;
-          float: left;
-          background: #ffffff;
-          width: 106px;
-          height: 108px;
-          box-shadow: 0px 0px 3px #ddd;
-          margin: 10px;
-          position: relative;
-      }
-      .content-file-comment-list{
-        padding: 5px;
-        float: left;
-        background: #ffffff;
-        width: 106px;
-        height: 108px;
-        box-shadow: 0px 0px 3px #ddd;
-        margin: 10px;
-        position: relative;
-      }
-    </style>
 @stop
 
 @section('content')
