@@ -135,13 +135,13 @@
                   <!-- Action Reply Comment  -->
                   {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/comment/'.$value['id'], 'method' => 'post', 'id'=>'formpostcomment')) !!}
                   <div class="row-fluid" style="margin-left:21px;width: 80%;padding-right:15px;">
-                    <textarea class="span12" id="commentPost" style="height: 70px; resize: none;"></textarea>
+                    <input type="text" class="span12" id="commentPost" style="resize: none;"></input>
                   </div><br/>
                   <div class="row-fluid" id="" style="margin-left:21px;width: 80%;padding-right:15px;">
                     <div class="form-group">
                         <div class="input-file-upload" style="margin-top: -25px;">
-                          <div class="fileUpload btn-mini" style="width:63px; text-align:center;">
-                              <span><i class="fa fa-picture-o" style="margin-right:7px"></i> Gambar</span>
+                          <div class="fileUpload" style="width:63px; text-align:center;">
+                              <span><i class="icon-camera shaded" style="margin-right:7px"></i></span>
                               <input id="fileImageCommentar" type="file" name="files[]" multiple class="upload form-control" >
                           </div>
                         </div>
