@@ -37,11 +37,11 @@ class HomeController extends Controller
 	public function getIndex()
 	{
       $post = with(new $this->post)->scopePosting()->toArray();
-      
-      echo "<pre>";
-      print_r($post);
-      echo "</pre>";
-      exit();
+      // 
+      // echo "<pre>";
+      // print_r($post);
+      // echo "</pre>";
+      // exit();
 		  return view($this->folder.".index", [
                     'title'     => $this->title,
                     'dataPost'  => $post
