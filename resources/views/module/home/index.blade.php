@@ -114,7 +114,7 @@
                         <div class="stream-text">
                            {!! $valueComment['comment'] !!}
                         </div>
-                        <?php $imageComment = ""; ?>
+                        <?php $imageComment = $valueComment['detailcomment']; ?>
                         @if(!empty($imageComment))
                         <div class="stream-attachment photo">
                           <div id="#" class="files-input" style="margin:0px;height: 125px;">
@@ -127,7 +127,7 @@
                         </div>
                         @endif
                       </div><!--/.stream-headline-->
-                    </div>
+                    </div><br/>
                     @endforeach
                   @endif
                   <!-- End List Coomentar -->
@@ -141,7 +141,7 @@
                     <div class="form-group">
                         <div class="input-file-upload" style="margin-top: -25px;">
                           <div class="fileUpload" style="width:63px; text-align:center;">
-                              <span><i class="icon-camera shaded" style="margin-right:7px"></i></span>
+                              <span style="margin-left: -45px;"><i class="icon-camera shaded" style="margin-right:7px"></i></span>
                               <input id="fileImageCommentar" type="file" name="files[]" multiple class="upload form-control" >
                           </div>
                         </div>

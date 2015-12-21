@@ -37,7 +37,7 @@ class HomeController extends Controller
 	public function getIndex()
 	{
       $post = with(new $this->post)->scopePosting()->toArray();
-      // 
+      //
       // echo "<pre>";
       // print_r($post);
       // echo "</pre>";
@@ -190,13 +190,15 @@ class HomeController extends Controller
     $explodeImage = explode(',', $image);
     $imgValue = "";
     foreach ($explodeImage as $key => $value) {
-      \DB::table('comment_detail')->insert(
-          ['image' => $value, 'comment_id' => $query->id,
-           'created_at' => \Carbon\Carbon::now()]
-      );
-      $imgValue .=   '<div class="content-file-comment-list">'.
-                      '<img src="'.$value.'" style="width:98px; height:96px">'.
-                      '</div>';
+      if ($value != "") {
+        \DB::table('comment_detail')->insert(
+            ['image' => $value, 'comment_id' => $query->id,
+             'created_at' => \Carbon\Carbon::now()]
+        );
+        $imgValue .=   '<div class="content-file-comment-list">'.
+                        '<img src="'.$value.'" style="width:98px; height:96px">'.
+                        '</div>';
+      }
     }
 
     $data['comment'] = $input['comment'];
