@@ -41,12 +41,21 @@ class HomeController extends Controller
       // echo "<pre>";
       // print_r($post);
       // echo "</pre>";
+      // foreach ($post as $key => $value) {
+      //   echo $value['created_by'];
+      // }
       // exit();
 		  return view($this->folder.".index", [
                     'title'     => $this->title,
                     'dataPost'  => $post
              ]);
 	}
+
+  public function getDataPosting(){
+      $post = with(new $this->post)->scopePosting()->toArray();
+      $html = \PostHelpers::htmlData($post);
+      return $html;
+  }
 
   public function getLogin(){
       return view($this->folder.".login", ['title' => $this->title]);
