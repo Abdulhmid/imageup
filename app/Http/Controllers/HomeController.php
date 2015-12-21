@@ -37,7 +37,7 @@ class HomeController extends Controller
 	public function getIndex()
 	{
       $post = with(new $this->post)->scopePosting()->toArray();
-      //
+      // 
       // echo "<pre>";
       // print_r($post);
       // echo "</pre>";

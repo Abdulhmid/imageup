@@ -15,7 +15,7 @@ class Posts extends Model {
 			return $this->hasMany(
 					Comments::class,
 					'post_id',
-					'id');
+					'id')->with('detail');
 	}
 
 	public function scopePosting()
