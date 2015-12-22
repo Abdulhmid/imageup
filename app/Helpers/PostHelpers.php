@@ -49,7 +49,7 @@ class PostHelpers {
           }
         }
 
-        $postActionComment =  '<form id="formpostcomment" >'.
+        $postActionComment =  '<form id="formpostcomment">'.
                               '<div class="row-fluid" style="margin-left:21px;width: 80%;padding-right:15px;">'.
                                 '<input type="text" class="span12" id="commentPost" style="resize: none;"></input>'.
                               '</div><br/>'.

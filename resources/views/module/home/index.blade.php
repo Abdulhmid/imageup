@@ -1,36 +1,8 @@
 @extends('main')
 
 @section('style')
-  	<link href="{!! asset('css/additional.css') !!} "rel="stylesheet" type="text/css"/>
+    <link href="{!! asset('css/additional.css') !!} "rel="stylesheet" type="text/css"/>
     <link href="{!! asset('css/additional-post.css') !!} "rel="stylesheet" type="text/css"/>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-          type="text/css" rel="stylesheet" />
-    <style>
-    .fa-spin-custom, .glyphicon-spin {
-        -webkit-animation: spin 1000ms infinite linear;
-        animation: spin 1000ms infinite linear;
-    }
-    @-webkit-keyframes spin {
-        0% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
-        }
-    }
-    @keyframes spin {
-        0% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
-        }
-    }
-    </style>
     @include('module.home.style')
 @stop
 
@@ -58,14 +30,14 @@
                 </div><br/>
                 <div class="row-fluid" id="imagePost" style="display:none">
                   <div class="form-group">
-          		        <div class="input-file-upload" style="margin-top: -28px;">
-          			        <div class="fileUpload btn-mini" style="width:150px; text-align:center;">
-          							    <span><i class="fa fa-picture-o" style="margin-right:7px"></i> Upload Gambar</span>
-          							    <input id="fileImage" type="file" name="files[]" multiple class="upload form-control" >
-          							</div>
-          						</div>
-          					    <!-- The container for the uploaded files -->
-          						<div id="files" class="files-input" style="margin:0px;">
+                      <div class="input-file-upload" style="margin-top: -28px;">
+                        <div class="fileUpload btn-mini" style="width:150px; text-align:center;">
+                            <span><i class="fa fa-picture-o" style="margin-right:7px"></i> Upload Gambar</span>
+                            <input id="fileImage" type="file" name="files[]" multiple class="upload form-control" >
+                        </div>
+                      </div>
+                        <!-- The container for the uploaded files -->
+                      <div id="files" class="files-input" style="margin:0px;">
                       </div>
                   </div>
                 </div>
@@ -91,20 +63,106 @@
           </div>
 
           <div class="stream-list">
-          <div>
             <div class="media stream new-update">
-              <center><span id="loading-stream" class="glyphicon glyphicon-refresh glyphicon-spin"></span></center>
+              <a href="#">
+                <i class="icon-refresh shaded"></i>
+                11 updates
+              </a>
             </div>
-            <div id="thisData">
+            @foreach($dataPost as $key => $value)
+              <div class="media stream">
+                <a href="#" class="media-avatar medium pull-left">
+                  <img src="images/user.png">
+                </a>
+                <div class="media-body">
+                  <div class="stream-headline">
+                    <h5 class="stream-author">
+                      {!! $value['created_by'] !!}
+                      <small>{!! GLobalHelpers::formatDate($value['created_at']) !!}</small>
+                    </h5>
+                    <div class="stream-text">
+                       {!! $value['article'] !!}
+                    </div>
+                    <?php $image = $value['detail']; ?>
+                    <div class="stream-attachment photo">
+                      <div id="#" class="files-input" style="margin:0px;">
+                        @foreach($image as $key => $valueImage)
+                            <div class="content-file">
+                                <img src="{!! url($valueImage['image']) !!}" style="width:100px; height:113px">
+                            </div>
+                        @endforeach
+                      </div>
+                    </div>
+                  </div><!--/.stream-headline-->
 
-            </div>
+                  <div class="stream-options">
+                    <a href="#" class="comment btn btn-small" data-seq="{!! $value['id'] !!}">
+                      <i class="icon-reply shaded"></i>
+                      Komentar
+                    </a>
+                  </div> <br/>
+                  <!-- List Commentar  -->
+                  <?php $comment = $value['comments']; ?>
+                  @if(!empty($comment))
+                    @foreach($comment as $key => $valueComment)
+                    <div id="postComment" style="margin-left:21px">
+                      <div class="stream-headline">
+                        <h5 class="stream-author">
+                          {!! $valueComment['created_by'] !!}
+                          <small>{!! GLobalHelpers::formatDate($valueComment['created_at']) !!}</small>
+                        </h5>
+                        <div class="stream-text">
+                           {!! $valueComment['comment'] !!}
+                        </div>
+                        <?php $imageComment = $valueComment['detailcomment']; ?>
+                        @if(!empty($imageComment))
+                        <div class="stream-attachment photo">
+                          <div id="#" class="files-input" style="margin:0px;height: 125px;">
+                            @foreach($imageComment as $key => $valueImageComment)
+                                <div class="content-file-comment-list">
+                                    <img src="{!! url($valueImageComment['image']) !!}" style="width:98px; height:96px">
+                                </div>
+                            @endforeach
+                          </div>
+                        </div>
+                        @endif
+                      </div><!--/.stream-headline-->
+                    </div><br/>
+                    @endforeach
+                  @endif
+                  <!-- End List Coomentar -->
+
+                  <!-- Action Reply Comment  -->
+                  {!! Form::open(array('url'=>GLobalHelpers::indexUrl().'/comment/'.$value['id'], 'method' => 'post', 'id'=>'formpostcomment')) !!}
+                  <div class="row-fluid" style="margin-left:21px;width: 80%;padding-right:15px;">
+                    <input type="text" class="span12" id="commentPost" style="resize: none;"></input>
+                  </div><br/>
+                  <div class="row-fluid" id="" style="margin-left:21px;width: 80%;padding-right:15px;">
+                    <div class="form-group">
+                        <div class="input-file-upload" style="margin-top: -25px;">
+                          <div class="fileUpload" style="width:63px; text-align:center;">
+                              <span style="margin-left: -45px;"><i class="icon-camera shaded" style="margin-right:7px"></i></span>
+                              <input id="fileImageCommentar" type="file" name="files[]" multiple class="upload form-control" >
+                          </div>
+                        </div>
+                          <!-- The container for the uploaded files -->
+                        <div id="filesComment" class="files-input" style="margin:0px;"></div>
+                        <button type="submit" class="btn btn-info" style="float:right;margin-top:2px;">Kirim</button>
+                    </div>
+                  </div>
+                  {!! Form::close() !!}
+                  <!-- End Action Command    -->
+
+                </div>
+              </div><!--/.media .stream-->
+            @endforeach
+
             <div class="media stream load-more">
               <a href="#">
                 <i class="icon-refresh shaded"></i>
                 show more...
               </a>
             </div>
-          </div>
           </div><!--/.stream-list-->
         </div><!--/.module-body-->
       </div><!--/.module-->
@@ -140,11 +198,9 @@
   <script src="{!! asset('plugins/jQuery-File-Upload-9.11.2/js/jquery.fileupload-validate.js') !!}"></script>
   <script src="{!! asset('plugins/tag-it/tag-it.js') !!}" type="text/javascript"></script>
   @include('module.home.js')
-  @include('module.home.js-post')
+
   <script type="text/javascript">
   $(document).ready(function(){
-
-    // Action Post
     $("#formoid").submit(function(event) {
       console.log("sds");
       /* stop form from submitting normally */
