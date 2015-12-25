@@ -122,7 +122,7 @@
 
             // Upload Image Commentar
 
-            $('#fileImageCommentar').fileupload({
+            $('#helpUpload').fileupload({
               url: "{{ url('/upload') }}",
               // url: '/post/store',
               dataType: 'json',
@@ -144,7 +144,7 @@
                }
             }).on('fileuploadadd', function (e, data) {
                var acceptFileTypes = /^image\/(gif|jpe?g|png)$/i;
-               data.context = $('<div/>').appendTo('#filesComment');
+               data.context = $('<div/>').appendTo('#filesComment'+$("#helpUploadId").val());
                $.each(data.files, function (index, file) {
                    var node = $('<p/>')
                            .append('<div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">'+

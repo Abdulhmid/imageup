@@ -3,8 +3,7 @@
 @section('style')
   	<link href="{!! asset('css/additional.css') !!} "rel="stylesheet" type="text/css"/>
     <link href="{!! asset('css/additional-post.css') !!} "rel="stylesheet" type="text/css"/>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-          type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="{!! asset('plugins/jQuery-File-Upload-9.11.2/css/bootstrap.min.css') !!}">
     <style>
     .fa-spin-custom, .glyphicon-spin {
         -webkit-animation: spin 1000ms infinite linear;
@@ -95,9 +94,15 @@
             <div class="media stream new-update">
               <center><span id="loading-stream" class="glyphicon glyphicon-refresh glyphicon-spin"></span></center>
             </div>
+            <!-- Additioanal Function For Action ID in Append Data -->
+            <input type="text" style="display:none" id="helpUploadId">
+            <input id="helpUpload" style="display:none" type="file" name="files[]" multiple class="upload form-control" >
+            
+            <!-- Main Function -->
             <div id="thisData">
 
             </div>
+
             <div class="media stream load-more">
               <a href="#">
                 <i class="icon-refresh shaded"></i>
@@ -143,10 +148,9 @@
   @include('module.home.js-post')
   <script type="text/javascript">
   $(document).ready(function(){
-
+    loadData();
     // Action Post
     $("#formoid").submit(function(event) {
-      console.log("sds");
       /* stop form from submitting normally */
       event.preventDefault();
 
@@ -174,59 +178,14 @@
           .val('');
         $("#files").children().text("");
         $( ".content-file" ).remove();
-        $("#hastag").tagit("removeAll");
+        // $("#hastag").tagit("removeAll");
+        loadData();
 
       });
       return false;
     });
 
     // Submit Form Send Comment
-    $("#formpostcomment").submit(function(event) {
-      event.preventDefault();
-      var id form = $("#formpostcomment").attr("name");
-      var $form = $( this ),
-          url = $form.attr( 'action' );
-
-      var posting = $.post( url, {
-          _token: "{{ csrf_token() }}",
-          image: $('input[name="nama_file_comment[]"]').map(function() {
-           return $(this).val(); }).get().join(),
-          comment : $('#commentPost').val(),
-      } );
-
-      posting.done(function( data ) {
-        $(':input','#formpostcomment')
-          .removeAttr('checked')
-          .removeAttr('selected')
-          .not(':button, :submit, :reset, :radio, :checkbox')
-          .val('');
-        $("#filesComment").children().text("");
-        $( ".content-file-comment" ).remove();
-        var commentPostUser  = data['comment'];
-        var commentPostImage = data['imageComment'];
-        var newArray = $.map( commentPostImage, function(v){
-          return v === "" ? null : v;
-        });
-
-        // Action Prepend To Tag Div Comment
-        if(newArray.length > 0) {
-          var valueLoopImage = "";
-          var addImage =  '<div class="stream-attachment photo">'+
-                          '<div id="#" class="files-input" style="margin:0px;">'+
-                          data['imageCommentContent']+'</div></div>' ;
-        }else{
-          var addImage = "";
-        }
-
-        $("#postComment").append('<div class="stream-headline">'+
-                                  '<h5 class="stream-author">'+'anomin'+
-                                  '<small>20 Dec 2015 at 14:39</small></h5>'+
-                                  '<div class="stream-text">'+commentPostUser+'</div>'+
-                                  addImage+
-                                  '</div>'
-                                );
-      });
-    });
 
     $('a.hastag').click(function (event){
       $("#link").hide();$("#imagePost").hide();
@@ -252,6 +211,74 @@
     });
 
   });
+
+  $(document).on('click', '#subOk', function (event) {
+      // var $form = $( this ),
+          // url = $form.attr( 'action' );
+      var id = $(this).val();
+      
+      var url = 'comment/'+$(this).val();
+      var posting = $.post( url, {
+          _token: "{{ csrf_token() }}",
+          image: $('input[name="nama_file_comment[]"]').map(function() {
+           return $(this).val(); }).get().join(),
+          comment : $(document).find('#commentPost'+id).val(),
+      } );
+      console.log($(document).find('#commentPost'+id).val());
+      
+      posting.done(function( data ) {
+        $(document).find(':input','#formpostcomment')
+          .removeAttr('checked')
+          .removeAttr('selected')
+          .not(':button, :submit, :reset, :radio, :checkbox')
+          .val('');
+        $(document).find("#filesComment").children().text("");
+        $(document).find( ".content-file-comment" ).remove();
+        var commentPostUser  = data['comment'];
+        var commentPostImage = data['imageComment'];
+        var newArray = $.map( commentPostImage, function(v){
+          return v === "" ? null : v;
+        });
+      
+        // Action Prepend To Tag Div Comment
+        if(newArray.length > 0) {
+          var valueLoopImage = "";
+          var addImage =  '<div class="stream-attachment photo">'+
+                          '<div id="#" class="files-input" style="margin:0px;">'+
+                          data['imageCommentContent']+'</div></div>' ;
+        }else{
+          var addImage = "";
+        }
+        $(document).find('#postComment'+data['id']).append('<div class="stream-headline">'+
+                                  '<h5 class="stream-author">'+'anomin'+
+                                  '<small>20 Dec 2015 at 14:39</small></h5>'+
+                                  '<div class="stream-text">'+commentPostUser+'</div>'+
+                                  addImage+
+                                  '</div>'
+                                );
+        // loadData();
+        return false;
+      });
+  });
+
+  $(document).on('click', '#fileImageCommentar', function (event) {
+    $("#helpUploadId").val($(this).val());
+    $('#helpUpload').trigger('click');
+  });
+
+  function loadData(){
+    $("#thisData").html("");
+    $.get("{!! url('data-posting') !!}", function (data) {
+          $("#thisData").append(data);
+      })
+      .always(function () {
+          $('#loading-stream').show();
+      })
+      .done(function () {
+          $('#loading-stream').hide();
+      });
+  }
+
   </script>
 
 @stop

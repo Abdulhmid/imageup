@@ -213,6 +213,7 @@ class HomeController extends Controller
     $data['comment'] = $input['comment'];
     $data['imageCommentContent'] = $imgValue;
     $data['imageComment'] = $explodeImage;
+    $data['id'] = $id;
 
     return $data;
 

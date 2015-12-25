@@ -36,7 +36,7 @@ class PostHelpers {
           }
 
           if (!empty($comment)) {
-            $htmlComment .= '<div id="postComment" style="margin-left:21px">'.
+            $htmlComment .= '<div id="postComment'.$value['id'].'" style="margin-left:21px">'.
                               '<div class="stream-headline">'.
                               '<h5 class="stream-author">'.$valueComment['created_by'].
                                 '<small>'.\GLobalHelpers::formatDate($valueComment['created_at']).
@@ -49,21 +49,22 @@ class PostHelpers {
           }
         }
 
-        $postActionComment =  '<form id="formpostcomment">'.
+        $postActionComment =  '<form method="POST" action="#" id="formpostcomment">'.
                               '<div class="row-fluid" style="margin-left:21px;width: 80%;padding-right:15px;">'.
-                                '<input type="text" class="span12" id="commentPost" style="resize: none;"></input>'.
+                                '<input type="text" class="span12" id="commentPost'.$value['id'].'" style="resize: none;"></input>'.
                               '</div><br/>'.
                               '<div class="row-fluid" id="" style="margin-left:21px;width: 80%;padding-right:15px;">'.
                                 '<div class="form-group">'.
                                     '<div class="input-file-upload" style="margin-top: -25px;">'.
                                       '<div class="fileUpload" style="width:63px; text-align:center;">'.
                                           '<span style="margin-left: -45px;"><i class="icon-camera shaded" style="margin-right:7px"></i></span>'.
-                                          '<input id="fileImageCommentar" type="file" name="files[]" multiple class="upload form-control" >'.
+                                          '<input id="fileImageCommentar" type="text" value="'.$value['id'].'"  name="files[]" multiple class="upload form-control" >'.
                                       '</div>'.
                                     '</div>'.
                                       '<!-- The container for the uploaded files -->'.
-                                    '<div id="filesComment" class="files-input" style="margin:0px;"></div>'.
-                                    '<button type="submit" class="btn btn-info" style="float:right;margin-top:2px;">Kirim</button>'.
+                                    '<div id="filesComment'.$value['id'].'" class="files-input" style="margin:0px;"></div>'.
+                                    '<button type="button" id="subOk" value="'.$value['id'].'" class="btn btn-info" style="float:right;margin-top:2px;">TreKirim</button>'.
+                                    // '<button type="submit" class="btn btn-info" style="float:right;margin-top:2px;">Kirim</button>'.
                                 '</div>'.
                               '</div>'.'</form>';
 
