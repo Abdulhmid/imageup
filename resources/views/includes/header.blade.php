@@ -205,11 +205,12 @@
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <?php //$info = Helper::getPhotoAndInfo(); ?>
+                                    <?php $dataMember = session('member_session'); ?>
                                     <li class="user-header" style="background-color: rgb(144, 196, 83);">
-                                            <img src="{!! GLobalHelpers::checkImage(Auth::user()->photo) !!}" class="img-circle" alt="User Image"/>
-    									<p>
-    										{!! Auth::user()->name !!}
-    										<small>Member since {!! GLobalHelpers::formatDate(Auth::user()->created_at, 'd F Y') !!}</small>
+                                            <img src="{!! GLobalHelpers::checkImage($dataMember->toArray()['photo']) !!}" class="img-circle" alt="User Image"/>
+                                        <p>
+    										{!! $dataMember->toArray()['username'] !!}
+    										<small>Member since {!! GLobalHelpers::formatDate($dataMember->toArray()['created_at'], 'd F Y') !!}</small>
     									</p>
     								</li>
     								<!-- Menu Body -->

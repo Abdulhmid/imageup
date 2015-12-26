@@ -82,6 +82,16 @@ class PostHelpers {
                                 '</div>'.
                               '</div>'.'</form>';
 
+        // Hastag
+        $htmlTags = "";
+        $dataTags = explode(",", $value['hastag']);
+        if ($dataTags[0] != "") {
+          $htmlTags = "Tag : ";
+        }
+        foreach ($dataTags as $key => $valueTags) {
+          $htmlTags .='<a href="#" >'.$valueTags.'</a> ';
+        }
+
         // Main Html
         $html .= '<div class="media stream">'.
                     '<a href="#" class="media-avatar medium pull-left"><img src="images/user.png"></a>'.
@@ -89,7 +99,7 @@ class PostHelpers {
                       '<div class="stream-headline"><h5 class="stream-author">'.$value['created_by'].
                         '<small>'.\GLobalHelpers::formatDate($value['created_at']).'</small>'.
                       '</h5></div>'.
-                      '<div class="stream-text">'.$value['article'].'</br>'.$value['hastag'].'</div>'.$htmlImage.
+                      '<div class="stream-text">'.$value['article'].'</br>'.$htmlTags.'</div>'.$htmlImage.
                       '<div class="stream-options">'.
                           '<a href="#" class="comment btn btn-small" data-seq="">'.
                             '<i class="icon-reply shaded"></i>'.

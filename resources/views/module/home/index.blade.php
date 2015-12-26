@@ -42,6 +42,20 @@
   <div class="span12">
     <div class="content">
       <div class="module">
+
+        @if (count($errors) > 0)
+          <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
+        @if(Session::has('message'))
+        {!! GLobalHelpers::messages(Session::get('message')) !!}
+        @endif
         <div class="module-head">
           <h3>News Feed</h3>
         </div>

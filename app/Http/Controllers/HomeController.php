@@ -80,8 +80,10 @@ class HomeController extends Controller
 		if ( $this->auth->attempt($credentials, $request->has('remember')))
 		{
 			$this->updateLastLogin($user);
-			return redirect()->intended('/');
+      \Session::put('member_session', $userFull);
+      return redirect()->intended('/');
 		}
+
     \Session::put('member_session', $userFull);
 		return redirect('/')
 					->withInput($request->only('email', 'remember'))
@@ -107,17 +109,29 @@ class HomeController extends Controller
 
     $input['remember_token'] = $query->remember_token;
 
-    /*\Mail::send('emails.confirm', $input, function($message) use ($query) {
+
+    \Mail::send('emails.confirm', $input, function($message) use ($query) {
                   $message->from('videotronsystem@gmail.com', 'Admin Image Upload');
                   $message->to($query->email, $query->fullname)->subject('Konfirmasi Pendaftaran');
-              }); */
+              }); 
 
     return redirect('/register')->with('message','Registrasi Berhasil, Cek email untuk melakukan Konfirmasi Pendaftaran');
 
   }
 
-  public function postConfirmation($token){
+  public function getConfirmation($token = ""){
+    $countUsers = \DB::table('users')->where('remember_token', $token);
+    if ($token == "" || $countUsers->count() < 1) return redirect('/')->with('message','Link Sudah Tidak Aktif');
 
+    $dataUsers = \DB::table('users')->where('remember_token', $token)->first();
+    \DB::table('users')
+                ->where('remember_token', $token)
+                ->update(['active' => 1,'remember_token' => ""]);
+
+    $userFull = \App\Models\Users::select('*')->where('id',$dataUsers->id)->first();
+    \Session::put('member_session', $userFull);
+
+    return redirect('/')->with('message','Konfirmasi Berhasil');
   }
 
   public function postPosting(Request $request){
