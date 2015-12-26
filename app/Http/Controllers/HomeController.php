@@ -37,14 +37,6 @@ class HomeController extends Controller
 	public function getIndex()
 	{
       $post = with(new $this->post)->scopePosting()->toArray();
-      //
-      // echo "<pre>";
-      // print_r($post);
-      // echo "</pre>";
-      // foreach ($post as $key => $value) {
-      //   echo $value['created_by'];
-      // }
-      // exit();
 		  return view($this->folder.".index", [
                     'title'     => $this->title,
                     'dataPost'  => $post
@@ -74,6 +66,7 @@ class HomeController extends Controller
 		$credentials = $request->only('email', 'password');
 
 		$user = $this->findUser($credentials['email']);
+    $userFull = \App\Models\Users::select('*')->whereEmail($credentials['email'])->first();
 
 		if ($user->active == 0)
 		{
@@ -89,7 +82,7 @@ class HomeController extends Controller
 			$this->updateLastLogin($user);
 			return redirect()->intended('/');
 		}
-
+    \Session::put('member_session', $userFull);
 		return redirect('/')
 					->withInput($request->only('email', 'remember'))
 					->withErrors([
@@ -179,8 +172,10 @@ class HomeController extends Controller
 
   public function postStatus(Request $request)
   {
-    $input = $request->only('article','hastag','link');
+    $input = $request->only('article','hastag','link','created_by');
     $image = $request->image;
+    $dataMember = session('member_session');
+    $input['created_by'] = !empty($dataMember->username) ? $dataMember->username : "anomin"  ;
     $query = $this->post->create($input);
     /*
     ** Add Image
@@ -199,8 +194,10 @@ class HomeController extends Controller
 
   public function postComment(Request $request, $id = "")
   {
-    $input = $request->only('comment','post_id');
+    $input = $request->only('comment','post_id','created_by');
     $input['post_id'] = $id  ;
+    $dataMember = session('member_session');
+    $input['created_by'] = !empty($dataMember->username) ? $dataMember->username : "anomin"  ;
     $image = $request->image;
     $query = $this->comments->create($input);
     /*

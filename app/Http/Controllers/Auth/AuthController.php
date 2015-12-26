@@ -91,14 +91,18 @@ class AuthController extends Controller
       if ( $this->auth->attempt($credentials, $request->has('remember')) )
       {
           $this->updateLastLogin($user);
+          \Session::put('member_session', $user);
           return redirect()->intended('/');
       }
+
+      \Session::put('member_session', $user);
 
       return redirect("/admin")
                   ->withInput($request->only('username', 'remember'))
                   ->withErrors([
                       'username' => "$this->getFailedLoginMessage()",
                   ]);
+
     }
 
     protected function updateLastLogin($user)

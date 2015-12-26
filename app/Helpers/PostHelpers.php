@@ -89,7 +89,7 @@ class PostHelpers {
                       '<div class="stream-headline"><h5 class="stream-author">'.$value['created_by'].
                         '<small>'.\GLobalHelpers::formatDate($value['created_at']).'</small>'.
                       '</h5></div>'.
-                      '<div class="stream-text">'.$value['article'].'</div>'.$htmlImage.
+                      '<div class="stream-text">'.$value['article'].'</br>'.$value['hastag'].'</div>'.$htmlImage.
                       '<div class="stream-options">'.
                           '<a href="#" class="comment btn btn-small" data-seq="">'.
                             '<i class="icon-reply shaded"></i>'.

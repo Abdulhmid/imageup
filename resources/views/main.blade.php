@@ -26,12 +26,13 @@
 			  	</a>
 				<div class="nav-collapse navbar-inverse-collapse">
 					<ul class="nav pull-right">
-						@if(!empty(Auth::user()))
+						<?php $dataMember = session('member_session')->toArray(); ?>
+						@if(!empty($dataMember))
 							<li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									<img src="images/user.png" class="nav-avatar" />
 									<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="#">{{ Auth::user()->fullname }}</a></li>
+											<li><a href="#">{{ $dataMember['username'] }}</a></li>
 											<li class="divider"></li>
 											<li><a href="{{ url('/logout') }}">Logout</a></li>
 									</ul>

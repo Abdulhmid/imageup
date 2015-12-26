@@ -73,16 +73,16 @@
                   <input type="text" style="display:none" placeholder="enter your link" class="span12" id="link" />
                 </div>
                 <div class="clearfix" style="margin-top:3px;">
-                  <button type="submit" id="send-btn" class="btn btn-primary pull-right">Updated Status</button>
+                  <button type="submit" id="send-btn" class="btn btn-primary pull-right">Kirim</button>
                   <a href="#" class="imageLink btn btn-small" rel="tooltip"
                     data-placement="top" data-original-title="Upload a photo">
                     <i class="icon-camera shaded"></i>
                   </a>
                   <a href="#" class="hastag btn btn-small" rel="tooltip" data-placement="top" data-original-title="Upload a video">
-                    <i class="icon-facetime-video shaded"></i>
+                    <i class="icon-screenshot shaded"></i>
                   </a>
                   <a href="#" class="link btn btn-small" rel="tooltip" data-placement="top" data-original-title="Pin your location">
-                    <i class="icon-map-marker shaded"></i>
+                    <i class="icon-zoom-in shaded"></i>
                   </a>
                 </div>
               </div>
