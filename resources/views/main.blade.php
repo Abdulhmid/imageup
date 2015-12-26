@@ -26,13 +26,13 @@
 			  	</a>
 				<div class="nav-collapse navbar-inverse-collapse">
 					<ul class="nav pull-right">
-						<?php $dataMember = session('member_session')->toArray(); ?>
+						<?php $dataMember = session('member_session'); ?>
 						@if(!empty($dataMember))
 							<li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									<img src="images/user.png" class="nav-avatar" />
 									<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="#">{{ $dataMember['username'] }}</a></li>
+											<li><a href="#">{{ $dataMember->toArray()['username'] }}</a></li>
 											<li class="divider"></li>
 											<li><a href="{{ url('/logout') }}">Logout</a></li>
 									</ul>
