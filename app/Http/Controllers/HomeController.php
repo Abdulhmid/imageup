@@ -51,8 +51,8 @@ class HomeController extends Controller
              ]);
 	}
 
-  public function getDataPosting(){
-      $post = with(new $this->post)->scopePosting()->toArray();
+  public function getDataPosting($id = ""){
+      $post = with(new $this->post)->scopePosting($id)->toArray();
       $html = \PostHelpers::htmlData($post);
       return $html;
   }
@@ -107,15 +107,23 @@ class HomeController extends Controller
 		]);
 
     $input = $request->except('save_continue','password_confirmation');
+    $input['remember_token'] = \Crypt::encrypt(date('d-m-Y'));
 		$input['created_by'] = "system";
     $input['password'] = bcrypt($request->password);
     $query = $this->model->create($input);
+
+    $input['remember_token'] = $query->remember_token;
+
+    /*\Mail::send('emails.confirm', $input, function($message) use ($query) {
+                  $message->from('videotronsystem@gmail.com', 'Admin Image Upload');
+                  $message->to($query->email, $query->fullname)->subject('Konfirmasi Pendaftaran');
+              }); */
 
     return redirect('/register')->with('message','Registrasi Berhasil, Cek email untuk melakukan Konfirmasi Pendaftaran');
 
   }
 
-  public function postConfirmation(){
+  public function postConfirmation($token){
 
   }
 
@@ -185,6 +193,8 @@ class HomeController extends Controller
            'updated_at' => \Carbon\Carbon::now()]
       );
     }
+
+    return $query->id;
   }
 
   public function postComment(Request $request, $id = "")

@@ -24,8 +24,7 @@
 			  	<a class="brand" href="{{ url('/') }}">
 			  		Images || Up
 			  	</a>
-
-				<div class="nav-collapse collapse navbar-inverse-collapse">
+				<div class="nav-collapse navbar-inverse-collapse">
 					<ul class="nav pull-right">
 						@if(!empty(Auth::user()))
 							<li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">

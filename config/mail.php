@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'videotronsystem@gmail.com', 'name' => 'Image Up Server'],
 
     /*
     |--------------------------------------------------------------------------

@@ -24,7 +24,7 @@ class CreateTableUsers extends Migration
             $table->string('email');
             $table->string('password', 60)->nullable();
             $table->string('photo')->nullable();
-            $table->rememberToken();
+            $table->text('remember_token');
             $table->tinyInteger('active')->default(0);
             $table->timestamp('last_login')->nullable();
             $table->string('created_by')->nullable('system');

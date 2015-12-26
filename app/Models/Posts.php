@@ -18,9 +18,14 @@ class Posts extends Model {
 					'id')->with('detailcomment');
 	}
 
-	public function scopePosting()
+	public function scopePosting($id = "")
 	{
-	  	return $this->with(['detail','comments'])->select('*')->orderBy('id', 'desc')->get();
+	  	$query =  $this->with(['detail','comments'])->select('*')->orderBy('id', 'desc');
+		if ($id != "") {
+			$query->where('id', $id);
+		}
+
+		return $query->get();
 	}
 
 }

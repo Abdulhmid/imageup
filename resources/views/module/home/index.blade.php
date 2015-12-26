@@ -148,11 +148,16 @@
   @include('module.home.js-post')
   <script type="text/javascript">
   $(document).ready(function(){
-    loadData();
+    var parameter = "";
+    loadData(parameter);
     // Action Post
     $("#formoid").submit(function(event) {
       /* stop form from submitting normally */
       event.preventDefault();
+
+      if ($('#article').val() == "") {
+         return false;
+      };
 
       /* get some values from elements on the page: */
       var $form = $( this ),
@@ -177,9 +182,10 @@
           .not(':button, :submit, :reset, :radio, :checkbox')
           .val('');
         $("#files").children().text("");
-        $( ".content-file" ).remove();
+        $("#imagePost div.content-file").remove();
         // $("#hastag").tagit("removeAll");
-        loadData();
+        var parameter = data;
+        loadData(parameter);
 
       });
       return false;
@@ -190,9 +196,9 @@
     $('a.hastag').click(function (event){
       $("#link").hide();$("#imagePost").hide();
       $('#hastag').tagit({
-        showAutocompleteOnFocus : true,
+        // showAutocompleteOnFocus : true,
         triggerKeys : ['enter', 'space', 'comma', 'tab'],
-        placeholderText: "Tags"
+        placeholderText: "Enter Tags Here, Using Tabs To New Tags"
       });
       $(".tagit").show(); $(".tagit-hidden-field").hide(); });
     $('a.link').click(function (event){
@@ -207,7 +213,7 @@
     $('a.comment').click(function (event)
     {
         var id = $(this).data('seq');
-        console.log(id);
+        console.log(id+"dsdsdfdsf989997342893729");
     });
 
   });
@@ -224,14 +230,10 @@
            return $(this).val(); }).get().join(),
           comment : $(document).find('#commentPost'+id).val(),
       } );
-      console.log($(document).find('#commentPost'+id).val());
+
       
       posting.done(function( data ) {
-        $(document).find(':input','#formpostcomment')
-          .removeAttr('checked')
-          .removeAttr('selected')
-          .not(':button, :submit, :reset, :radio, :checkbox')
-          .val('');
+        $(document).find('#commentPost'+id).val("");
         $(document).find("#filesComment").children().text("");
         $(document).find( ".content-file-comment" ).remove();
         var commentPostUser  = data['comment'];
@@ -249,7 +251,9 @@
         }else{
           var addImage = "";
         }
-        $(document).find('#postComment'+data['id']).append('<div class="stream-headline">'+
+        // $(document).find('#postComment'+data['id'])
+        // $("#imagePost div.content-file")
+        $('#thisData div#postComment'+data['id']).append('<div class="stream-headline">'+
                                   '<h5 class="stream-author">'+'anomin'+
                                   '<small>20 Dec 2015 at 14:39</small></h5>'+
                                   '<div class="stream-text">'+commentPostUser+'</div>'+
@@ -257,7 +261,7 @@
                                   '</div>'
                                 );
         // loadData();
-        return false;
+        // return false;
       });
   });
 
@@ -266,10 +270,18 @@
     $('#helpUpload').trigger('click');
   });
 
-  function loadData(){
-    $("#thisData").html("");
-    $.get("{!! url('data-posting') !!}", function (data) {
-          $("#thisData").append(data);
+  function loadData(id){
+    if (id == "") {
+      $("#thisData").html("");
+    }
+    var paramId = (id == "" ?  "" : "/"+id);
+    // var paramId = (id == "" ?  "" : "");
+    $.get("{!! url('data-posting') !!}"+paramId, function (data) {
+          if (id == "") {
+            $("#thisData").append(data);
+          }else{
+            $("#thisData").prepend(data);
+          }
       })
       .always(function () {
           $('#loading-stream').show();

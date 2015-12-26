@@ -8,16 +8,28 @@ class PostHelpers {
 
         // Html Image
         $image = $value['detail'];
-        $htmlImage = '';
+        $htmlImageC = '';
+        $htmlImageTop = '<div class="stream-attachment photo">'.
+                        '<div id="#" class="files-input" style="margin:0px;">';
         foreach ($image as $key => $valueImage) {
-          $htmlImage .= '<div class="content-file">'.
-                          '<img src="'.$valueImage['image'].'" style="width:100px; height:113px">'.
-                        '</div>';
+          if (!empty($valueImage['image'])) {
+            $htmlImageC .= '<div class="content-file">'.
+                            '<img src="'.$valueImage['image'].'" style="width:100px; height:113px">'.
+                          '</div>';
+          }
+        }
+        $htmlImageBottom = "</div></div>";
+
+        $htmlImage = "";
+        if (!empty($htmlImageC)) {
+          $htmlImage = $htmlImageTop.$htmlImageC.$htmlImageBottom;
         }
 
         // Html Comment
         $comment = $value['comments'];
         $htmlComment = '';
+        $htmlCommentContent = '';
+        $htmlCommentTop = '<div id="postComment'.$value['id'].'" style="margin-left:21px">';
         foreach ($comment as $key => $valueComment) {
 
           // Html Image Comment
@@ -36,18 +48,20 @@ class PostHelpers {
           }
 
           if (!empty($comment)) {
-            $htmlComment .= '<div id="postComment'.$value['id'].'" style="margin-left:21px">'.
-                              '<div class="stream-headline">'.
-                              '<h5 class="stream-author">'.$valueComment['created_by'].
-                                '<small>'.\GLobalHelpers::formatDate($valueComment['created_at']).
-                                '</small>'.
-                              '</h5>'.
-                              '<div class="stream-text">'. $valueComment['comment'].'</div>'.
-                              $htmlImageComment.
-                              '</div><!--/.stream-headline-->'.
-                            '</div>';
+            $htmlCommentContent .=  '<div class="stream-headline">'.
+                                      '<h5 class="stream-author">'.$valueComment['created_by'].
+                                      '<small>'.\GLobalHelpers::formatDate($valueComment['created_at']).
+                                    '</small>'.
+                                    '</h5>'.
+                                    '<div class="stream-text">'. $valueComment['comment'].'</div>'.
+                                      $htmlImageComment.
+                                    '</div>';
           }
+
+
         }
+        $htmlCommentBottom = '</div>';
+        $htmlComment = $htmlCommentTop.$htmlCommentContent.$htmlCommentBottom;
 
         $postActionComment =  '<form method="POST" action="#" id="formpostcomment">'.
                               '<div class="row-fluid" style="margin-left:21px;width: 80%;padding-right:15px;">'.
@@ -63,7 +77,7 @@ class PostHelpers {
                                     '</div>'.
                                       '<!-- The container for the uploaded files -->'.
                                     '<div id="filesComment'.$value['id'].'" class="files-input" style="margin:0px;"></div>'.
-                                    '<button type="button" id="subOk" value="'.$value['id'].'" class="btn btn-info" style="float:right;margin-top:2px;">TreKirim</button>'.
+                                    '<button type="button" id="subOk" value="'.$value['id'].'" class="btn btn-info" style="float:right;margin-top:2px;">Kirim</button>'.
                                     // '<button type="submit" class="btn btn-info" style="float:right;margin-top:2px;">Kirim</button>'.
                                 '</div>'.
                               '</div>'.'</form>';
@@ -75,10 +89,7 @@ class PostHelpers {
                       '<div class="stream-headline"><h5 class="stream-author">'.$value['created_by'].
                         '<small>'.\GLobalHelpers::formatDate($value['created_at']).'</small>'.
                       '</h5></div>'.
-                      '<div class="stream-text">'.$value['article'].'</div>'.
-                      '<div class="stream-attachment photo">'.
-                        '<div id="#" class="files-input" style="margin:0px;">'.$htmlImage.'</div>'.
-                      '</div>'.
+                      '<div class="stream-text">'.$value['article'].'</div>'.$htmlImage.
                       '<div class="stream-options">'.
                           '<a href="#" class="comment btn btn-small" data-seq="">'.
                             '<i class="icon-reply shaded"></i>'.
