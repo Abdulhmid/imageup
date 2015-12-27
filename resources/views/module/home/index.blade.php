@@ -171,7 +171,7 @@
           .val('');
         $("#files").children().text("");
         $("#imagePost div.content-file").remove();
-        $("#hastag").tagit("removeAll");
+        // $("#hastag").tagit("removeAll");
         var parameter = data;
         loadData(parameter);
 
@@ -263,12 +263,14 @@
     if (id == "") {
       $("#thisData").html("");
     }
+
     var paramId = (id == "" ?  "" : "/"+id);
     // var paramId = (id == "" ?  "" : "");
     $.get("{!! url('data-posting') !!}"+paramId, function (data) {
           if (id == "") {
             $("#thisData").append(data);
           }else{
+            console.log("d33");
             $("#thisData").prepend(data);
           }
       })
