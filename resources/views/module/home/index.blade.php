@@ -4,32 +4,6 @@
   	<link href="{!! asset('css/additional.css') !!} "rel="stylesheet" type="text/css"/>
     <link href="{!! asset('css/additional-post.css') !!} "rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="{!! asset('plugins/jQuery-File-Upload-9.11.2/css/bootstrap.min.css') !!}">
-    <style>
-    .fa-spin-custom, .glyphicon-spin {
-        -webkit-animation: spin 1000ms infinite linear;
-        animation: spin 1000ms infinite linear;
-    }
-    @-webkit-keyframes spin {
-        0% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
-        }
-    }
-    @keyframes spin {
-        0% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
-        }
-    }
-    </style>
     @include('module.home.style')
 @stop
 
@@ -117,10 +91,10 @@
 
             </div>
 
-            <div class="media stream load-more">
+            <div class="media stream load-more" style="display:none">
               <a href="#">
                 <i class="icon-refresh shaded"></i>
-                show more...
+                
               </a>
             </div>
           </div>

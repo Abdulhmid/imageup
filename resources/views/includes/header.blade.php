@@ -1,6 +1,7 @@
+<?php $dataMember = session('member_session'); ?>
 <header class="main-header">
     			<!-- Logo -->
-    			<a href="{!! url('admin')!!}" class="logo"><img src="{!! asset('photo/logo-square.png') !!}" style="max-height:50px"> <b>Image Up</b></a>
+    			<a href="{!! url('admin')!!}" class="logo"><b>Image Up</b></a>
     			<!-- Header Navbar: style can be found in header.less -->
     			<nav class="navbar navbar-static-top" role="navigation">
     				<!-- Sidebar toggle button-->
@@ -205,7 +206,6 @@
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <?php //$info = Helper::getPhotoAndInfo(); ?>
-                                    <?php $dataMember = session('member_session'); ?>
                                     <li class="user-header" style="background-color: rgb(144, 196, 83);">
                                             <img src="{!! GLobalHelpers::checkImage($dataMember->toArray()['photo']) !!}" class="img-circle" alt="User Image"/>
                                         <p>

@@ -32,5 +32,7 @@ class DefaultSeeder extends Seeder
   			'updated_at' => \Carbon\Carbon::now()
 
   			]);
+
+      \DB::statement('TRUNCATE TABLE posts CASCADE');
     }
 }
