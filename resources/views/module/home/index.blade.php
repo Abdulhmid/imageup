@@ -180,7 +180,6 @@
         $("#files").children().text("");
         $("#imagePost div.content-file").remove();
         $("#hastag").tagit("removeAll");
-        // $(".tagit").hide();
         var parameter = data;
         loadData(parameter);
 
