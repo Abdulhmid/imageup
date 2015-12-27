@@ -4,6 +4,8 @@
   	<link href="{!! asset('css/additional.css') !!} "rel="stylesheet" type="text/css"/>
     <link href="{!! asset('css/additional-post.css') !!} "rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="{!! asset('plugins/jQuery-File-Upload-9.11.2/css/bootstrap.min.css') !!}">
+    <link href="{!! asset('plugins/tag-it/jquery.tagit.css') !!} "rel="stylesheet" type="text/css"/>
+    <link href="{!! asset('plugins/tag-it/tagit.ui-zendesk.css') !!} "rel="stylesheet" type="text/css"/>
     @include('module.home.style')
 @stop
 
@@ -147,6 +149,12 @@
          return false;
       };
 
+      $('#hastag').tagit({
+        // showAutocompleteOnFocus : true,
+        triggerKeys : ['enter', 'space', 'comma', 'tab'],
+        placeholderText: "Enter Tags Here, Using Tabs To New Tags"
+      });
+
       /* get some values from elements on the page: */
       var $form = $( this ),
           url = $form.attr( 'action' );
@@ -171,7 +179,8 @@
           .val('');
         $("#files").children().text("");
         $("#imagePost div.content-file").remove();
-        // $("#hastag").tagit("removeAll");
+        $("#hastag").tagit("removeAll");
+        // $(".tagit").hide();
         var parameter = data;
         loadData(parameter);
 
@@ -270,7 +279,6 @@
           if (id == "") {
             $("#thisData").append(data);
           }else{
-            console.log("d33");
             $("#thisData").prepend(data);
           }
       })
