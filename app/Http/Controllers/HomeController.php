@@ -95,66 +95,66 @@ class HomeController extends Controller
 
   public function postRegister(Request $request)
   {
-    $this->validate($request, [
-      'username' => 'required|min:5',
-			'email' => 'required|email|unique:users',
-      'password' => 'required|confirmed',
-      'fullname' => 'required'
-		]);
+      $this->validate($request, [
+        'username' => 'required|min:5',
+  			'email' => 'required|email|unique:users',
+        'password' => 'required|confirmed',
+        'fullname' => 'required'
+  		]);
 
-    $input = $request->except('save_continue','password_confirmation');
-    $input['remember_token'] = \Crypt::encrypt(date('d-m-Y'));
-		$input['created_by'] = "system";
-    $input['password'] = bcrypt($request->password);
-    $query = $this->model->create($input);
+      $input = $request->except('save_continue','password_confirmation');
+      $input['remember_token'] = \Crypt::encrypt(date('d-m-Y'));
+  		$input['created_by'] = "system";
+      $input['password'] = bcrypt($request->password);
+      $query = $this->model->create($input);
 
-    $input['remember_token'] = $query->remember_token;
+      $input['remember_token'] = $query->remember_token;
 
 
-    \Mail::send('emails.confirm', $input, function($message) use ($query) {
-                  $message->from('videotronsystem@gmail.com', 'Admin Image Upload');
-                  $message->to($query->email, $query->fullname)->subject('Konfirmasi Pendaftaran');
-              }); 
+      \Mail::send('emails.confirm', $input, function($message) use ($query) {
+                    $message->from('videotronsystem@gmail.com', 'Admin Image Upload');
+                    $message->to($query->email, $query->fullname)->subject('Konfirmasi Pendaftaran');
+                }); 
 
-    return redirect('/register')->with('message','Registrasi Berhasil, Cek email untuk melakukan Konfirmasi Pendaftaran');
+      return redirect('/register')->with('message','Registrasi Berhasil, Cek email untuk melakukan Konfirmasi Pendaftaran');
 
   }
 
   public function getConfirmation($token = ""){
-    $countUsers = \DB::table('users')->where('remember_token', $token);
-    if ($token == "" || $countUsers->count() < 1) return redirect('/')->with('message','Link Sudah Tidak Aktif');
+      $countUsers = \DB::table('users')->where('remember_token', $token);
+      if ($token == "" || $countUsers->count() < 1) return redirect('/')->with('message','Link Sudah Tidak Aktif');
 
-    $dataUsers = \DB::table('users')->where('remember_token', $token)->first();
-    \DB::table('users')
-                ->where('remember_token', $token)
-                ->update(['active' => 1,'remember_token' => ""]);
+      $dataUsers = \DB::table('users')->where('remember_token', $token)->first();
+      \DB::table('users')
+                  ->where('remember_token', $token)
+                  ->update(['active' => 1,'remember_token' => ""]);
 
-    $userFull = \App\Models\Users::select('*')->where('id',$dataUsers->id)->first();
-    \Session::put('member_session', $userFull);
+      $userFull = \App\Models\Users::select('*')->where('id',$dataUsers->id)->first();
+      \Session::put('member_session', $userFull);
 
-    return redirect('/')->with('message','Konfirmasi Berhasil');
+      return redirect('/')->with('message','Konfirmasi Berhasil');
   }
 
   public function postPosting(Request $request){
-    $this->validate($request, [
-      'tags' => 'required',
-      'link' => 'required'
-		]);
+      $this->validate($request, [
+        'tags' => 'required',
+        'link' => 'required'
+  		]);
   }
 
   protected function updateLastLogin($user)
 	{
-		$user->update(['last_login' => \Carbon\Carbon::now()]);
+		  $user->update(['last_login' => \Carbon\Carbon::now()]);
 	}
 
   protected function findUser($email)
 	{
-		return \App\Models\Users::select('id','email','active')->whereEmail($email)->first();
+		  return \App\Models\Users::select('id','email','active')->whereEmail($email)->first();
 	}
 
   public function getLogout(){
-    \Session::flush();
-    return redirect('/');
+      \Session::flush();
+      return redirect('/');
   }
 
   /*
@@ -187,178 +187,178 @@ class HomeController extends Controller
 
   public function postStatus(Request $request)
   {
-    $input = $request->only('article','hastag','link','created_by');
-    $image = $request->image;
-    $dataMember = session('member_session');
-    $input['created_by'] = !empty($dataMember->username) ? $dataMember->username : "anomin"  ;
-    $query = $this->post->create($input);
-    /*
-    ** Add Image
-    */
-    $explodeImage = explode(",", $image);
-    foreach ($explodeImage as $key => $value) {
-      \DB::table('post_detail')->insert(
-          ['image' => $value, 'post_id' => $query->id,
-           'created_at' => \Carbon\Carbon::now(),
-           'updated_at' => \Carbon\Carbon::now()]
-      );
-    }
+      $input = $request->only('article','hastag','link','created_by');
+      $image = $request->image;
+      $dataMember = session('member_session');
+      $input['created_by'] = !empty($dataMember->username) ? $dataMember->username : "anomin"  ;
+      $query = $this->post->create($input);
+      /*
+      ** Add Image
+      */
+      $explodeImage = explode(",", $image);
+      foreach ($explodeImage as $key => $value) {
+        \DB::table('post_detail')->insert(
+            ['image' => $value, 'post_id' => $query->id,
+             'created_at' => \Carbon\Carbon::now(),
+             'updated_at' => \Carbon\Carbon::now()]
+        );
+      }
 
-    return $query->id;
+      return $query->id;
   }
 
   public function postComment(Request $request, $id = "")
   {
-    $input = $request->only('comment','post_id','created_by');
-    $input['post_id'] = $id  ;
-    $dataMember = session('member_session');
-    $input['created_by'] = !empty($dataMember->username) ? $dataMember->username : "anomin"  ;
-    $image = $request->image;
-    $query = $this->comments->create($input);
-    /*
-    ** Add Image
-    */
-    $explodeImage = explode(',', $image);
-    $imgValue = "";
-    foreach ($explodeImage as $key => $value) {
-      if ($value != "") {
-        \DB::table('comment_detail')->insert(
-            ['image' => $value, 'comment_id' => $query->id,
-             'created_at' => \Carbon\Carbon::now()]
-        );
-        $imgValue .=   '<div class="content-file-comment-list">'.
-                        '<img src="'.$value.'" style="width:98px; height:96px">'.
-                        '</div>';
+      $input = $request->only('comment','post_id','created_by');
+      $input['post_id'] = $id  ;
+      $dataMember = session('member_session');
+      $input['created_by'] = !empty($dataMember->username) ? $dataMember->username : "anomin"  ;
+      $image = $request->image;
+      $query = $this->comments->create($input);
+      /*
+      ** Add Image
+      */
+      $explodeImage = explode(',', $image);
+      $imgValue = "";
+      foreach ($explodeImage as $key => $value) {
+        if ($value != "") {
+          \DB::table('comment_detail')->insert(
+              ['image' => $value, 'comment_id' => $query->id,
+               'created_at' => \Carbon\Carbon::now()]
+          );
+          $imgValue .=   '<div class="content-file-comment-list">'.
+                          '<img src="'.$value.'" style="width:98px; height:96px">'.
+                          '</div>';
+        }
       }
-    }
 
-    $data['comment'] = $input['comment'];
-    $data['imageCommentContent'] = $imgValue;
-    $data['imageComment'] = $explodeImage;
-    $data['created_by'] = $input['created_by'];
-    $data['id'] = $id;
+      $data['comment'] = $input['comment'];
+      $data['imageCommentContent'] = $imgValue;
+      $data['imageComment'] = $explodeImage;
+      $data['created_by'] = $input['created_by'];
+      $data['id'] = $id;
 
-    return $data;
+      return $data;
 
   }
 
   // Setting Profil
 
   public function getProfile(){
-    $dataMember = session('member_session');
-    $dataProfil = $this->model->find($dataMember->id);
-    return view('auth.profil', [
-        'title' => "Edit My Profil",
-        'row' => $dataProfil,
-        'session' => $dataMember
-    ]);
+      $dataMember = session('member_session');
+      $dataProfil = $this->model->find($dataMember->id);
+      return view('auth.profil', [
+          'title' => "Edit My Profil",
+          'row' => $dataProfil,
+          'session' => $dataMember
+      ]);
   }
 
-    public function postStoreProfile($id, Request $request){
+  public function postStoreProfile($id, Request $request){
 
-        $input = $request->all();
-        $rules = array(
-            'fullname'=>'required',
-            'photo'=>'',
-            'password' => 'min:6|confirmed',
-            'password_confirmation' => 'min:6'
-        );      
+      $input = $request->all();
+      $rules = array(
+          'fullname'=>'required',
+          'photo'=>'',
+          'password' => 'min:6|confirmed',
+          'password_confirmation' => 'min:6'
+      );      
 
-        if( \Input::hasFile('photo'))
-            $photo  = (new \ImageUpload($input))->upload();
+      if( \Input::hasFile('photo'))
+          $photo  = (new \ImageUpload($input))->upload();
 
 
-        $validator = \Validator::make(\Request::all(), $rules);
-        if ($validator->passes()) { 
-            $data = [
-                'fullname' => $input['fullname']
-            ];
+      $validator = \Validator::make(\Request::all(), $rules);
+      if ($validator->passes()) { 
+          $data = [
+              'fullname' => $input['fullname']
+          ];
 
-            if(!empty($input['password'])) {
-                $data = [
-                    'password' => bcrypt($input['password'])
-                ];  
-            }
+          if(!empty($input['password'])) {
+              $data = [
+                  'password' => bcrypt($input['password'])
+              ];  
+          }
 
-            if(\Input::hasFile('photo')){
-                $data = [
-                        'photo' => isset($photo) ? $photo : ""
-                    ];  
-            }
+          if(\Input::hasFile('photo')){
+              $data = [
+                      'photo' => isset($photo) ? $photo : ""
+                  ];  
+          }
 
-            $this->model->find($id)->update($data);
-            return \Redirect::back()->with('message','Ubah Data Sukses!')->withInput(\Input::all());
-        }else{
-            return redirect('/profile')->withErrors($validator);
-        }
+          $this->model->find($id)->update($data);
+          return \Redirect::back()->with('message','Ubah Data Sukses!')->withInput(\Input::all());
+      }else{
+          return redirect('/profile')->withErrors($validator);
+      }
 
-    }
+  }
 
   public function getForgot(){
-    return view('auth.forgot', [
-        'title' => "Edit My Profil"
-    ]);
+      return view('auth.forgot', [
+          'title' => "Edit My Profil"
+      ]);
   }
 
   public function postForgotPassword(Request $request){
-    $input = $request->all();
-    $rules = array(
-        'email'=>'required|email|exists:users'
-    );      
+      $input = $request->all();
+      $rules = array(
+          'email'=>'required|email|exists:users'
+      );      
 
-    $validator = \Validator::make(\Request::all(), $rules);
+      $validator = \Validator::make(\Request::all(), $rules);
 
-    if ($validator->passes()) { 
+      if ($validator->passes()) { 
 
-        $dataUsers = \DB::table('users')->where('email', $input['email'])->first();
-        $input['remember_token'] = \Crypt::encrypt(date('d-m-Y'));
-    
-        \DB::table('users')
-                    ->where('email', $input['email'])
-                    ->update(['remember_token' => $input['remember_token'] ]);
+          $dataUsers = \DB::table('users')->where('email', $input['email'])->first();
+          $input['remember_token'] = \Crypt::encrypt(date('d-m-Y'));
+      
+          \DB::table('users')
+                      ->where('email', $input['email'])
+                      ->update(['remember_token' => $input['remember_token'] ]);
 
-        \Mail::send('emails.forgot', $input, function($message) use ($dataUsers) {
-                      $message->from('videotronsystem@gmail.com', 'Admin Image Upload');
-                      $message->to($dataUsers->email, $dataUsers->fullname)->subject('Konfirmasi Pendaftaran');
-                  }); 
+          \Mail::send('emails.forgot', $input, function($message) use ($dataUsers) {
+                        $message->from('videotronsystem@gmail.com', 'Admin Image Upload');
+                        $message->to($dataUsers->email, $dataUsers->fullname)->subject('Konfirmasi Pendaftaran');
+                    }); 
 
 
-        return \Redirect::back()->with('message','Cek Email untuk reset Password!')->withInput(\Input::all());
-    }else{
-        return redirect('/forgot')->withErrors($validator);
-    }
+          return \Redirect::back()->with('message','Cek Email untuk reset Password!')->withInput(\Input::all());
+      }else{
+          return redirect('/forgot')->withErrors($validator);
+      }
   }
 
   public function getForgotConfirmation($token = ""){
-    $countUsers = \DB::table('users')->where('remember_token', $token)->count();
-    if($token == "" || $countUsers < 1) return redirect('/')->with('message','Link Sudah Tidak Aktif!');
-    return view('auth.forgot-confirm', [
-        'title' => "Create New Password",
-        'token' => $token
-    ]);
+      $countUsers = \DB::table('users')->where('remember_token', $token)->count();
+      if($token == "" || $countUsers < 1) return redirect('/')->with('message','Link Sudah Tidak Aktif!');
+      return view('auth.forgot-confirm', [
+          'title' => "Create New Password",
+          'token' => $token
+      ]);
   }
 
   public function postNewPassword($token, Request $request){
-        $input = $request->all();
-        $rules = array(
-            'password' => 'required|min:6|confirmed',
-            'password_confirmation' => 'min:6'
-        );      
+      $input = $request->all();
+      $rules = array(
+          'password' => 'required|min:6|confirmed',
+          'password_confirmation' => 'min:6'
+      );      
 
-        $validator = \Validator::make(\Request::all(), $rules);
+      $validator = \Validator::make(\Request::all(), $rules);
 
-        if ($validator->passes()) { 
+      if ($validator->passes()) { 
 
-            $password = bcrypt($input['password']);
+          $password = bcrypt($input['password']);
 
-            \DB::table('users')
-                        ->where('remember_token', $token)
-                        ->update(['password' => $password,'remember_token' => ""]);
+          \DB::table('users')
+                      ->where('remember_token', $token)
+                      ->update(['password' => $password,'remember_token' => ""]);
 
-           return redirect('/')->with('message','Password Berhasil Di Ubah!')->withInput(\Input::all());
-        }else{
-            return redirect()->back()->withErrors($validator);
-        }
+         return redirect('/')->with('message','Password Berhasil Di Ubah!')->withInput(\Input::all());
+      }else{
+          return redirect()->back()->withErrors($validator);
+      }
 
   }
 

@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('style')
-
+<link href="{!! asset('plugins/datepicker/datepicker3.css') !!} "rel="stylesheet" type="text/css"/>
 @stop
 
 @section('content')
@@ -9,144 +9,75 @@
 <section class="content">
   <!-- Info boxes -->
   <div class="row">
-    <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="col-md-6 col-sm-6 col-xs-12">
       <div class="info-box">
-        <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+        <span class="info-box-icon bg-aqua"><i style="margin-top: 23px;" class="ion ion-ios-people-outline"></i></span>
         <div class="info-box-content">
-          <span class="info-box-text">CPU Traffic</span>
-          <span class="info-box-number">90<small>%</small></span>
+          <span class="info-box-text">Member Terdaftar <b> [ Status : Active ] </b>  </span> <br/>
+          <span class="spinner-users"><i class="fa fa-spinner fa-spin"></i></span>
+          <span class="dataCountUsers info-box-number"></span>
         </div><!-- /.info-box-content -->
       </div><!-- /.info-box -->
     </div><!-- /.col -->
-    <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="col-md-6 col-sm-6 col-xs-12">
       <div class="info-box">
-        <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+        <span class="info-box-icon bg-aqua"><i style="margin-top: 23px;" class="ion ion-ios-people-outline"></i></span>
         <div class="info-box-content">
-          <span class="info-box-text">Likes</span>
-          <span class="info-box-number">41,410</span>
+          <span class="info-box-text">Member Terdaftar <b> [ Status : Belum Active ] </b>  </span> <br/>
+          <span class="spinner-users-no-active"><i class="fa fa-spinner fa-spin"></i></span>
+          <span class="dataCountUsersNoActive info-box-number"></span>
         </div><!-- /.info-box-content -->
       </div><!-- /.info-box -->
     </div><!-- /.col -->
 
     <!-- fix for small devices only -->
     <div class="clearfix visible-sm-block"></div>
-
-    <div class="col-md-3 col-sm-6 col-xs-12">
-      <div class="info-box">
-        <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text">Sales</span>
-          <span class="info-box-number">760</span>
-        </div><!-- /.info-box-content -->
-      </div><!-- /.info-box -->
-    </div><!-- /.col -->
-    <div class="col-md-3 col-sm-6 col-xs-12">
-      <div class="info-box">
-        <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text">New Members</span>
-          <span class="info-box-number">2,000</span>
-        </div><!-- /.info-box-content -->
-      </div><!-- /.info-box -->
-    </div><!-- /.col -->
   </div><!-- /.row -->
 
   <div class="row">
     <div class="col-md-12">
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Monthly Recap Report</h3>
-          <div class="box-tools pull-right">
-            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-            <div class="btn-group">
-              <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i></button>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
+          <div class="pull-left">
+            <h3 class="box-title">Grafik Postingan Member</h3>
+          </div>
+          <div class="pull-right">
+            <div class="box-body">
+              <div class="row" style="margin-top: -14px;">
+                <div class="col-xs-5">
+                  <select class="form-control" id="month">
+                    @for ($i=1; $i <= 12 ; $i++)
+                        <?php $month = strtolower(date('F', mktime(0, 0, 0, $i, 10))); ?>
+                        <option value="<?= $i ?>"><?= $month ?></option>
+                    @endfor
+                  </select>
+                </div>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control" id="year" value="<?= date('Y') ?>">
+                </div>
+                <div class="col-xs-3">
+                  <button class="btn btn-info" id="find">Cari</button>
+                </div>
+              </div>
             </div>
-            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
           </div>
         </div><!-- /.box-header -->
         <div class="box-body">
           <div class="row">
-            <div class="col-md-8">
-              <p class="text-center">
-                <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
-              </p>
+            <div class="col-md-12">
               <div class="chart-responsive">
                 <!-- Sales Chart Canvas -->
-                <canvas id="salesChart" height="180"></canvas>
+                <center>
+                  <div id="charts" style="height=180px; margin: 0 auto;">
+                    <span class="spinner-chart"><i class="fa fa-spinner fa-spin"></i></span>
+                  </div>
+                </center><!-- /.box-body -->
               </div><!-- /.chart-responsive -->
-            </div><!-- /.col -->
-            <div class="col-md-4">
-              <p class="text-center">
-                <strong>Goal Completion</strong>
-              </p>
-              <div class="progress-group">
-                <span class="progress-text">Add Products to Cart</span>
-                <span class="progress-number"><b>160</b>/200</span>
-                <div class="progress sm">
-                  <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
-                </div>
-              </div><!-- /.progress-group -->
-              <div class="progress-group">
-                <span class="progress-text">Complete Purchase</span>
-                <span class="progress-number"><b>310</b>/400</span>
-                <div class="progress sm">
-                  <div class="progress-bar progress-bar-red" style="width: 80%"></div>
-                </div>
-              </div><!-- /.progress-group -->
-              <div class="progress-group">
-                <span class="progress-text">Visit Premium Page</span>
-                <span class="progress-number"><b>480</b>/800</span>
-                <div class="progress sm">
-                  <div class="progress-bar progress-bar-green" style="width: 80%"></div>
-                </div>
-              </div><!-- /.progress-group -->
-              <div class="progress-group">
-                <span class="progress-text">Send Inquiries</span>
-                <span class="progress-number"><b>250</b>/500</span>
-                <div class="progress sm">
-                  <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>
-                </div>
-              </div><!-- /.progress-group -->
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- ./box-body -->
         <div class="box-footer">
           <div class="row">
-            <div class="col-sm-3 col-xs-6">
-              <div class="description-block border-right">
-                <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
-                <h5 class="description-header">$35,210.43</h5>
-                <span class="description-text">TOTAL REVENUE</span>
-              </div><!-- /.description-block -->
-            </div><!-- /.col -->
-            <div class="col-sm-3 col-xs-6">
-              <div class="description-block border-right">
-                <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
-                <h5 class="description-header">$10,390.90</h5>
-                <span class="description-text">TOTAL COST</span>
-              </div><!-- /.description-block -->
-            </div><!-- /.col -->
-            <div class="col-sm-3 col-xs-6">
-              <div class="description-block border-right">
-                <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
-                <h5 class="description-header">$24,813.53</h5>
-                <span class="description-text">TOTAL PROFIT</span>
-              </div><!-- /.description-block -->
-            </div><!-- /.col -->
-            <div class="col-sm-3 col-xs-6">
-              <div class="description-block">
-                <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
-                <h5 class="description-header">1200</h5>
-                <span class="description-text">GOAL COMPLETIONS</span>
-              </div><!-- /.description-block -->
-            </div>
           </div><!-- /.row -->
         </div><!-- /.box-footer -->
       </div><!-- /.box -->
@@ -155,6 +86,89 @@
 
 </section><!-- /.content -->
 @stop
-<script src="{!! asset('plugins/jQuery/jQuery-2.1.3.min.js') !!}" type="text/javascript"></script>
+
 @section('script')
+<!-- <script src="{!! asset('plugins/jQuery/jQuery-2.1.3.min.js') !!}" type="text/javascript"></script> -->
+<script src="{!! asset('plugins/highcharts/highcharts.js') !!}" type="text/javascript"></script>
+<script src="{!! asset('plugins/highcharts/exporting.js') !!}" type="text/javascript"></script>
+<script type="text/javascript" src="{!! asset('plugins/datepicker/bootstrap-datepicker.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('js/datepicker-format.js') !!}"></script>  
+<script type="text/javascript">
+    $(function () {
+      $('#year').datepicker({
+          orientation : 'top auto',
+          format: "yyyy",
+          viewMode: "years", 
+          minViewMode: "years",
+          autoclose: true,
+          endDate   : '+0d'
+      });
+      format();
+      // Status Active
+      $.get("{!! url('admin/users-count/1') !!}", function (data) {
+            $('.dataCountUsers').text(data+" Member");
+        })
+        .always(function () {
+            $('.spinner-users').show();
+        })
+        .done(function () {
+            $('.spinner-users').hide();
+        });
+
+      // Status Belum Active
+      $.get("{!! url('admin/users-count/0') !!}", function (data) {
+            $('.dataCountUsersNoActive').text(data+" Member");
+        })
+        .always(function () {
+            $('.spinner-users-no-active').show();
+        })
+        .done(function () {
+            $('.spinner-users-no-active').hide();
+        });
+
+      var chart = new Highcharts.Chart({
+
+            title: {
+                text: ''
+            },chart: {
+                renderTo: 'charts',
+                type : 'line'
+            },xAxis: {
+                categories : {!! $dateList !!} ,
+                title: {
+                  text : 'Date'
+                }
+            },credits: {
+                enabled: false
+            },legend: {
+                enabled: true
+            },yAxis: {
+              min: 0, 
+                title: {
+                    text: 'Total Posting'
+                }
+            },series: [{
+              name: 'Total Posting',
+                marker: {
+                    symbol: 'square'
+                },
+                data : {!! $postData !!}
+            }]
+        });
+
+        // Filter
+
+        $('#find').click(function() {
+            $.get("{{ url(GLobalHelpers::indexUrl().'/filter') }}/"+$("#month").val()+'/'+$("#year").val(), function(data){
+                chart.xAxis[0].setCategories($.parseJSON(data['dateList']));
+                chart.series[0].setData($.parseJSON(data['dataPost']));
+                chart.xAxis[0].setTitle({ text: "Date" });
+            }).fail(function(){
+              return false;
+            });
+        });
+
+    });
+
+  </script>
 @stop

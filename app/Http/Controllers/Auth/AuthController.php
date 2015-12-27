@@ -89,8 +89,7 @@ class AuthController extends Controller
             ]);
       }
 
-      if ( $this->auth->attempt($credentials, $request->has('remember')) )
-      {
+      if (\Auth::attempt(array('email'=>$credentials['email'], 'password'=>$credentials['password']))) {
           $this->updateLastLogin($user);
           \Session::put('member_session', $userFull);
           if($userFull->group != 'NULL') {
@@ -105,7 +104,6 @@ class AuthController extends Controller
             ->withErrors([
               'email' => $this->getFailedLoginMessage(),
             ]);
-
 
     }
 
