@@ -57,7 +57,7 @@
         {!! GLobalHelpers::messages(Session::get('message')) !!}
         @endif
         <div class="module-head">
-          <h3>News Feed</h3>
+          <h3>Info Terkini</h3>
         </div>
         <div class="module-body">
           <div class="stream-composer media">
@@ -197,7 +197,7 @@
           .val('');
         $("#files").children().text("");
         $("#imagePost div.content-file").remove();
-        // $("#hastag").tagit("removeAll");
+        $("#hastag").tagit("removeAll");
         var parameter = data;
         loadData(parameter);
 
@@ -252,6 +252,7 @@
         $(document).find( ".content-file-comment" ).remove();
         var commentPostUser  = data['comment'];
         var commentPostImage = data['imageComment'];
+        var created_by = data['created_by'];
         var newArray = $.map( commentPostImage, function(v){
           return v === "" ? null : v;
         });
@@ -268,7 +269,7 @@
         // $(document).find('#postComment'+data['id'])
         // $("#imagePost div.content-file")
         $('#thisData div#postComment'+data['id']).append('<div class="stream-headline">'+
-                                  '<h5 class="stream-author">'+'anomin'+
+                                  '<h5 class="stream-author">'+created_by+
                                   '<small>20 Dec 2015 at 14:39</small></h5>'+
                                   '<div class="stream-text">'+commentPostUser+'</div>'+
                                   addImage+

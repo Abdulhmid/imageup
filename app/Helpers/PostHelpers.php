@@ -92,9 +92,17 @@ class PostHelpers {
           $htmlTags .='<a href="#" >'.$valueTags.'</a> ';
         }
 
+        $dataMember = self::findUserPost($value['created_by']);
+        $htmlPhoto = '';
+        if (!empty($dataMember['photo'])) {
+          $htmlPhoto = file_exists(public_path()."/".$dataMember['photo']) ? '<img src="'.$dataMember['photo'].'">' : '<img src="images/user.png">'; 
+        } else{
+          $htmlPhoto = '<img src="images/user.png">';
+        }
+
         // Main Html
         $html .= '<div class="media stream">'.
-                    '<a href="#" class="media-avatar medium pull-left"><img src="images/user.png"></a>'.
+                    '<a href="#" class="media-avatar medium pull-left">'.$htmlPhoto.'</a>'.
                     '<div class="media-body">'.
                       '<div class="stream-headline"><h5 class="stream-author">'.$value['created_by'].
                         '<small>'.\GLobalHelpers::formatDate($value['created_at']).'</small>'.
@@ -112,6 +120,10 @@ class PostHelpers {
 
       return $html;
 
+    }
+
+    private static function findUserPost($createdBy = ""){
+      return \App\Models\Users::where('username', $createdBy)->first();
     }
 
 

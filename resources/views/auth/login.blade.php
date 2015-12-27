@@ -38,7 +38,7 @@
 							<div class="control-group">
 								<div class="controls clearfix">
 									<button type="submit" class="btn btn-primary pull-right">Login</button>
-									<a href="">Lupa Password</a>
+									<a href="{{ url('/forgot') }}">Lupa Password</a>
 								</div>
 							</div>
 						</div>

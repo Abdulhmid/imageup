@@ -1,1 +1,1 @@
-Click here to reset your password: <a href="<?= url('confirmation/'.$remember_token) ?>" target="_blank">Konfirmasi</a>
+Click here to Confirmation: <a href="<?= url('confirmation/'.$remember_token) ?>" target="_blank">Konfirmasi</a>

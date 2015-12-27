@@ -72,39 +72,40 @@ class AuthController extends Controller
 
     public function postLogin(Request $request){
       $this->validate($request, [
-  			'email' => 'required|email|exists:users,email', 'password' => 'required',
-  		]);
+        'email' => 'required|email|exists:users,email', 'password' => 'required',
+      ]);
 
-  		$credentials = $request->only('email', 'password');
+      $credentials = $request->only('email', 'password');
 
-  		$user = $this->findUser($credentials['email']);
+      $user = $this->findUser($credentials['email']);
       $userFull = \App\Models\Users::select('*')->whereEmail($credentials['email'])->first();
 
-  		if ($user->active == 0)
-  		{
-  			return redirect('/')
-  					->withInput($request->only('email', 'remember'))
-  					->withErrors([
-  						'email' => "Your account not activated yet.",
-  					]);
-  		}
+      if ($user->active == 0)
+      {
+        return redirect('/')
+            ->withInput($request->only('email', 'remember'))
+            ->withErrors([
+              'email' => "Your account not activated yet.",
+            ]);
+      }
 
       if ( $this->auth->attempt($credentials, $request->has('remember')) )
       {
           $this->updateLastLogin($user);
           \Session::put('member_session', $userFull);
-          return redirect()->intended('/');
+          if($userFull->group != 'NULL') {
+            return redirect()->intended('/admin');
+          }else{
+            return redirect()->intended('/');
+          }
       }
 
-      \Session::put('member_session', $userFull);
-      return redirect("/admin");
-      exit();
+      return redirect($this->loginPath())
+            ->withInput($request->only('email', 'remember'))
+            ->withErrors([
+              'email' => $this->getFailedLoginMessage(),
+            ]);
 
-      return redirect("/admin")
-                  ->withInput($request->only('username', 'remember'))
-                  ->withErrors([
-                      'username' => $this->getFailedLoginMessage(),
-                  ]);
 
     }
 
@@ -117,5 +118,10 @@ class AuthController extends Controller
   	{
   		return \App\Models\Users::select('id','email','active')->whereEmail($email)->first();
   	}
+
+    public function getLogout(){
+      \Session::flush();
+      return redirect('/');
+    }
 
 }

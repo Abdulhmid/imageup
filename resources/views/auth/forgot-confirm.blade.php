@@ -1,8 +1,5 @@
 @extends('main')
 
-@section('style')
-
-@stop
 @section('content')
 		<div class="container">
 			<div class="row">
@@ -16,29 +13,33 @@
 						</ul>
 					</div>
 				@endif
+
+		        @if(Session::has('message'))
+		        {!! GLobalHelpers::messages(Session::get('message')) !!}
+		        @endif
+		        
 				<div class="module module-login span4 offset4">
-					<form class="form-vertical" action="{{ url('/login') }}" method="post" role="form" style="display: block;">
+					<form class="form-vertical" action="{{ url('/new-password/'.$token) }}" method="post" role="form" style="display: block;">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<div class="module-head">
-							<h3>Sign In</h3>
+							<h3>Forgot Password</h3>
 						</div>
 						<div class="module-body">
 							<div class="control-group">
 								<div class="controls row-fluid">
-									<input class="span12" type="text" id="email" name="email" placeholder="Username">
+									<input class="span12" type="password" id="password" name="password" placeholder="Password">
 								</div>
 							</div>
 							<div class="control-group">
 								<div class="controls row-fluid">
-									<input class="span12" type="password" id="password" name="password" placeholder="Password">
+									<input class="span12" type="password" id="password_confirmation" name="password_confirmation" placeholder="Password Confirmation">
 								</div>
 							</div>
 						</div>
 						<div class="module-foot">
 							<div class="control-group">
 								<div class="controls clearfix">
-									<button type="submit" class="btn btn-primary pull-right">Login</button>
-									<a href="{{ url('forgot') }}">Lupa Password</a>
+									<button type="submit" class="btn btn-primary pull-right">Reset Password</button>
 								</div>
 							</div>
 						</div>

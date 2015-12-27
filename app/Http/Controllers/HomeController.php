@@ -18,7 +18,7 @@ class HomeController extends Controller
   use AuthenticatesAndRegistersUsers;
 
   protected $model;
-	protected $title = "Welcome";
+	protected $title = "Welcome To Image Upload App";
 	protected $folder = "module.home";
 	protected $url = "/";
 	protected $form;
@@ -32,6 +32,7 @@ class HomeController extends Controller
     $this->model = $users;
     $this->post = $post;
     $this->comments = $comments;
+    $this->middleware('auth', ['only' => 'getProfile']);
 	}
 
 	public function getIndex()
@@ -234,9 +235,130 @@ class HomeController extends Controller
     $data['comment'] = $input['comment'];
     $data['imageCommentContent'] = $imgValue;
     $data['imageComment'] = $explodeImage;
+    $data['created_by'] = $input['created_by'];
     $data['id'] = $id;
 
     return $data;
+
+  }
+
+  // Setting Profil
+
+  public function getProfile(){
+    $dataMember = session('member_session');
+    $dataProfil = $this->model->find($dataMember->id);
+    return view('auth.profil', [
+        'title' => "Edit My Profil",
+        'row' => $dataProfil,
+        'session' => $dataMember
+    ]);
+  }
+
+    public function postStoreProfile($id, Request $request){
+
+        $input = $request->all();
+        $rules = array(
+            'fullname'=>'required',
+            'photo'=>'',
+            'password' => 'min:6|confirmed',
+            'password_confirmation' => 'min:6'
+        );      
+
+        if( \Input::hasFile('photo'))
+            $photo  = (new \ImageUpload($input))->upload();
+
+
+        $validator = \Validator::make(\Request::all(), $rules);
+        if ($validator->passes()) { 
+            $data = [
+                'fullname' => $input['fullname']
+            ];
+
+            if(!empty($input['password'])) {
+                $data = [
+                    'password' => bcrypt($input['password'])
+                ];  
+            }
+
+            if(\Input::hasFile('photo')){
+                $data = [
+                        'photo' => isset($photo) ? $photo : ""
+                    ];  
+            }
+
+            $this->model->find($id)->update($data);
+            return \Redirect::back()->with('message','Ubah Data Sukses!')->withInput(\Input::all());
+        }else{
+            return redirect('/profile')->withErrors($validator);
+        }
+
+    }
+
+  public function getForgot(){
+    return view('auth.forgot', [
+        'title' => "Edit My Profil"
+    ]);
+  }
+
+  public function postForgotPassword(Request $request){
+    $input = $request->all();
+    $rules = array(
+        'email'=>'required|email|exists:users'
+    );      
+
+    $validator = \Validator::make(\Request::all(), $rules);
+
+    if ($validator->passes()) { 
+
+        $dataUsers = \DB::table('users')->where('email', $input['email'])->first();
+        $input['remember_token'] = \Crypt::encrypt(date('d-m-Y'));
+    
+        \DB::table('users')
+                    ->where('email', $input['email'])
+                    ->update(['remember_token' => $input['remember_token'] ]);
+
+        \Mail::send('emails.forgot', $input, function($message) use ($dataUsers) {
+                      $message->from('videotronsystem@gmail.com', 'Admin Image Upload');
+                      $message->to($dataUsers->email, $dataUsers->fullname)->subject('Konfirmasi Pendaftaran');
+                  }); 
+
+
+        return \Redirect::back()->with('message','Cek Email untuk reset Password!')->withInput(\Input::all());
+    }else{
+        return redirect('/forgot')->withErrors($validator);
+    }
+  }
+
+  public function getForgotConfirmation($token = ""){
+    $countUsers = \DB::table('users')->where('remember_token', $token)->count();
+    if($token == "" || $countUsers < 1) return redirect('/')->with('message','Link Sudah Tidak Aktif!');
+    return view('auth.forgot-confirm', [
+        'title' => "Create New Password",
+        'token' => $token
+    ]);
+  }
+
+  public function postNewPassword($token, Request $request){
+        $input = $request->all();
+        $rules = array(
+            'password' => 'required|min:6|confirmed',
+            'password_confirmation' => 'min:6'
+        );      
+
+        $validator = \Validator::make(\Request::all(), $rules);
+
+        if ($validator->passes()) { 
+
+            $password = bcrypt($input['password']);
+
+            \DB::table('users')
+                        ->where('remember_token', $token)
+                        ->update(['password' => $password,'remember_token' => ""]);
+
+           return redirect('/')->with('message','Password Berhasil Di Ubah!')->withInput(\Input::all());
+        }else{
+            return redirect()->back()->withErrors($validator);
+        }
 
   }
 
