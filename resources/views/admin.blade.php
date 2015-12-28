@@ -35,7 +35,7 @@
 					</h1>
 					<ol class="breadcrumb">
 						<li>
-							<a href="{!! URL::to('/dashboard')!!}">
+							<a href="{!! URL::to('/admin')!!}">
 							<i class="fa fa-dashboard"></i> <b>Home</b>
 							</a>
 						</li>
