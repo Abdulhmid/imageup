@@ -13,9 +13,11 @@ class PostHelpers {
                         '<div id="#" class="files-input" style="margin:0px;">';
         foreach ($image as $key => $valueImage) {
           if (!empty($valueImage['image'])) {
-            $htmlImageC .= '<div class="content-file">'.
-                            '<img src="'.$valueImage['image'].'" style="width:100px; height:113px">'.
-                          '</div>';
+            if (file_exists(public_path().'/'.$valueImage['image'])) {
+              $htmlImageC .= '<div class="content-file">'.
+                              '<img src="'.$valueImage['image'].'" style="width:100px; height:113px">'.
+                            '</div>';
+            }
           }
         }
         $htmlImageBottom = "</div></div>";
@@ -39,12 +41,17 @@ class PostHelpers {
                 $htmlImageCommentTop = '<div class="stream-attachment photo"><div id="#" class="files-input" style="margin:0px;height: 125px;">';
                 $htmlImageCommentContent = '';
                 foreach ($imageComment as $key => $valueImageComment) {
-                  $htmlImageCommentContent .= '<div class="content-file-comment-list">'.
-                                              '<img src="'.$valueImageComment['image'].'" style="width:98px; height:96px">'.
-                                              '</div>';
+                    if (file_exists(public_path().'/'.$valueImageComment['image'])) {
+                        $htmlImageCommentContent .= '<div class="content-file-comment-list">'.
+                                                    '<img src="'.$valueImageComment['image'].'" style="width:98px; height:96px">'.
+                                                    '</div>';
+                    }
                 }
                 $htmlImageCommentBottom = '</div></div>';
-                $htmlImageComment = $htmlImageCommentTop.$htmlImageCommentContent.$htmlImageCommentBottom;
+
+                if (!empty($htmlImageCommentContent)) {
+                    $htmlImageComment = $htmlImageCommentTop.$htmlImageCommentContent.$htmlImageCommentBottom;
+                }
           }
 
           if (!empty($comment)) {
