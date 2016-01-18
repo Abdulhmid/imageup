@@ -17,6 +17,7 @@ class CreateTablePosts extends Migration
 
             Schema::create($this->table, function (Blueprint $table) {
 
+                $table->engine = 'InnoDB';
                 /** Primary key  */
                 $table->increments('id');
 
