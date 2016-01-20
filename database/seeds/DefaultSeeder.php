@@ -24,9 +24,9 @@ class DefaultSeeder extends Seeder
   			'password'=>bcrypt('12345'),
   			'photo'=>"",
   			'group_id'=>NULL,
-  			'remember_token'=>NULL,
+  			'remember_token'=>md5('12345'),
   			'active'=> 1,
-  			'last_login'=>NULL,
+  			'last_login'=>\Carbon\Carbon::now(),
   			'created_by'=>'machine',
   			'created_at' => \Carbon\Carbon::now(),
   			'updated_at' => \Carbon\Carbon::now()

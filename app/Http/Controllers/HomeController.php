@@ -362,4 +362,8 @@ class HomeController extends Controller
 
   }
 
+  public function getLanding(){
+    return view("module.themes.index", ['title' => $this->title]);
+  }
+
 }

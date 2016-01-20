@@ -17,14 +17,15 @@ class CreateTableUsers extends Migration
 
           Schema::create($this->table, function (Blueprint $table) {
 
+            $table->engine = 'InnoDB';
             $table->increments('id');
 
-            $table->string('username');
-            $table->string('fullname');
-            $table->string('email');
+            $table->string('username')->nullable();
+            $table->string('fullname')->nullable();
+            $table->string('email')->nullable();
             $table->string('password', 60)->nullable();
             $table->string('photo')->nullable();
-            $table->text('remember_token');
+            $table->text('remember_token')->nullable();
             $table->tinyInteger('active')->default(0);
             $table->timestamp('last_login')->nullable();
             $table->string('created_by')->nullable('system');
