@@ -20,22 +20,22 @@
 		    background-color: #FFFDC7;
 		}
 		.second {
-		    background-color: #CFDACE;
+		    background-color: rgba(176, 225, 187, 0.5);
 		}
 		.sa {
 		    background-color: #CFDACE;
 		}
 		.si {
-		    background-color: #CFDACE;
+		    background-color: rgba(103, 174, 195, 0.62);
 		}
 		.su {
 		    background-color: #CFDACE;
 		}
 		.se {
-		    background-color: #CFDACE;
+		    background-color: #E1F8F5;
 		}
 		.sp {
-		    background-color: #CFDACE;
+		    background-color: rgba(244, 203, 241, 0.77);
 		}
 		.col-md-2 {
 		    border-radius: 0 0px 0px 0;
@@ -165,43 +165,413 @@
 @section('content')
 <div class="content" style="padding-left:18px;padding-right:18px;">
 	<div class="row">
-		@for ($i = 0; $i < 18; $i++)
-		    <div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item {!! $i % 2 == 0 ? 'first' : ($i == 5 ? '3s' : ($i == 8 ? '6s' : ($i == 16 ? '4s' : '5s' ) ) ) !!}" style="height:173px;{!! ($i == 2 || $i == 15 ? 'padding: 0px;' : '' ) !!} ;<!-- margin-bottom: 47px; -->">
-		    	@if($i == 2 || $i == 15)
-                    <div class="portfolio-single hover ehover4">
-						<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
-						<div class="portfolio-view" >
-	                        <ul class="nav nav-pills">
-	                            <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-	                            <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
-	                        </ul>
-	                    </div>	
-	                    <center>
-						<div class="overlay overlay-add">
-			    			<span><i class="fa fa-comment"> 8989</i></span>
-				    		<span><i class="fa fa-eye"></i> 9090</span>
-						</div>
-						</center>
-				    </div>
-		    	@else
-                    <div class="portfolio-single">
-				    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						<div class="portfolio-view">
-	                        <ul class="nav nav-pills">
-	                            <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-	                            <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
-	                        </ul>
-	                    </div>
-		                <div class="portfolio-info ">
-				    		<span><i class="fa fa-comment"> 8989</i></span>
-				    		<span><i class="fa fa-eye"></i> 9090</span>
-		                </div>
-                    </div>
-		    	@endif
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item second" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item first" style="height:173px; padding: 0px; <!-- margin-bottom: 47px; -->">
+            <div class="portfolio-single hover ehover4">
+				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
+				<div class="portfolio-view" >
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>	
+				<div class="overlay overlay-add">
+	    			<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+				</div>
 		    </div>
-	    @endfor
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item second" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item si" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item su" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item first" style="height:173px; padding: 0px; <!-- margin-bottom: 47px; -->">
+            <div class="portfolio-single hover ehover4">
+				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
+				<div class="portfolio-view" >
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>	
+                <center>
+				<div class="overlay overlay-add">
+	    			<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+				</div>
+				</center>
+		    </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item se" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item second" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item sd" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item sa" style="height:173px; padding: 0px; <!-- margin-bottom: 47px; -->">
+            <div class="portfolio-single hover ehover4">
+				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
+				<div class="portfolio-view" >
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>	
+                <center>
+				<div class="overlay overlay-add">
+	    			<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+				</div>
+				</center>
+		    </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item si" style="height:173px; padding: 0px; <!-- margin-bottom: 47px; -->">
+            <div class="portfolio-single hover ehover4">
+				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
+				<div class="portfolio-view" >
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>	
+                <center>
+				<div class="overlay overlay-add">
+	    			<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+				</div>
+				</center>
+		    </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item su" style="height:173px; padding: 0px; <!-- margin-bottom: 47px; -->">
+            <div class="portfolio-single hover ehover4">
+				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
+				<div class="portfolio-view" >
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>	
+                <center>
+				<div class="overlay overlay-add">
+	    			<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+				</div>
+				</center>
+		    </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item second" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item se" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item first" style="height:173px; padding: 0px; <!-- margin-bottom: 47px; -->">
+            <div class="portfolio-single hover ehover4">
+				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
+				<div class="portfolio-view" >
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>	
+                <center>
+				<div class="overlay overlay-add">
+	    			<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+				</div>
+				</center>
+		    </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item second" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item sp" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item first" style="height:173px; padding: 0px; <!-- margin-bottom: 47px; -->">
+            <div class="portfolio-single hover ehover4">
+				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
+				<div class="portfolio-view" >
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>	
+                <center>
+				<div class="overlay overlay-add">
+	    			<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+				</div>
+				</center>
+		    </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item second" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item first" style="height:173px; padding: 0px; <!-- margin-bottom: 47px; -->">
+            <div class="portfolio-single hover ehover4">
+				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
+				<div class="portfolio-view" >
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>	
+                <center>
+				<div class="overlay overlay-add">
+	    			<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+				</div>
+				</center>
+		    </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item second" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item si" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item su" style="height:173px;">
+            <div class="portfolio-single">
+		    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				<div class="portfolio-view">
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-info ">
+		    		<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+                </div>
+            </div>
+		</div>
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item first" style="height:173px; padding: 0px; <!-- margin-bottom: 47px; -->">
+            <div class="portfolio-single hover ehover4">
+				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
+				<div class="portfolio-view" >
+                    <ul class="nav nav-pills">
+                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
+                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                    </ul>
+                </div>	
+                <center>
+				<div class="overlay overlay-add">
+	    			<span><i class="fa fa-comment"> 8989</i></span>
+		    		<span><i class="fa fa-eye"></i> 9090</span>
+				</div>
+				</center>
+		    </div>
+		</div>
+
 	</div>
 </div> 
 @stop

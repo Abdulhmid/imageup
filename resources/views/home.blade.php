@@ -33,7 +33,7 @@
 		}
 		.navbar > .container .navbar-brand, .navbar > .container-fluid .bold{
 			font-weight: bold;
-			color: rgb(255, 150, 0);
+			color: rgb(1, 1, 1);
 		}
     </style>
 
