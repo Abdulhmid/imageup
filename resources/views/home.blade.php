@@ -33,18 +33,22 @@
 		}
 		.navbar > .container .navbar-brand, .navbar > .container-fluid .bold{
 			font-weight: bold;
+			color: rgb(255, 150, 0);
 		}
     </style>
 
 </head>
 <body>
-	
+	<div class="row">
 	@include('includes.header_front')
-
-    <div class="content">
-    	@yield('content')
-    </div>
-
+	</div>
+	<div class="">
+	    <div class="content">
+	    	@yield('content')
+	    </div>
+	</div>
+    <hr/>
+    @include('includes.footer_front')
 	<!-- script tags
 	============================================================= -->
 	<script src="{!! url('theme/ungkap') !!}/js/jquery-2.1.1.js"></script>
