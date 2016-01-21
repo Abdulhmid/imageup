@@ -252,6 +252,87 @@
 			    padding:10px;
 			}
 
+			/*
+			** Circle Button
+			*/
+			.round-button {
+				/*width:25%;*/
+				width: 60%;
+			}
+			.round-button-circle {
+			    width: 100%;
+			    height: 0;
+			    padding-bottom: 108%;
+			    border-radius: 53%;
+			    border: -8px solid #cfdcec;
+			    overflow: hidden;
+			    background: #4679BD;
+			    box-shadow: 0 0 3px gray;
+			}
+			.round-button-circle:hover {
+				/*background:#30588e;*/
+				background:#ECAA10;
+			}
+			.round-button a {
+				display: block;
+				    float: left;
+				    width: 103%;
+				    height: 39px;
+				    padding-top: 56%;
+				    padding-bottom: 55%;
+				    line-height: 1em;
+				    margin-top: -0.5em;
+				    text-align: center;
+				    color: #e2eaf3;
+				    font-family: Verdana;
+				    font-size: 1.2em;
+				    font-weight: bold;
+				    text-decoration: none;
+				    background-color: #DB9310;
+			}
+
+			.btn-circle {
+			  width: 30px;
+			  height: 30px;
+			  text-align: center;
+			  padding: 6px 0;
+			  font-size: 12px;
+			  line-height: 1.428571429;
+			  border-radius: 15px;
+			}
+			.btn-circle.btn-lg {
+			  width: 50px;
+			  height: 50px;
+			  padding: 10px 16px;
+			  font-size: 18px;
+			  line-height: 1.33;
+			  border-radius: 25px;
+			}
+			.btn-circle.btn-xl {
+			width: 136px;
+			    height: 137px;
+			    padding: 13px 16px;
+			    font-size: 24px;
+			    line-height: 1.33;
+			    border-radius: 67px;
+			}
+
+			hr {
+			    transform:rotate(90deg);
+			    -o-transform:rotate(90deg);
+			    -moz-transform:rotate(90deg);
+			    -webkit-transform:rotate(90deg);
+			    margin-top: 52px;
+			    width: 120px;
+			    margin-left: -24px;
+			    border-top: 3px solid #eee;
+			    /* margin-right: 50%; */
+			}
+
+.verticalLine {
+    border-left: thick solid #ff0000;
+}
+
     </style>
 @stop
 
@@ -741,24 +822,28 @@
 <div class="modal fade" id="ungkapinChoose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="vertical-alignment-helper">
         <div class="modal-dialog vertical-align-center">
-            <div class="modal-content" style="">
+            <div class="modal-content" style="background-color:rgba(0, 0, 0, 0.45);">
                 <div class="modal-body">
                 	<div class="row">
                 		<div class="col-md-12" style="text-align:center;padding-bottom: 24px;">
                 		</div><br/>
-                		<div class="col-md-6">
+                		<div class="col-md-5" style="text-align:center">
                 			<div class="form-group" style="text-align:center">
-                				<button class="btn btn-default" data-toggle="modal" data-target="#ungkapinImage" style="width:153px;color: rgba(231, 146, 19, 0.87); border-color: #E79B0F;">Gambar</button>
+<!-- 								<div class="round-button">
+									<div class="round-button-circle"><a href="http://example.com" class="round-button">Gambar</a></div>
+								</div> -->
+								<button type="button" data-toggle="modal" data-target="#ungkapinImage" class="btn btn-warning btn-circle btn-xl">Gambar</button>
                 			</div>
                 		</div>
-                		<div class="col-md-6">
-                			<div class="form-group" style="text-align:center">
-                				<button class="btn btn-default" data-toggle="modal" data-target="#ungkapinTulisan" style="width:153px;color: rgba(231, 146, 19, 0.87);border-color: #E79B0F;">Tulisan</button>
+                		<div class="col-md-2">
+                			<<hr/>
+                		</div>
+                		<div class="col-md-5" style="text-align:center">
+                			<div class="form-group" style="text-align:center">	
+								<button type="button" data-toggle="modal" data-target="#ungkapinTulisan"  class="btn btn-warning btn-circle btn-xl">Tulisan</button>
                 			</div>
                 		</div>
                 	</div>
-                </div>
-                <div class="modal-footer">
                 </div>
             </div>
         </div>
