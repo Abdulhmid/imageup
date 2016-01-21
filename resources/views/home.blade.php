@@ -53,7 +53,6 @@
 		@yield('content')
 	</header>
 	<!-- /Header -->
-    <hr/>
     @include('includes.footer_front')
 	<!-- script tags
 	============================================================= -->

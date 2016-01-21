@@ -622,8 +622,11 @@
 				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
 				<div class="portfolio-view" >
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>	
                 <center>
@@ -829,9 +832,6 @@
                 		</div><br/>
                 		<div class="col-md-5" style="text-align:center">
                 			<div class="form-group" style="text-align:center">
-<!-- 								<div class="round-button">
-									<div class="round-button-circle"><a href="http://example.com" class="round-button">Gambar</a></div>
-								</div> -->
 								<button type="button" data-toggle="modal" data-target="#ungkapinImage" class="btn btn-warning btn-circle btn-xl">Gambar</button>
                 			</div>
                 		</div>
@@ -1040,10 +1040,53 @@
 							                <button class="btn btn-default">Add</button>
 							            </div>
 							        </form>
+							        <div class="row"><br/>
+							        	<div style="border-top:1px solid black;"><br/>
+								        	<div class="col-md-6" style="text-align:center;"><button class="btn btn-default">Naik</button></div>
+								        	<div class="col-md-6" style="text-align:center;"><button class="btn btn-default">Hapus</button></div>
+							        	</div>
+							        </div>
 							    </div>
 							</div>
                 		</div>
                 	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Login -->
+<div class="modal fade" id="ungkapinLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content" style="width:453px;heigth:545px;">
+                <div class="modal-body">
+                	<div class="row">
+                		<div class="col-md-12" style="text-align:center;padding-bottom: 24px;">
+							<h3 class="modal-title" id="myModalLabel">Admin Login</h3>
+							<h5 class="modal-title" id="myModalLabel">Halaman Ini khusus untuk Admin Sistem.</h5>
+                		</div><br/>
+                		<div class="col-md-12">
+                			<div class="form-group" style="text-align:center">
+                				<input type="text" name="username" class="form-control" value="" placeholder="Username">
+                			</div>
+                		</div>
+                		<div class="col-md-12">
+                  			<div class="form-group" style="text-align:center">
+                				<input type="text" name="password" class="form-control" value="" placeholder="Password">
+                			</div>
+                		</div>
+                		<div class="col-md-12">
+                			<div class="form-group" style="text-align:center">
+                				<button class="btn btn-warning">Halaman Utama</button>
+                			</div>
+                		</div>
+                	</div>
+                </div>
+                <div class="modal-footer">
+                	<p class="pull-left">Ungkapin 2015</p>
+                	<p class="pull-right">Kontak Kami</p>
                 </div>
             </div>
         </div>
