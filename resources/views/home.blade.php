@@ -35,18 +35,24 @@
 			font-weight: bold;
 			color: rgb(1, 1, 1);
 		}
+
+		.img-responsive2 {
+		    display: inline-block;
+		    max-width: 20%;
+		    height: auto;
+		}
     </style>
 
 </head>
 <body>
 	<div class="row">
-	@include('includes.header_front')
+		@include('includes.header_front')
 	</div>
-	<div class="">
-	    <div class="content">
-	    	@yield('content')
-	    </div>
-	</div>
+	<!-- Header -->
+	<header id="head">
+		@yield('content')
+	</header>
+	<!-- /Header -->
     <hr/>
     @include('includes.footer_front')
 	<!-- script tags

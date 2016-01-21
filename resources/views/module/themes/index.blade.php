@@ -1,10 +1,6 @@
 @extends('home')
 
 @section('style')
-	<!-- <link rel="stylesheet" type="text/css" href="https://mobirise.com/bootstrap-gallery/assets/mobirise/css/style.css"> -->
-	<!-- <link rel="stylesheet" type="text/css" href="https://mobirise.com/bootstrap-gallery/assets/mobirise-gallery/style.css"> -->
-	<!-- <link rel="stylesheet" type="text/css" href="https://mobirise.com/bootstrap-gallery/assets/mobirise-slider/style.css"> -->
-	<!-- <link rel="stylesheet" type="text/css" href="https://mobirise.com/bootstrap-gallery/assets/mobirise/css/mbr-additional.css"> -->
 	<link rel="stylesheet" href="{!! url('plugins/bootstrap/css') !!}/bootstrap.css">
 
     <style type="text/css">
@@ -70,7 +66,8 @@
 		  padding: 0;
 		  display: inline-block;
 		  margin-top: -26px;
-		  top: 50%;
+		  /*top: 50%;*/
+		  top: 34%;
 		  position: relative;
 		}
 
@@ -159,6 +156,102 @@
 			left:8%;
 		}
 
+		/*
+		** Transpaancy Modal
+		*/
+		.vertical-alignment-helper {
+		    display:table;
+		    height: 100%;
+		    width: 100%;
+		    pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
+		}
+		.vertical-align-center {
+		    /* To center vertically */
+		    display: table-cell;
+		    vertical-align: middle;
+		    pointer-events:none;
+		}
+		.modal-content {
+		    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+		    width:inherit;
+		    height:inherit;
+		    /* To center horizontally */
+		    margin: 0 auto;
+		    pointer-events: all;
+		}
+
+		/* Komentar */
+			@import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);
+
+			.detailBox {
+				margin-left: -113px;
+				margin-top: -27px;
+			    /*width:320px;*/
+			    /*border:1px solid #bbb;*/
+			    /*margin:50px;*/
+			}
+			.titleBox {
+			    background-color:#fdfdfd;
+			    padding:10px;
+			}
+			.titleBox label{
+			  color:#444;
+			  margin:0;
+			  display:inline-block;
+			}
+
+			.commentBox {
+			    padding:10px;
+			    border-top:1px dotted #bbb;
+			}
+			.commentBox .form-group:first-child, .actionBox .form-group:first-child {
+			    width:80%;
+			}
+			.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+			    width:18%;
+			}
+			.actionBox .form-group * {
+			    width:100%;
+			}
+			.taskDescription {
+			    margin-top:10px 0;
+			}
+			.commentList {
+			    padding:0;
+			    list-style:none;
+			    max-height:200px;
+			    overflow:auto;
+			}
+			.commentList li {
+			    margin:0;
+			    margin-top:10px;
+			}
+			.commentList li > div {
+			    display:table-cell;
+			}
+			.commenterImage {
+			    width:30px;
+			    margin-right:5px;
+			    height:100%;
+			    float:left;
+			}
+			.commenterImage img {
+			    width:100%;
+			    border-radius:50%;
+			}
+			.commentText p {
+			    margin:0;
+			}
+			.sub-text {
+			    color:#aaa;
+			    font-family:verdana;
+			    font-size:11px;
+			}
+			.actionBox {
+			    border-top:1px dotted #bbb;
+			    padding:10px;
+			}
+
     </style>
 @stop
 
@@ -172,8 +265,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -187,8 +283,11 @@
 				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
 				<div class="portfolio-view" >
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>	
 				<div class="overlay overlay-add">
@@ -204,8 +303,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -221,8 +323,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -238,8 +343,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -253,8 +361,11 @@
 				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
 				<div class="portfolio-view" >
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>	
                 <center>
@@ -272,8 +383,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -289,8 +403,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -306,8 +423,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -321,8 +441,11 @@
 				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
 				<div class="portfolio-view" >
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>	
                 <center>
@@ -338,8 +461,11 @@
 				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
 				<div class="portfolio-view" >
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>	
                 <center>
@@ -355,8 +481,11 @@
 				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
 				<div class="portfolio-view" >
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>	
                 <center>
@@ -374,8 +503,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -391,8 +523,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -425,8 +560,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -442,8 +580,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -457,8 +598,11 @@
 				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
 				<div class="portfolio-view" >
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>	
                 <center>
@@ -476,8 +620,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -491,8 +638,11 @@
 				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
 				<div class="portfolio-view" >
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>	
                 <center>
@@ -510,8 +660,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -527,8 +680,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -544,8 +700,11 @@
 		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				<div class="portfolio-view">
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>
                 <div class="portfolio-info ">
@@ -559,8 +718,11 @@
 				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
 				<div class="portfolio-view" >
                     <ul class="nav nav-pills">
-                        <li><a href="http://localhost:9988/me-detail-campaign"><i class="fa fa-link"></i></a></li>
-                        <li><a href="images/portfolio/1.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                        <li><a data-toggle="modal" data-target="#ungkapinDetail" ><i class="fa fa-link"></i></a></li>
+                    </ul><br/><br/>
+                    <ul class="nav nav-pills">
+                    	<li><a  data-lightbox="example-set">Naik</a></li>
+                    	<li><a  data-lightbox="example-set">Hapus</a></li>
                     </ul>
                 </div>	
                 <center>
@@ -574,6 +736,236 @@
 
 	</div>
 </div> 
+
+<!-- Show Choose -->
+<div class="modal fade" id="ungkapinChoose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content" style="">
+                <div class="modal-body">
+                	<div class="row">
+                		<div class="col-md-12" style="text-align:center;padding-bottom: 24px;">
+                		</div><br/>
+                		<div class="col-md-6">
+                			<div class="form-group" style="text-align:center">
+                				<button class="btn btn-default" data-toggle="modal" data-target="#ungkapinImage" style="width:153px;color: rgba(231, 146, 19, 0.87); border-color: #E79B0F;">Gambar</button>
+                			</div>
+                		</div>
+                		<div class="col-md-6">
+                			<div class="form-group" style="text-align:center">
+                				<button class="btn btn-default" data-toggle="modal" data-target="#ungkapinTulisan" style="width:153px;color: rgba(231, 146, 19, 0.87);border-color: #E79B0F;">Tulisan</button>
+                			</div>
+                		</div>
+                	</div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Ungkapin -->
+<div class="modal fade" id="ungkapinImage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content" style="width:956px;height : 323px">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+
+                    </button>
+                     <h4 class="modal-title" id="myModalLabel">Ungkap.In Disini</h4>
+
+                </div>
+                <div class="modal-body">
+                	<div class="row">
+                		<div class="col-md-4">
+                			<div class="form-group">
+                				<label>Gambar</label>
+                				<p>Pilih Gambar Yang Kamu Ungkapin</p><br/>
+                				<input type="file" class="form-control" value="" style="display:none">
+                				<button class="form-control btn btn-default" style="border-color: #FF930E;background-color: rgba(255, 255, 255, 0.78);" type="button" onclick="chooseFile()"><i class="fa fa-upload"></i> Pilih Gambar</button>
+                			</div>
+                		</div>
+                		<div class="col-md-4">
+                			<div class="form-group">
+                				<label>Hastag</label>
+                				<p>Berikan hastag yang sesuai. <br/> Maksimal 10 hastag</p>
+                				<textarea class="form-control" name="hastag" cols="33" rows="3"  placeholder="#positif#negatif#cinta#agama#sehat#lifestyle"></textarea>
+                			</div>
+                		</div>
+                		<div class="col-md-4">
+                			<div class="form-group">
+                				<label>Link</label>
+                				<p>Masukkan link sebagai bukti penguat. <br/> Kamu boleh tidak memberikan link.</p>
+                				<textarea class="form-control" name="link" cols="33" rows="3" placeholder="Ketik atau paste link disini"></textarea>
+                			</div>
+                		</div>
+                	</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-toggle="modal" data-target="#ungkapinSucces" class="btn btn-default" style="color: rgba(231, 146, 19, 0.87);border-color: #E79B0F;" data-dismiss="modal">Ayo Ungkapin !</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Ungkapin Tulisan -->
+
+<div class="modal fade" id="ungkapinTulisan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content" style="width:956px;height : 323px">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+
+                    </button>
+                     <h4 class="modal-title" id="myModalLabel">Ungkap.In Disini</h4>
+
+                </div>
+                <div class="modal-body">
+                	<div class="row">
+                		<div class="col-md-4">
+                			<div class="form-group">
+                				<label>Tulisan</label>
+                				<p>Masukkan tulisanmu dengan maksimal. <br/> 160 karakter.</p>
+                				<textarea class="form-control" name="hastag" cols="33" rows="3"  placeholder="#positif#negatif#cinta#agama#sehat#lifestyle"></textarea>
+                			</div>
+                		</div>
+                		<div class="col-md-4">
+                			<div class="form-group">
+                				<label>Hastag</label>
+                				<p>Berikan hastag yang sesuai. <br/> Maksimal 10 hastag</p>
+                				<textarea class="form-control" name="hastag" cols="33" rows="3"  placeholder="#positif#negatif#cinta#agama#sehat#lifestyle"></textarea>
+                			</div>
+                		</div>
+                		<div class="col-md-4">
+                			<div class="form-group">
+                				<label>Link</label>
+                				<p>Masukkan link sebagai bukti penguat. <br/> Kamu boleh tidak memberikan link.</p>
+                				<textarea class="form-control" name="link" cols="33" rows="3" placeholder="Ketik atau paste link disini"></textarea>
+                			</div>
+                		</div>
+                	</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-toggle="modal" data-target="#ungkapinSucces" class="btn btn-default" style="color: rgba(231, 146, 19, 0.87);border-color: #E79B0F;" data-dismiss="modal">Ayo Ungkapin !</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success -->
+<!-- Modal Ungkapin -->
+<div class="modal fade" id="ungkapinSucces" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content" style="">
+                <div class="modal-body">
+                	<div class="row">
+                		<div class="col-md-12" style="text-align:center;padding-bottom: 24px;">
+							<h3 class="modal-title" id="myModalLabel">Berhasil</h3>
+							<h5 class="modal-title" id="myModalLabel">Terimakasih sudah ungkapin isi hatimu!</h5>
+                		</div><br/>
+                		<div class="col-md-4">
+                			<div class="form-group" style="text-align:center">
+                				<button class="btn btn-default" style="width:153px;color: rgba(231, 146, 19, 0.87); border-color: #E79B0F;">Lihat</button>
+                			</div>
+                		</div>
+                		<div class="col-md-4">
+                			<div class="form-group" style="text-align:center">
+                				<button class="btn btn-default" style="width:153px;color: rgba(231, 146, 19, 0.87);border-color: #E79B0F;">Halaman Utama</button>
+                			</div>
+                		</div>
+                		<div class="col-md-4">
+                			<div class="form-group" style="text-align:center">
+                				<button class="btn btn-default" style="width:153px;color: rgba(231, 146, 19, 0.87);border-color: #E79B0F;">Ungkapin Lagi</button>
+                			</div>
+                		</div>
+                	</div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Detail -->
+<div class="modal fade" id="ungkapinDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content" style="width:956px;height : 523px">
+                <div class="modal-body">
+                	<div class="row">
+                		<div class="col-md-8" style="">
+                			<img src="{!! url('theme/ungkap') !!}/img/member2.jpg" style="width: 505px;">
+                		</div><br/>
+                		<div class="col-md-4">
+							<div class="detailBox">
+							    <div class="titleBox">
+							      <label>Comment Box</label>
+							        <button type="button" class="close" aria-hidden="true">&times;</button>
+							    </div>
+							    <div class="commentBox">
+							        <p class="taskDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+							        <span><i class="fa fa-comment"> 8989</i></span>
+							        <span><i class="fa fa-eye"> 8989</i></span>
+							        <span><i class="fa fa-calendar"> 11 Nov 2015</i></span>
+
+							        <span style="margin-left:12px"><i class="fa fa-facebook-square">Share</i></span>
+							        <span><i class="fa fa-twitter-square">Tweet</i></span>
+							    </div>
+							    <div class="actionBox">
+							        <ul class="commentList">
+							            <li>
+							                <div class="commenterImage">
+							                  <img src="http://lorempixel.com/50/50/people/6" />
+							                </div>
+							                <div class="commentText">
+							                    <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
+
+							                </div>
+							            </li>
+							            <li>
+							                <div class="commenterImage">
+							                  <img src="http://lorempixel.com/50/50/people/7" />
+							                </div>
+							                <div class="commentText">
+							                    <p class="">Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p> <span class="date sub-text">on March 5th, 2014</span>
+
+							                </div>
+							            </li>
+							            <li>
+							                <div class="commenterImage">
+							                  <img src="http://lorempixel.com/50/50/people/9" />
+							                </div>
+							                <div class="commentText">
+							                    <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
+							                    <img src="{!! url('theme/ungkap') !!}/img/member2.jpg" >
+							                </div>
+							            </li>
+							        </ul>
+							        <form class="form-inline" role="form">
+							            <div class="form-group">
+							                <input class="form-control" type="text" placeholder="Your comments" />
+							            </div>
+							            <div class="form-group">
+							                <button class="btn btn-default">Add</button>
+							            </div>
+							        </form>
+							    </div>
+							</div>
+                		</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Demo -->
 @stop
 
 @section('script')
