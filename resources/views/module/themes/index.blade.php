@@ -2,336 +2,10 @@
 
 @section('style')
 	<link rel="stylesheet" href="{!! url('plugins/bootstrap/css') !!}/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="{!! url('css/additional_index.css') !!}">
 
     <style type="text/css">
-    	.mbr-gallery-item{
-    	}
-		.mbr-item {
-		    height: 70px;
-		    text-align: center;
-		    padding-top: 25px;
-		}
 
-		.first {
-		    background-color: #FFFDC7;
-		}
-		.second {
-		    background-color: rgba(176, 225, 187, 0.5);
-		}
-		.sa {
-		    background-color: #CFDACE;
-		}
-		.si {
-		    background-color: rgba(103, 174, 195, 0.62);
-		}
-		.su {
-		    background-color: #CFDACE;
-		}
-		.se {
-		    background-color: #E1F8F5;
-		}
-		.sp {
-		    background-color: rgba(244, 203, 241, 0.77);
-		}
-		.col-md-2 {
-		    border-radius: 0 0px 0px 0;
-		}
-		.border{
-		    border-radius: 11px 11px 11px 11px;
-		    margin-top: 12px;
-		    border: 1px solid #9C8C8C;
-		    background-color: rgb(255, 255, 255);
-		}
-		.row > div.mbr-item {
-		    outline:1px solid rgba(16, 15, 15, 0.16);;
-		    outline-offset: -0px;
-		    -moz-outline-radius: 0px;
-		    -webkit-outline-radius: 0px;
-		 }
-		.content {
-			font-size: 12px;
-			font-family: 'Times New Roman', Arial, sans-serif;
-		}
-		a { text-decoration : none; color : #000; }
-		.portfolio-view {
-		    display: none;
-		    position: absolute;
-		    top: 0;
-		    height: 100%;
-		    background: rgba(112, 35, 64, 0.9);
-		    width: 100%;
-		    text-align: center;
-		}
-		.portfolio-view .nav-pills {
-		  padding: 0;
-		  display: inline-block;
-		  margin-top: -26px;
-		  /*top: 50%;*/
-		  top: 34%;
-		  position: relative;
-		}
-
-		.portfolio-view .nav-pills li {
-		  display: inline-block;
-		  margin: 0 5px;
-		}
-
-		.portfolio-view .nav-pills li a {
-		  color: #fff;
-		  border: 1px solid #fff;
-		  width: 40px;
-		  height: 40px;
-		  line-height: 38px;
-		  text-align: center;
-		  padding: 0;
-		  border-radius: 40px;
-		  -webkit-animation: scaleIn 400ms linear 100ms both;
-		  animation: scaleIn 400ms linear 100ms both;
-		  -webkit-transition: all 0.9s ease;
-		  transition: all 0.9s ease;
-		}
-
-		.portfolio-view .nav-pills li a:hover {
-		  color: #702340;
-		  border-color: #702340;
-		  -webkit-transition: all 0.9s ease;
-		  transition: all 0.9s ease;
-		}
-		.portfolio-single{
-			position: relative;
-		}
-		.portfolio-single:hover .portfolio-view {
-		    display: block;
-		    -webkit-animation: fadeInUp 400ms;
-		    animation: fadeInUp 400ms;
-		}
-
-
-/*		.portfolio-single:hover .portfolio-view {
-		    display: block;
-		    -webkit-animation: fadeInUp 400ms;
-		    animation: fadeInUp 400ms;
-		}*/
-
-		.portfolio-info {
-		  overflow: hidden;
-		  margin-bottom: 37px;
-		  border-radius: 11px 11px 11px 11px;
-		  border: 1px solid #9C8C8C;
-		  background-color: rgb(255, 255, 255);
-		}
-
-		.portfolio-info h2 {
-		  font-size: 18px;
-		  margin: 7px 0 0;
-		}
-
-		/* News */
-		.ehover4 .overlay {
-		    /*background-color: rgba(75,75,75,.7);*/
-		    width: 23px;
-		    transition: all .4s ease-in-out;
-		}
-		.ehover4 .overlay, .ehover4 h2 {
-		    -webkit-transition: all .4s ease-in-out;
-		}
-		.hover .overlay {
-			position: absolute;
-		    top: 127px;
-		    padding-left: -3px;
-		    border: 1px solid #9C8C8C;
-		    background-color: rgb(255, 255, 255);
-		    border-radius: 11px 11px 11px 11px;
-		    height: 19px;
-		}
-		.hover, .hover .overlay {
-		    /*width: 100%;*/
-		    /*height: 100%;*/
-		    width: 100%;
-		    overflow: hidden;
-		}
-		.overlay-add{
-			width: 85% !important;
-			right:40%;
-			left:8%;
-		}
-
-		/*
-		** Transpaancy Modal
-		*/
-		.vertical-alignment-helper {
-		    display:table;
-		    height: 100%;
-		    width: 100%;
-		    pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
-		}
-		.vertical-align-center {
-		    /* To center vertically */
-		    display: table-cell;
-		    vertical-align: middle;
-		    pointer-events:none;
-		}
-		.modal-content {
-		    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
-		    width:inherit;
-		    height:inherit;
-		    /* To center horizontally */
-		    margin: 0 auto;
-		    pointer-events: all;
-		}
-
-		/* Komentar */
-			@import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);
-
-			.detailBox {
-				margin-left: -113px;
-				margin-top: -27px;
-			    /*width:320px;*/
-			    /*border:1px solid #bbb;*/
-			    /*margin:50px;*/
-			}
-			.titleBox {
-			    background-color:#fdfdfd;
-			    padding:10px;
-			}
-			.titleBox label{
-			  color:#444;
-			  margin:0;
-			  display:inline-block;
-			}
-
-			.commentBox {
-			    padding:10px;
-			    border-top:1px dotted #bbb;
-			}
-			.commentBox .form-group:first-child, .actionBox .form-group:first-child {
-			    width:80%;
-			}
-			.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
-			    width:18%;
-			}
-			.actionBox .form-group * {
-			    width:100%;
-			}
-			.taskDescription {
-			    margin-top:10px 0;
-			}
-			.commentList {
-			    padding:0;
-			    list-style:none;
-			    max-height:200px;
-			    overflow:auto;
-			}
-			.commentList li {
-			    margin:0;
-			    margin-top:10px;
-			}
-			.commentList li > div {
-			    display:table-cell;
-			}
-			.commenterImage {
-			    width:30px;
-			    margin-right:5px;
-			    height:100%;
-			    float:left;
-			}
-			.commenterImage img {
-			    width:100%;
-			    border-radius:50%;
-			}
-			.commentText p {
-			    margin:0;
-			}
-			.sub-text {
-			    color:#aaa;
-			    font-family:verdana;
-			    font-size:11px;
-			}
-			.actionBox {
-			    border-top:1px dotted #bbb;
-			    padding:10px;
-			}
-
-			/*
-			** Circle Button
-			*/
-			.round-button {
-				/*width:25%;*/
-				width: 60%;
-			}
-			.round-button-circle {
-			    width: 100%;
-			    height: 0;
-			    padding-bottom: 108%;
-			    border-radius: 53%;
-			    border: -8px solid #cfdcec;
-			    overflow: hidden;
-			    background: #4679BD;
-			    box-shadow: 0 0 3px gray;
-			}
-			.round-button-circle:hover {
-				/*background:#30588e;*/
-				background:#ECAA10;
-			}
-			.round-button a {
-				display: block;
-				    float: left;
-				    width: 103%;
-				    height: 39px;
-				    padding-top: 56%;
-				    padding-bottom: 55%;
-				    line-height: 1em;
-				    margin-top: -0.5em;
-				    text-align: center;
-				    color: #e2eaf3;
-				    font-family: Verdana;
-				    font-size: 1.2em;
-				    font-weight: bold;
-				    text-decoration: none;
-				    background-color: #DB9310;
-			}
-
-			.btn-circle {
-			  width: 30px;
-			  height: 30px;
-			  text-align: center;
-			  padding: 6px 0;
-			  font-size: 12px;
-			  line-height: 1.428571429;
-			  border-radius: 15px;
-			}
-			.btn-circle.btn-lg {
-			  width: 50px;
-			  height: 50px;
-			  padding: 10px 16px;
-			  font-size: 18px;
-			  line-height: 1.33;
-			  border-radius: 25px;
-			}
-			.btn-circle.btn-xl {
-			width: 136px;
-			    height: 137px;
-			    padding: 13px 16px;
-			    font-size: 24px;
-			    line-height: 1.33;
-			    border-radius: 67px;
-			}
-
-			hr {
-			    transform:rotate(90deg);
-			    -o-transform:rotate(90deg);
-			    -moz-transform:rotate(90deg);
-			    -webkit-transform:rotate(90deg);
-			    margin-top: 52px;
-			    width: 120px;
-			    margin-left: -24px;
-			    border-top: 3px solid #eee;
-			    /* margin-right: 50%; */
-			}
-
-.verticalLine {
-    border-left: thick solid #ff0000;
-}
 
     </style>
 @stop
@@ -359,7 +33,7 @@
                 </div>
             </div>
 		</div>
-		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item first" style="height:173px; padding: 0px; <!-- margin-bottom: 47px; -->">
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item first" style="height:173px; padding: 0px;">
             <div class="portfolio-single hover ehover4">
 				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
 				<div class="portfolio-view" >
@@ -797,7 +471,7 @@
                 </div>
             </div>
 		</div>
-		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item first" style="height:173px; padding: 0px; <!-- margin-bottom: 47px; -->">
+		<div class="col-md-2 col-sm-6 col-xs-12 mbr-gallery-item mbr-item first" style="height:173px; padding: 0px; ">
             <div class="portfolio-single hover ehover4">
 				<img class="img-responsive" src="{!! url('theme/ungkap') !!}/img/member2.jpg" width="224px" style="margin:0 auto;max-height:173px;" alt="member-2">
 				<div class="portfolio-view" >
@@ -825,7 +499,7 @@
 <div class="modal fade" id="ungkapinChoose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="vertical-alignment-helper">
         <div class="modal-dialog vertical-align-center">
-            <div class="modal-content" style="background-color:rgba(0, 0, 0, 0.45);">
+            <div class="modal-content modal-transparancy">
                 <div class="modal-body">
                 	<div class="row">
                 		<div class="col-md-12" style="text-align:center;padding-bottom: 24px;">
@@ -869,7 +543,7 @@
                 				<label>Gambar</label>
                 				<p>Pilih Gambar Yang Kamu Ungkapin</p><br/>
                 				<input type="file" class="form-control" value="" style="display:none">
-                				<button class="form-control btn btn-default" style="border-color: #FF930E;background-color: rgba(255, 255, 255, 0.78);" type="button" onclick="chooseFile()"><i class="fa fa-upload"></i> Pilih Gambar</button>
+                				<button class="form-control btn btn-default btn-ungkap-upload" type="button" onclick="chooseFile()"><i class="fa fa-upload"></i> Pilih Gambar</button>
                 			</div>
                 		</div>
                 		<div class="col-md-4">
@@ -889,7 +563,7 @@
                 	</div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" data-toggle="modal" data-target="#ungkapinSucces" class="btn btn-default" style="color: rgba(231, 146, 19, 0.87);border-color: #E79B0F;" data-dismiss="modal">Ayo Ungkapin !</button>
+                    <button type="button" data-toggle="modal" data-target="#ungkapinSucces" class="btn btn-default btn-ungkap-success" data-dismiss="modal">Ayo Ungkapin !</button>
                 </div>
             </div>
         </div>
@@ -934,7 +608,7 @@
                 	</div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" data-toggle="modal" data-target="#ungkapinSucces" class="btn btn-default" style="color: rgba(231, 146, 19, 0.87);border-color: #E79B0F;" data-dismiss="modal">Ayo Ungkapin !</button>
+                    <button type="button" data-toggle="modal" data-target="#ungkapinSucces" class="btn btn-default btn-ungkap-success" data-dismiss="modal">Ayo Ungkapin !</button>
                 </div>
             </div>
         </div>
@@ -955,17 +629,17 @@
                 		</div><br/>
                 		<div class="col-md-4">
                 			<div class="form-group" style="text-align:center">
-                				<button class="btn btn-default" style="width:153px;color: rgba(231, 146, 19, 0.87); border-color: #E79B0F;">Lihat</button>
+                				<button class="btn btn-default btn-ungkap">Lihat</button>
                 			</div>
                 		</div>
                 		<div class="col-md-4">
                 			<div class="form-group" style="text-align:center">
-                				<button class="btn btn-default" style="width:153px;color: rgba(231, 146, 19, 0.87);border-color: #E79B0F;">Halaman Utama</button>
+                				<button class="btn btn-default btn-ungkap">Halaman Utama</button>
                 			</div>
                 		</div>
                 		<div class="col-md-4">
                 			<div class="form-group" style="text-align:center">
-                				<button class="btn btn-default" style="width:153px;color: rgba(231, 146, 19, 0.87);border-color: #E79B0F;">Ungkapin Lagi</button>
+                				<button class="btn btn-default btn-ungkap">Ungkapin Lagi</button>
                 			</div>
                 		</div>
                 	</div>

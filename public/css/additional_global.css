@@ -1,0 +1,23 @@
+body {
+  max-height: 2000px;
+  padding-top: 53px;
+}
+a.btn.btn-default.active{
+    color: rgb(230, 138, 0);
+    font-weight: bold;
+}
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: rgba(255, 255, 255, 0.99);
+}
+.navbar > .container .navbar-brand, .navbar > .container-fluid .bold{
+	font-weight: bold;
+	color: rgb(1, 1, 1);
+}
+
+.img-responsive2 {
+    display: inline-block;
+    max-width: 20%;
+    height: auto;
+}
