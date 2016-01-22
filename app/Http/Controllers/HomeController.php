@@ -366,4 +366,8 @@ class HomeController extends Controller
     return view("module.themes.index", ['title' => $this->title]);
   }
 
+  public function getShow(){
+    return redirect('landing')->with('message','Berhasil hapus data group!');
+  }
+
 }
