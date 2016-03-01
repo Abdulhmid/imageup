@@ -700,8 +700,9 @@
 
     </body>
     <!-- Latest compiled and minified JavaScript -->
-    <script type="text/javascript" src="{!! url('plugins/jQuery/jQuery-2.1.3.min.js') !!}"></script>
-    <script src="{!! url('theme/ungkap') !!}/js/bootstrap.min.js"></script>
+    <script src="{!! url('js/jquery.min.js') !!}" type="text/javascript"></script>
+    <script src="{!! url('js/bootstrap.min.js') !!}" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
     <script type="text/javascript">
         function centerModal() {
             $(this).css('display', 'block');
