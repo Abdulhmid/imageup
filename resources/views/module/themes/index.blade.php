@@ -771,5 +771,11 @@
 @stop
 
 @section('script')
-
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#ungkapinTulisan').on('shown.bs.modal', function () {
+           $('#').modal('hide');
+        });
+    });
+    </script>
 @stop

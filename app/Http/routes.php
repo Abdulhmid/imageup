@@ -15,6 +15,11 @@ Route::controllers([
     'password'  => 'Auth\PasswordController',
 ]);
 
+Route::get('/landing2', function()
+{
+    return view('module.themes.index2');
+});
+
 
 Route::group(["middleware" => "auth"], function (){
   Route::controllers([
@@ -26,3 +31,4 @@ Route::group(["middleware" => "auth"], function (){
 });
 
 Route::controller('/', 'HomeController');
+
