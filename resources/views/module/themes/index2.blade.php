@@ -3,8 +3,10 @@
     <head>
         <title>Laravel</title>
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="{!! url('theme/ungkap') !!}/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{!! url('theme/ungkap') !!}/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="{!! url('css/font-awesome.min.css') !!}"> -->
+        <!-- <link rel="stylesheet" href="{!! url('css/bootstrap.min.css') !!}"> -->
+    <link rel="stylesheet" href="{!! url('theme/ungkap') !!}/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{!! url('theme/ungkap') !!}/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
 
         <link rel="stylesheet" type="text/css" href="{!! url('css/bootstrap-theme.min.css') !!}">
@@ -685,6 +687,15 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Controls --> 
+                    <a class="carousel-control left" href="#mainBanner" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>  
+                    <a class="carousel-control right" href="#mainBanner" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+
+
               </div>
             <div class="modal-footer">
                 <button type="button" data-toggle="modal" data-target="#ungkapinSucces" class="btn btn-warning btn-ungkap-success" data-dismiss="modal">Ayo Ungkapin !</button>
