@@ -5,18 +5,16 @@
         <!-- Latest compiled and minified CSS -->
         <!-- <link rel="stylesheet" href="{!! url('css/font-awesome.min.css') !!}"> -->
         <!-- <link rel="stylesheet" href="{!! url('css/bootstrap.min.css') !!}"> -->
-    <link rel="stylesheet" href="{!! url('theme/ungkap') !!}/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{!! url('theme/ungkap') !!}/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
 
+        <!-- Shoe Icon Background No-->
+        <link rel="stylesheet" href="{!! url('theme/ungkap') !!}/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{!! url('theme/ungkap') !!}/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
         <link rel="stylesheet" type="text/css" href="{!! url('css/bootstrap-theme.min.css') !!}">
         <link rel="stylesheet" type="text/css" href="{!! url('css/startbootstrap.css') !!}">
-
-        <!-- Optional theme -->
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{!! url('css/style-new-index.css') !!}">
 
-        <!-- Image Hover -->
 
         <style>
         .vertical-line{
@@ -28,6 +26,10 @@
             postion: absolute;border-radius: 2px;
             margin-left: 50%;
             margin-right: 50%;
+        }
+
+        .modal{
+            background-color: rgba(70, 70, 76, 0.48);
         }
         </style>
     </head>
@@ -688,11 +690,11 @@
                         </div>
                     </div>
                     <!-- Controls --> 
-                    <a class="carousel-control left" href="#mainBanner" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    <a class="carousel-control left" href="#mainBanner" data-slide="prev" style="background: none;">
+                        <span class="glyphicon glyphicon-chevron-left" style="margin-left: -80%;"></span>
                     </a>  
-                    <a class="carousel-control right" href="#mainBanner" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    <a class="carousel-control right" href="#mainBanner" data-slide="next" style="background: none;">
+                        <span class="glyphicon glyphicon-chevron-right" style="margin-right: -80%;"></span>
                     </a>
 
 
