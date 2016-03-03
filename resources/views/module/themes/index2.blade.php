@@ -31,6 +31,25 @@
         .modal{
             background-color: rgba(70, 70, 76, 0.48);
         }
+
+        .glyphicon-chevron-right:before {
+            content: "\e080";
+            color: #F0AD4E;
+        }
+
+        .glyphicon-chevron-left:before {
+            content: "\e079";color: #F0AD4E;
+        }
+
+        a.navbar-brand:before {
+            font-family: 'FontAwesome';
+            position: absolute;
+            top: 32%;
+            left: 2%;
+            float: right;
+            content: "\f118";
+        }
+
         </style>
     </head>
     <body>
@@ -44,7 +63,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{!! url('/') !!}">ungkap.in</a>
+                    <a class="navbar-brand" href="{!! url('/') !!}"> <p class="create-title">ungkap.in</p></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
