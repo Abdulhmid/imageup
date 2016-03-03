@@ -3,10 +3,6 @@
     <head>
         <title>Laravel</title>
         <!-- Latest compiled and minified CSS -->
-        <!-- <link rel="stylesheet" href="{!! url('css/font-awesome.min.css') !!}"> -->
-        <!-- <link rel="stylesheet" href="{!! url('css/bootstrap.min.css') !!}"> -->
-
-        <!-- Shoe Icon Background No-->
         <link rel="stylesheet" href="{!! url('theme/ungkap') !!}/css/font-awesome.min.css">
         <link rel="stylesheet" href="{!! url('theme/ungkap') !!}/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
@@ -14,58 +10,6 @@
         <link rel="stylesheet" type="text/css" href="{!! url('css/startbootstrap.css') !!}">
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{!! url('css/style-new-index.css') !!}">
-
-
-        <style>
-        .body{
-            font-family: "Times New Roman", Times, serif;
-        }
-        .vertical-line{
-            height: 184px;
-            width: 3px;
-            background-color: #FDFDFD;
-            margin-left: 0px;
-            margin-top: 0px;
-            postion: absolute;border-radius: 2px;
-            margin-left: 50%;
-            margin-right: 50%;
-        }
-
-        .modal{
-            background-color: rgba(5, 5, 10, 0.66);
-        }
-
-        .glyphicon-chevron-right:before {
-            content: "\e080";
-            color: #F0AD4E;
-        }
-
-        .glyphicon-chevron-left:before {
-            content: "\e079";color: #F0AD4E;
-        }
-
-        a.navbar-brand:before {
-            font-family: 'FontAwesome';
-            position: absolute;
-            top: 32%;
-            left: 6%;
-            float: right;
-            content: "\f118";
-            color: #EFA63E;
-        }
-
-        /* Icon */
-        .fa-comment:before {
-            content: "\f075";
-            color: #636363;
-        }
-
-        .fa-eye:before {
-            content: "\f06e";
-            color: #636363;
-        }
-
-        </style>
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -78,7 +22,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{!! url('/') !!}"> <p class="create-title" style="color: #EFA742;">ungkap.in</p></a>
+                    <a class="navbar-brand" href="{!! url('/') !!}"> <p class="create-title" >ungkap.in</p></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -107,9 +51,7 @@
                                 <input type="text" class="form-control" placeholder="Cari Hastag">
                             </div>
                         </form>
-                        <!-- <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Premium Bootstrap Themes &amp; Templates"><i class="fa fa-star text-yellow"></i> Cari Hastag <b class="caret"></b></a>
-                        </li> -->
+
                         <li>
                             <!-- <a href="/contact" class="" title="Contact the Start Bootstrap Team">Ayo Ungkapkan</a> -->
                             <p class="navbar-btn">
@@ -555,8 +497,6 @@
                         </div>
                     </div>
               </div>
-              <div class="modal-footer" style="border-top:rgba(0, 0, 0, 0.45)">
-              </div>
             </div>
           </div>
         </div>
@@ -597,8 +537,6 @@
             <div class="modal-footer" style="border-top:rgba(0, 0, 0, 0.45)">
                 <button type="button" data-toggle="modal" data-target="#ungkapinSucces" class="btn btn-warning btn-ungkap-success" data-dismiss="modal">Ayo Ungkapin !</button>
             </div>
-              <div class="modal-footer" style="border-top:rgba(0, 0, 0, 0.45)">
-              </div>
             </div>
             </div>
 
@@ -641,8 +579,6 @@
             <div class="modal-footer" style="border-top:rgba(0, 0, 0, 0.45)">
                 <button type="button" data-toggle="modal" data-target="#ungkapinSucces" class="btn btn-warning btn-ungkap-success" data-dismiss="modal">Ayo Ungkapin !</button>
             </div>
-              <div class="modal-footer" style="border-top:rgba(0, 0, 0, 0.45)">
-              </div>
             </div>
             </div>
         </div>
@@ -659,7 +595,7 @@
                     <div class="row" style="background-color:none;">
                         <div class="col-md-8" style="">
                             <div class="row">
-                                <img src="http://placehold.it/380x600" style="margin-left: 7px;;width:448px;;max-width: 448px;max-height: 433px;" class="img-responsive"/>
+                                <img src="http://placehold.it/380x600" class="img-detail img-responsive"/>
                             </div>
                         </div><br/>
                         <div class="col-md-4">

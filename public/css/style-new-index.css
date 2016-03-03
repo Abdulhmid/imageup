@@ -8,7 +8,7 @@
 }
 
 .navbar-default .navbar-brand {
-    color: black;
+    color: #EFA742;
     font-weight: bold;
 }
 
@@ -484,4 +484,62 @@ ul>li>a{
 .actionBox {
     border-top:1px dotted #bbb;
     padding:10px;
+}
+
+
+/* Inline */
+
+.body{
+    font-family: "Times New Roman", Times, serif;
+}
+.vertical-line{
+    height: 184px;
+    width: 3px;
+    background-color: #FDFDFD;
+    margin-left: 0px;
+    margin-top: 0px;
+    postion: absolute;border-radius: 2px;
+    margin-left: 50%;
+    margin-right: 50%;
+}
+
+.modal{
+    background-color: rgba(5, 5, 10, 0.66);
+}
+
+.glyphicon-chevron-right:before {
+    content: "\e080";
+    color: #F0AD4E;
+}
+
+.glyphicon-chevron-left:before {
+    content: "\e079";color: #F0AD4E;
+}
+
+a.navbar-brand:before {
+    font-family: 'FontAwesome';
+    position: absolute;
+    top: 32%;
+    left: 6%;
+    float: right;
+    content: "\f118";
+    color: #EFA63E;
+}
+
+/* Icon */
+.fa-comment:before {
+    content: "\f075";
+    color: #636363;
+}
+
+.fa-eye:before {
+    content: "\f06e";
+    color: #636363;
+}
+
+
+.img-detail{
+  margin-left: 7px;
+  width:448px;
+  max-width: 448px;max-height: 433px;
 }
