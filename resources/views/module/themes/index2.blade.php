@@ -17,6 +17,9 @@
 
 
         <style>
+        .body{
+            font-family: "Times New Roman", Times, serif;
+        }
         .vertical-line{
             height: 184px;
             width: 3px;
@@ -45,9 +48,21 @@
             font-family: 'FontAwesome';
             position: absolute;
             top: 32%;
-            left: 2%;
+            left: 6%;
             float: right;
             content: "\f118";
+            color: #EFA63E;
+        }
+
+        /* Icon */
+        .fa-comment:before {
+            content: "\f075";
+            color: #636363;
+        }
+
+        .fa-eye:before {
+            content: "\f06e";
+            color: #636363;
         }
 
         </style>
@@ -63,7 +78,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{!! url('/') !!}"> <p class="create-title">ungkap.in</p></a>
+                    <a class="navbar-brand" href="{!! url('/') !!}"> <p class="create-title" style="color: #EFA742;">ungkap.in</p></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -518,7 +533,7 @@
                         <div class="col-md-12 text-center" style="text-align:center;padding-bottom: 24px;">
                         </div><br/>
                         <div class="col-md-5 text-center " style="text-align:center;background-color:none;">
-                            <div class="" style="text-align:center">
+                            <div class="" style="text-align:center;">
                                 <button type="button" data-toggle="modal" 
                                         data-target="#ungkapinImage" 
                                         style="margin-right: -18%;" 
@@ -579,7 +594,7 @@
                         </div>
                     </div>
               </div>
-            <div class="modal-footer">
+            <div class="modal-footer" style="border-top:rgba(0, 0, 0, 0.45)">
                 <button type="button" data-toggle="modal" data-target="#ungkapinSucces" class="btn btn-warning btn-ungkap-success" data-dismiss="modal">Ayo Ungkapin !</button>
             </div>
               <div class="modal-footer" style="border-top:rgba(0, 0, 0, 0.45)">
@@ -604,7 +619,7 @@
                                 <label>Gambar</label>
                                 <p>Pilih Gambar Yang Kamu Ungkapin</p><br/>
                                 <input type="file" class="form-control" value="" style="display:none">
-                                <button class="form-control btn btn-default btn-ungkap-upload" type="button" onclick="chooseFile()"><i class="fa fa-upload"></i> Pilih Gambar</button>
+                                <button style="background: #EEA53D;color: white;font-size: 13px;" class="form-control btn btn-default btn-ungkap-upload" type="button" onclick="chooseFile()"><i class="fa fa-upload"></i> Pilih Gambar</button>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -623,7 +638,7 @@
                         </div>
                     </div>
               </div>
-            <div class="modal-footer">
+            <div class="modal-footer" style="border-top:rgba(0, 0, 0, 0.45)">
                 <button type="button" data-toggle="modal" data-target="#ungkapinSucces" class="btn btn-warning btn-ungkap-success" data-dismiss="modal">Ayo Ungkapin !</button>
             </div>
               <div class="modal-footer" style="border-top:rgba(0, 0, 0, 0.45)">
@@ -643,65 +658,65 @@
               <div class="modal-body" style="">
                     <div class="row" style="background-color:none;">
                         <div class="col-md-8" style="">
-                            <img src="http://i.imgur.com/Cn1ev16.jpg" style="width: 448px;max-width: 448px;">
+                            <div class="row">
+                                <img src="http://placehold.it/380x600" style="margin-left: 7px;;width:448px;;max-width: 448px;max-height: 433px;" class="img-responsive"/>
+                            </div>
                         </div><br/>
                         <div class="col-md-4">
-                            <div class="detailBox">
-                                <div class="titleBox">
-                                  <label>Comment Box</label>
-                                    <button type="button" class="close" aria-hidden="true">&times;</button>
-                                </div>
-                                <div class="commentBox">
-                                    <p class="taskDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    <span><i class="fa fa-comment"> 8989</i></span>
-                                    <span><i class="fa fa-eye"> 8989</i></span>
-                                    <span><i class="fa fa-calendar"> 11 Nov 2015</i></span>
+                            <div class="row">
+                                <div class="detailBox">
+                                    <div class="commentBox">
+                                        <p class="taskDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <span><i class="fa fa-comment">8989</i></span>
+                                        <span><i class="fa fa-eye"> 8989</i></span>
+                                        <span><i class="fa fa-calendar"> 11 Nov 2015</i></span>
 
-                                    <span style="margin-left:12px"><i class="fa fa-facebook-square">Share</i></span>
-                                    <span><i class="fa fa-twitter-square">Tweet</i></span>
-                                </div>
-                                <div class="actionBox">
-                                    <ul class="commentList">
-                                        <li>
-                                            <div class="commenterImage">
-                                              <img src="http://lorempixel.com/50/50/people/6" />
-                                            </div>
-                                            <div class="commentText">
-                                                <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
+                                        <span style="margin-left:12px"><i class="fa fa-facebook-square">Share</i></span>
+                                        <span><i class="fa fa-twitter-square">Tweet</i></span>
+                                    </div>
+                                    <div class="actionBox">
+                                        <ul class="commentList">
+                                            <li>
+                                                <div class="commenterImage">
+                                                  <img src="http://lorempixel.com/50/50/people/6" />
+                                                </div>
+                                                <div class="commentText">
+                                                    <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
 
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="commenterImage">
-                                              <img src="http://lorempixel.com/50/50/people/7" />
-                                            </div>
-                                            <div class="commentText">
-                                                <p class="">Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p> <span class="date sub-text">on March 5th, 2014</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="commenterImage">
+                                                  <img src="http://lorempixel.com/50/50/people/7" />
+                                                </div>
+                                                <div class="commentText">
+                                                    <p class="">Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p> <span class="date sub-text">on March 5th, 2014</span>
 
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="commenterImage">
+                                                  <img src="http://lorempixel.com/50/50/people/9" />
+                                                </div>
+                                                <div class="commentText">
+                                                    <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
+                                                    <img src="{!! url('theme/ungkap') !!}/img/member2.jpg" >
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <form class="form-inline" role="form">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" placeholder="Your comments" />
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="commenterImage">
-                                              <img src="http://lorempixel.com/50/50/people/9" />
+                                            <div class="form-group">
+                                                <button class="btn btn-default">Add</button>
                                             </div>
-                                            <div class="commentText">
-                                                <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
-                                                <img src="{!! url('theme/ungkap') !!}/img/member2.jpg" >
+                                        </form>
+                                        <div class="row"><br/>
+                                            <div style=""><br/>
+                                                <div class="col-md-6" style="text-align:center;"><button class="btn btn-default">Naik</button></div>
+                                                <div class="col-md-6" style="text-align:center;"><button class="btn btn-default">Hapus</button></div>
                                             </div>
-                                        </li>
-                                    </ul>
-                                    <form class="form-inline" role="form">
-                                        <div class="form-group">
-                                            <input class="form-control" type="text" placeholder="Your comments" />
-                                        </div>
-                                        <div class="form-group">
-                                            <button class="btn btn-default">Add</button>
-                                        </div>
-                                    </form>
-                                    <div class="row"><br/>
-                                        <div style="border-top:1px solid black;"><br/>
-                                            <div class="col-md-6" style="text-align:center;"><button class="btn btn-default">Naik</button></div>
-                                            <div class="col-md-6" style="text-align:center;"><button class="btn btn-default">Hapus</button></div>
                                         </div>
                                     </div>
                                 </div>
@@ -715,13 +730,6 @@
                     <a class="carousel-control right" href="#mainBanner" data-slide="next" style="background: none;">
                         <span class="glyphicon glyphicon-chevron-right" style="margin-right: -80%;"></span>
                     </a>
-
-
-              </div>
-            <div class="modal-footer">
-                <button type="button" data-toggle="modal" data-target="#ungkapinSucces" class="btn btn-warning btn-ungkap-success" data-dismiss="modal">Ayo Ungkapin !</button>
-            </div>
-              <div class="modal-footer" style="border-top:rgba(0, 0, 0, 0.45)">
               </div>
             </div>
             </div>
@@ -766,7 +774,9 @@
         $('#ungkapinDetail').on('show.bs.modal', centerModal);
         $(window).on("resize", function () {
             $('#ungkapinDetail:visible').each(centerModal);
+            $('.modal-body',this).css({width:'auto',height:'auto', 'max-height':'100%'});
         });
+
     </script>
 
 </html>
