@@ -29,7 +29,7 @@
         }
 
         .modal{
-            background-color: rgba(70, 70, 76, 0.48);
+            background-color: rgba(5, 5, 10, 0.66);
         }
 
         .glyphicon-chevron-right:before {
