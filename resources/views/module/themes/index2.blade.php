@@ -55,7 +55,7 @@
                         <li>
                             <!-- <a href="/contact" class="" title="Contact the Start Bootstrap Team">Ayo Ungkapkan</a> -->
                             <p class="navbar-btn">
-                                <a data-toggle="modal" data-target="#ungkapinLogin" class="btn btn-warning">Ayo Ungkapin</a>
+                                <a data-toggle="modal" data-target="#modal-ungkapin" class="btn btn-warning">Ayo Ungkapin</a>
                             </p>
                         </li>
                     </ul>
