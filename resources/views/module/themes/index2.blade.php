@@ -10,6 +10,11 @@
         <link rel="stylesheet" type="text/css" href="{!! url('css/startbootstrap.css') !!}">
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{!! url('css/style-new-index.css') !!}">
+        <style type="text/css">
+            input[type="button"], input[type="submit"] { 
+                color:#050; 
+            } 
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -22,7 +27,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{!! url('/') !!}"> <p class="create-title" >ungkap.in</p></a>
+                    <a class="navbar-brand" href="{!! url('/landing2') !!}"> <p class="create-title" >ungkap.in</p></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
