@@ -19,7 +19,11 @@
 |
 */
 
+// From
 require __DIR__.'/../bootstrap/autoload.php';
+
+// To
+// require __DIR__.'/../imageup/bootstrap/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +37,11 @@ require __DIR__.'/../bootstrap/autoload.php';
 |
 */
 
+// From
 $app = require_once __DIR__.'/../bootstrap/app.php';
+
+// To
+// $app = require_once __DIR__.'/../imageup/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
