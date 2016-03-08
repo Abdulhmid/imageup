@@ -543,3 +543,18 @@ a.navbar-brand:before {
   width:448px;
   max-width: 448px;max-height: 433px;
 }
+
+.btn-ungkap-success{
+  background-color: #F7941E;
+}
+
+.btn-ungkap{
+  background: rgba(0, 0, 255, 0);
+  border-color: #E79B0F;
+  color: #E79B0F; 
+}
+.btn-ungkap:hover{
+  background: rgba(0, 0, 255, 0);
+  border-color: #E79B0F;
+  color: #E79B0F; 
+}
