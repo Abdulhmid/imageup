@@ -558,3 +558,32 @@ a.navbar-brand:before {
   border-color: #E79B0F;
   color: #E79B0F; 
 }
+
+
+/* Global Config */
+
+input[type="button"], input[type="submit"] { 
+    color:#050; 
+}
+
+.fa-comment:before {
+    content: "\f075";
+    color: #C0B9B9;
+}
+
+.icon-eye-open:before {
+    content: "\f06e";
+    color: rgb(120, 120, 122);
+}
+
+.fa-chain:before, .fa-link:before {
+    content: "\f0c1";
+    color: #D17D07;
+} 
+.fa-rotate-45 {
+    -webkit-transform: rotate(85deg);
+    -moz-transform: rotate(85deg);
+    -ms-transform: rotate(85deg);
+    -o-transform: rotate(85deg);
+    transform: rotate(85deg);
+}

@@ -11,9 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{!! url('css/style-new-index.css') !!}">
         <style type="text/css">
-            input[type="button"], input[type="submit"] { 
-                color:#050; 
-            } 
+
         </style>
     </head>
     <body>
@@ -97,7 +95,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -113,7 +111,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -138,7 +136,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -151,7 +149,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -164,7 +162,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -177,7 +175,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -200,7 +198,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -214,7 +212,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -237,7 +235,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -248,7 +246,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -271,7 +269,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -284,7 +282,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -297,33 +295,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
-                        </span> 
-                    </div>
-                </div>
-                <div class="col-md-2 border">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitatio
-                    <div class="clearfix"></div>
-                    <div class="row span" style="display:block">
-                        <span class="btn-bottom-content"> 
-                            <i class="fa fa-comment"></i> 899
-                            <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
-                        </span> 
-                    </div>
-                </div>
-                <div class="col-md-2 border">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation 
-                    <div class="clearfix"></div>
-                    <div class="row span" style="display:block">
-                        <span class="btn-bottom-content"> 
-                            <i class="fa fa-comment"></i> 899
-                            <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -336,7 +308,33 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
+                        </span> 
+                    </div>
+                </div>
+                <div class="col-md-2 border">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation 
+                    <div class="clearfix"></div>
+                    <div class="row span" style="display:block">
+                        <span class="btn-bottom-content"> 
+                            <i class="fa fa-comment"></i> 899
+                            <i class="icon-eye-open"></i> 899 
+                            <i class="fa fa-link fa-rotate-45"></i> 
+                        </span> 
+                    </div>
+                </div>
+                <div class="col-md-2 border">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitatio
+                    <div class="clearfix"></div>
+                    <div class="row span" style="display:block">
+                        <span class="btn-bottom-content"> 
+                            <i class="fa fa-comment"></i> 899
+                            <i class="icon-eye-open"></i> 899 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -349,7 +347,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -362,7 +360,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -375,7 +373,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -388,7 +386,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -401,7 +399,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -414,7 +412,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -427,7 +425,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -440,7 +438,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -453,7 +451,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
