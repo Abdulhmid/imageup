@@ -10,6 +10,9 @@
         <link rel="stylesheet" type="text/css" href="{!! url('css/startbootstrap.css') !!}">
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{!! url('css/style-new-index.css') !!}">
+        <style type="text/css">
+
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -22,7 +25,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{!! url('/') !!}"> <p class="create-title" >ungkap.in</p></a>
+                    <a class="navbar-brand" href="{!! url('/landing2') !!}"> <p class="create-title" >ungkap.in</p></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -92,7 +95,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -108,7 +111,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -133,7 +136,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -146,7 +149,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -159,7 +162,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -172,7 +175,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -195,7 +198,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -209,7 +212,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -232,7 +235,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -243,7 +246,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -266,7 +269,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -279,7 +282,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -292,33 +295,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
-                        </span> 
-                    </div>
-                </div>
-                <div class="col-md-2 border">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitatio
-                    <div class="clearfix"></div>
-                    <div class="row span" style="display:block">
-                        <span class="btn-bottom-content"> 
-                            <i class="fa fa-comment"></i> 899
-                            <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
-                        </span> 
-                    </div>
-                </div>
-                <div class="col-md-2 border">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation 
-                    <div class="clearfix"></div>
-                    <div class="row span" style="display:block">
-                        <span class="btn-bottom-content"> 
-                            <i class="fa fa-comment"></i> 899
-                            <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -331,7 +308,33 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
+                        </span> 
+                    </div>
+                </div>
+                <div class="col-md-2 border">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation 
+                    <div class="clearfix"></div>
+                    <div class="row span" style="display:block">
+                        <span class="btn-bottom-content"> 
+                            <i class="fa fa-comment"></i> 899
+                            <i class="icon-eye-open"></i> 899 
+                            <i class="fa fa-link fa-rotate-45"></i> 
+                        </span> 
+                    </div>
+                </div>
+                <div class="col-md-2 border">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitatio
+                    <div class="clearfix"></div>
+                    <div class="row span" style="display:block">
+                        <span class="btn-bottom-content"> 
+                            <i class="fa fa-comment"></i> 899
+                            <i class="icon-eye-open"></i> 899 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -344,7 +347,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -357,7 +360,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -370,7 +373,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -383,7 +386,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -396,7 +399,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -409,7 +412,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -422,7 +425,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -435,7 +438,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -448,7 +451,7 @@
                         <span class="btn-bottom-content"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
-                            <i class="icon-camera-retro"></i> 
+                            <i class="fa fa-link fa-rotate-45"></i> 
                         </span> 
                     </div>
                 </div>
@@ -518,14 +521,14 @@
                                 <textarea class="form-control" name="hastag" cols="33" rows="3"  placeholder="#positif#negatif#cinta#agama#sehat#lifestyle"></textarea>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4" style="border-left: 1px solid #EBEBEB;">
                             <div class="form-group">
                                 <label>Hastag</label>
                                 <p>Berikan hastag yang sesuai. <br/> Maksimal 10 hastag</p>
                                 <textarea class="form-control" name="hastag" cols="33" rows="3"  placeholder="#positif#negatif#cinta#agama#sehat#lifestyle"></textarea>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4" style="border-left: 1px solid #EBEBEB;">
                             <div class="form-group">
                                 <label>Link</label>
                                 <p>Masukkan link sebagai bukti penguat. <br/> Kamu boleh tidak memberikan link.</p>
@@ -552,7 +555,7 @@
             <div class="modal-content" style="margin-left: -129px;margin-right: -129px;">
               <div class="modal-body" style="">
                     <div class="row" style="background-color:none;">
-                        <div class="col-md-4">
+                        <div class="col-md-4" >
                             <div class="form-group">
                                 <label>Gambar</label>
                                 <p>Pilih Gambar Yang Kamu Ungkapin</p><br/>
@@ -560,14 +563,14 @@
                                 <button style="background: #EEA53D;color: white;font-size: 13px;" class="form-control btn btn-default btn-ungkap-upload" type="button" onclick="chooseFile()"><i class="fa fa-upload"></i> Pilih Gambar</button>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4" style="border-left: 1px solid #EBEBEB;">
                             <div class="form-group">
                                 <label>Hastag</label>
                                 <p>Berikan hastag yang sesuai. <br/> Maksimal 10 hastag</p>
                                 <textarea class="form-control" name="hastag" cols="33" rows="3"  placeholder="#positif#negatif#cinta#agama#sehat#lifestyle"></textarea>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4" style="border-left: 1px solid #EBEBEB;">
                             <div class="form-group">
                                 <label>Link</label>
                                 <p>Masukkan link sebagai bukti penguat. <br/> Kamu boleh tidak memberikan link.</p>
@@ -672,6 +675,85 @@
 
         </div>
 
+        <!-- Ungkap Thank You -->
+        <div class="modal fade" id="ungkapinThankYou" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <!-- Content -->
+            <button type="button" class="closeButton"  data-dismiss="modal" style="margin-right:10%;margin-top:21px;">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-dialog modal-dialog-center">
+                <div class="modal-content" style="">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12" style="text-align:center;padding-bottom: 24px;">
+                                <h3 class="modal-title" id="myModalLabel">Berhasil</h3>
+                                <h5 class="modal-title" id="myModalLabel">Terimakasih sudah ungkapin isi hatimu!</h5>
+                            </div><br/>
+                            <div class="col-md-4">
+                                <div class="form-group" style="text-align:center">
+                                    <button class="btn btn-default btn-ungkap">Lihat</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" style="text-align:center">
+                                    <button class="btn btn-default btn-ungkap">Halaman Utama</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" style="text-align:center">
+                                    <button class="btn btn-default btn-ungkap">Ungkapin Lagi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ungkap Login -->
+        <div class="modal fade" id="ungkapinLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <!-- Content -->
+            <button type="button" class="closeButton"  data-dismiss="modal" style="margin-right:10%;margin-top:21px;">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-dialog modal-dialog-center">
+                <div class="modal-content" style="width:453px;heigth:545px;">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12" style="text-align:center;padding-bottom: 24px;">
+                                <h3 class="modal-title" id="myModalLabel">Admin Login</h3>
+                                <h5 class="modal-title" id="myModalLabel"><i style="color:red;">Halaman Ini khusus untuk Admin Sistem.</i></h5>
+                            </div><br/>
+                            <div class="col-md-12">
+                                <div class="form-group" style="text-align:center">
+                                    <input type="text" name="username" class="form-control" value="" placeholder="Username">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group" style="text-align:center">
+                                    <input type="text" name="password" class="form-control" value="" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="border-bottom: 1px solid #EBEBEB;">
+                                <div class="form-group" style="text-align:center">
+                                    <button class="btn btn-warning">Masuk</button>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="margin-top:3%;">
+                                <div class="form-group" style="text-align:center">
+                                    <button class="btn btn-default btn-ungkap">Halaman Utama</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="pull-left">Ungkapin 2015</p>
+                        <p class="pull-right">Kontak Kami</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
     </body>
@@ -706,12 +788,24 @@
         $(window).on("resize", function () {
             $('#ungkapinImage:visible').each(centerModal);
         });
+        $('#ungkapinThankYou').on('show.bs.modal', centerModal);
+        $(window).on("resize", function () {
+            $('#ungkapinThankYou:visible').each(centerModal);
+        });
+        $('#ungkapinLogin').on('show.bs.modal', centerModal);
+        $(window).on("resize", function () {
+            $('#ungkapinLogin:visible').each(centerModal);
+        });
 
         $('#ungkapinDetail').on('show.bs.modal', centerModal);
         $(window).on("resize", function () {
             $('#ungkapinDetail:visible').each(centerModal);
             $('.modal-body',this).css({width:'auto',height:'auto', 'max-height':'100%'});
         });
+
+        $('#ungkapinTulisan,#ungkapinImage').on('hidden.bs.modal', function () {
+            $('#ungkapinThankYou').modal('show');
+        })
 
     </script>
 
