@@ -663,11 +663,11 @@
                         </div>
                     </div>
                     <!-- Controls --> 
-                    <a class="carousel-control left" href="#mainBanner" data-slide="prev" style="background: none;">
-                        <span class="glyphicon glyphicon-chevron-left" style="margin-left: -80%;"></span>
+                    <a class="carousel-control left" href="#mainBanner" data-slide="prev" style="background: none;width: 0px;">
+                        <span class="glyphicon glyphicon-chevron-left" style="margin-left: -30px;"></span>
                     </a>  
-                    <a class="carousel-control right" href="#mainBanner" data-slide="next" style="background: none;">
-                        <span class="glyphicon glyphicon-chevron-right" style="margin-right: -80%;"></span>
+                    <a class="carousel-control right" href="#mainBanner" data-slide="next" style="background: none;width: 0px;">
+                        <span class="glyphicon glyphicon-chevron-right" style="margin-right: -30px;"></span>
                     </a>
               </div>
             </div>
@@ -713,11 +713,11 @@
         <!-- Ungkap Login -->
         <div class="modal fade" id="ungkapinLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <!-- Content -->
-            <button type="button" class="closeButton"  data-dismiss="modal" style="margin-right:10%;margin-top:21px;">
+            <button type="button" class="closeButton"  data-dismiss="modal" style="margin-top:21px;">
                 <span aria-hidden="true">&times;</span>
             </button>
             <div class="modal-dialog modal-dialog-center">
-                <div class="modal-content" style="width:453px;heigth:545px;">
+                <div class="modal-content" style="">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12" style="text-align:center;padding-bottom: 24px;">
@@ -754,7 +754,46 @@
             </div>
         </div>
 
-
+        <!-- Ungkap On Show -->
+        <div class="modal fade" id="ungkapinOnShow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <!-- Content -->
+            <button type="button" class="closeButton"  data-dismiss="modal" style="">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-dialog modal-dialog-center custom-class">
+                <div class="modal-content" style="heigth:545px;">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="{!! url('images/default/people-mouth.png') !!}" class="img-responsive center-block">
+                            </div> <br/>
+                            <div class="col-md-12" style="text-align:center;padding-bottom: 24px;">
+                                <h3 class="modal-title" id="myModalLabel">Ayo Ungkapin</h3>
+                                <h5 class="modal-title" id="myModalLabel">Isi Hatimu!</h5>
+                            </div><br/>
+                            <div class="col-md-12">
+                                <p class="font-ungkap-show">
+                                    Ungkapin adalah tempat dimana kamu <br/> bisa mengungkapkan isi hatimu <br/> secara anonim !
+                                </p>
+                            </div><br/>
+                            <div class="col-md-12">
+                                <p class="font-ungkap-show">
+                                    Engga perlu ribet bikin akun, langsung <br/> aja ungkapin! Identitasmu tidak akan
+                                    <br/> diketahui siapapun. Asyik bukan?!:D
+                                </p>
+                            </div><br/>
+                            <div class="col-md-12" style="border-bottom: 1px solid #EBEBEB;">
+                                <p class="font-ungkap-show" style="color:red;"> <i> Mohon tidak mengandung SARA <br/> Admin berhak menghapus postingan apapun </i>.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="pull-left">Ungkapin 2015</p>
+                        <p class="pull-right yellow-text" >Kontak Kami</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </body>
     <!-- Latest compiled and minified JavaScript -->
@@ -771,11 +810,17 @@
         }
 
         $(document).ready(function(){
+            $('#ungkapinOnShow').modal('show');
             $('#ungkapinTulisan,#ungkapinImage').on('shown.bs.modal', function () {
                $('#modal-ungkapin').modal('hide');
             });
         });
 
+
+        $('#ungkapinOnShow').on('show.bs.modal', centerModal);
+        $(window).on("resize", function () {
+            $('#ungkapinOnShow:visible').each(centerModal);
+        });
         $('#modal-ungkapin').on('show.bs.modal', centerModal);
         $(window).on("resize", function () {
             $('#modal-ungkapin:visible').each(centerModal);

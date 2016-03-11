@@ -587,3 +587,21 @@ input[type="button"], input[type="submit"] {
     -o-transform: rotate(85deg);
     transform: rotate(85deg);
 }
+
+.ungkapinOnShow>div>p{
+  color: blue;
+}
+
+.font-ungkap-show{
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .custom-class {
+        width: 30%; /* either % (e.g. 60%) or px (400px) */
+    }
+}
+
+.yellow-text{
+  color: #EEA741;
+}
