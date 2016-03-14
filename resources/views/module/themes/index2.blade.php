@@ -10,12 +10,13 @@
         <link rel="stylesheet" type="text/css" href="{!! url('css/startbootstrap.css') !!}">
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{!! url('css/style-new-index.css') !!}">
+        <link rel="stylesheet" type="text/css" href="{!! url('css/bootsnipp-navbar.css') !!}">
         <style type="text/css">
 
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-bootsnipp animate" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -66,7 +67,22 @@
                 <!-- /.navbar-collapse -->
             </div>
             <!-- /.container -->
+            <div class="bootsnipp-search animate open">
+                <div class="container">
+                  <form action="http://bootsnipp.com/search" method="GET" role="search">
+                    <div class="input-group">
+                      <input type="text" class="form-control" name="q" placeholder="Search for snippets and hit enter">
+                      <span class="input-group-btn">
+                        <button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove"></span></button>
+                      </span>
+                    </div>
+                  </form>
+                </div>
+            </div>
+
+
         </nav>
+        
         <div class="clearfix"></div>
         <section>
 
@@ -808,6 +824,26 @@
             // Center modal vertically in window
             $dialog.css("margin-top", offset);
         }
+
+        $('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function(event) {
+            event.preventDefault();
+            $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
+            $('.navbar-bootsnipp .bootsnipp-search').toggleClass('open');
+            $('a[href="#toggle-search"]').closest('li').toggleClass('active');
+
+            if ($('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+                /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
+                setTimeout(function() { 
+                    $('.navbar-bootsnipp .bootsnipp-search .form-control').focus();
+                }, 100);
+            }           
+        });
+
+        $(document).on('keyup', function(event) {
+            if (event.which == 27 && $('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+                $('a[href="#toggle-search"]').trigger('click');
+            }
+        });
 
         $(document).ready(function(){
             $('#ungkapinOnShow').modal('show');
