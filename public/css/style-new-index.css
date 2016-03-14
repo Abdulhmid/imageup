@@ -29,7 +29,7 @@ section>footer{
 	border-radius: 0px;
   background: #FFFBFB;
   border: 1px solid;
-  border-color: rgb(160, 164, 165);
+  /*border-color: rgb(160, 164, 165);*/
 }
 
 .atyle{
@@ -41,6 +41,7 @@ section>footer{
   color: rgb(250, 146, 0);
   border-color: rgb(160, 164, 165);
   background-color: rgb(254, 254, 254);
+  background: white;
 }
 
 /*.navbar-brand

@@ -1,3 +1,11 @@
+
+.white-input{
+	color: white;
+}
+.text-hastag{
+	color:white;
+	margin-left: -12px;
+}
 .animate {
     -webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
@@ -109,14 +117,16 @@
 	display: none;
 }
 .navbar-bootsnipp .bootsnipp-search .form-control {
-	background-color: rgb(235, 235, 235);
+	/*background-color: rgb(235, 235, 235);*/
+	background-color: rgba(47, 41, 41, 0.81);
 	border-radius: 0px;
 	border-width: 0px;
 	font-size: 24px;
 	padding: 30px 0px;
 }
 .navbar-bootsnipp .bootsnipp-search .form-control {
-	background-color: rgb(235, 235, 235);
+	/*background-color: rgb(235, 235, 235);*/
+	background-color: rgba(47, 41, 41, 0.81);
 	border-radius: 0px;
 	border-width: 0px;
 	font-size: 24px;
@@ -171,7 +181,8 @@
 */
 
 	.navbar-bootsnipp .bootsnipp-search {
-		background-color: rgb(235, 235, 235);
+		/*background-color: rgb(235, 235, 235);*/
+		background-color: rgb(48, 42, 42);
 		display: block;
 		position: absolute;
 		top: 100%;

@@ -12,7 +12,12 @@
         <link rel="stylesheet" type="text/css" href="{!! url('css/style-new-index.css') !!}">
         <link rel="stylesheet" type="text/css" href="{!! url('css/bootsnipp-navbar.css') !!}">
         <style type="text/css">
-
+            .btn {
+                border-radius: 0px;
+            }
+            input[type=text], textarea {
+                border-radius: 0px;
+            }
         </style>
     </head>
     <body>
@@ -71,14 +76,20 @@
                 <div class="[ container ]">
                     <form action="http://bootsnipp.com/search" method="GET" role="search">
                         <div class="[ input-group ]">
-                            <input type="text" class="[ form-control ]" name="q" placeholder="Search for snippets and hit enter">
+                            <input type="text" class="[ form-control white-input ]" name="q" placeholder="Search for snippets and hit enter">
                             <span class="[ input-group-btn ]">
                                 <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
                             </span>
                         </div>
                     </form>
                 </div>
-            </div>
+                <div>
+                    <div class="[ container ]">
+                        <p class="text-hastag">Hastag Terpopuler : #lorem #ipsum #color #style #freedom #amazing</p>
+                    </div>
+                </div>
+            </div><div class="clearfiv"></div>
+
 
         </nav>
         
