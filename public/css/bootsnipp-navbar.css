@@ -32,7 +32,7 @@
 }
 
 .navbar-bootsnipp .navbar-brand {
-	color: rgb(95, 176, 228);
+	color: rgba(240, 173, 78, 0.95);
 	font-weight: 900;
 	letter-spacing: 2px;
 }
@@ -145,7 +145,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .navbar-bootsnipp .navbar-brand {
+/*    .navbar-bootsnipp .navbar-brand {
     	font-size: 20px;
 		height: auto;
 		padding: 15px 5px;
@@ -168,7 +168,7 @@
 		padding-left: 10px;
 		padding-right: 10px;
 	}
-
+*/
 
 	.navbar-bootsnipp .bootsnipp-search {
 		background-color: rgb(235, 235, 235);

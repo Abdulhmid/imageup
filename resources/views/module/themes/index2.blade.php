@@ -52,7 +52,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <form class="navbar-form navbar-left" role="search">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Cari Hastag">
+                                <input type="text" class="form-control" id="findHastag" placeholder="Cari Hastag">
                             </div>
                         </form>
 
@@ -67,19 +67,18 @@
                 <!-- /.navbar-collapse -->
             </div>
             <!-- /.container -->
-            <div class="bootsnipp-search animate open">
-                <div class="container">
-                  <form action="http://bootsnipp.com/search" method="GET" role="search">
-                    <div class="input-group">
-                      <input type="text" class="form-control" name="q" placeholder="Search for snippets and hit enter">
-                      <span class="input-group-btn">
-                        <button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove"></span></button>
-                      </span>
-                    </div>
-                  </form>
+            <div class="[ bootsnipp-search animate ]">
+                <div class="[ container ]">
+                    <form action="http://bootsnipp.com/search" method="GET" role="search">
+                        <div class="[ input-group ]">
+                            <input type="text" class="[ form-control ]" name="q" placeholder="Search for snippets and hit enter">
+                            <span class="[ input-group-btn ]">
+                                <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                            </span>
+                        </div>
+                    </form>
                 </div>
             </div>
-
 
         </nav>
         
@@ -825,24 +824,26 @@
             $dialog.css("margin-top", offset);
         }
 
-        $('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function(event) {
-            event.preventDefault();
-            $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
-            $('.navbar-bootsnipp .bootsnipp-search').toggleClass('open');
-            $('a[href="#toggle-search"]').closest('li').toggleClass('active');
+        $(function() { 
+            $('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"],#findHastag').on('click', function(event) {
+                event.preventDefault();
+                $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
+                $('.navbar-bootsnipp .bootsnipp-search').toggleClass('open');
+                $('a[href="#toggle-search"]').closest('li').toggleClass('active');
 
-            if ($('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
-                /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
-                setTimeout(function() { 
-                    $('.navbar-bootsnipp .bootsnipp-search .form-control').focus();
-                }, 100);
-            }           
-        });
+                if ($('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+                    /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
+                    setTimeout(function() { 
+                        $('.navbar-bootsnipp .bootsnipp-search .form-control').focus();
+                    }, 100);
+                }           
+            });
 
-        $(document).on('keyup', function(event) {
-            if (event.which == 27 && $('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
-                $('a[href="#toggle-search"]').trigger('click');
-            }
+            $(document).on('keyup', function(event) {
+                if (event.which == 27 && $('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+                    $('a[href="#toggle-search"]').trigger('click');
+                }
+            });
         });
 
         $(document).ready(function(){
