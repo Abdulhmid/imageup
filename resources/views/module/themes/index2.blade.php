@@ -18,6 +18,18 @@
             input[type=text], textarea {
                 border-radius: 0px;
             }
+            ::-webkit-input-placeholder {
+               font-style: italic;
+            }
+            :-moz-placeholder {
+               font-style: italic;  
+            }
+            ::-moz-placeholder {
+               font-style: italic;  
+            }
+            :-ms-input-placeholder {  
+               font-style: italic; 
+            }
         </style>
     </head>
     <body>
@@ -76,7 +88,7 @@
                 <div class="[ container ]">
                     <form action="http://bootsnipp.com/search" method="GET" role="search">
                         <div class="[ input-group ]">
-                            <input type="text" class="[ form-control white-input ]" name="q" placeholder="Search for snippets and hit enter">
+                            <input type="text" class="[ form-control white-input ]" name="q" placeholder="Ketik disini untuk mencari hastag">
                             <span class="[ input-group-btn ]">
                                 <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
                             </span>
@@ -742,24 +754,26 @@
             <button type="button" class="closeButton"  data-dismiss="modal" style="margin-top:21px;">
                 <span aria-hidden="true">&times;</span>
             </button>
-            <div class="modal-dialog modal-dialog-center">
+            <div class="modal-dialog modal-dialog-center" style=" width: 359px;">
                 <div class="modal-content" style="">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12" style="text-align:center;padding-bottom: 24px;">
                                 <h3 class="modal-title" id="myModalLabel">Admin Login</h3>
-                                <h5 class="modal-title" id="myModalLabel"><i style="color:red;">Halaman Ini khusus untuk Admin Sistem.</i></h5>
+                                <h5 class="modal-title" id="myModalLabel"><i style="color:red;">Halaman Ini khusus untuk Admin Sistem.<br/> Yang tidak berwenang silahkan kembali <br/> Kehalaman Utama.</i></h5>
                             </div><br/>
-                            <div class="col-md-12">
-                                <div class="form-group" style="text-align:center">
-                                    <input type="text" name="username" class="form-control" value="" placeholder="Username">
+                            <center>
+                                <div class="col-md-12 center-block">
+                                    <div class="form-group" style="text-align:center">
+                                        <input type="text" name="username" style="" class="form-control" value="" placeholder="Username">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group" style="text-align:center">
-                                    <input type="text" name="password" class="form-control" value="" placeholder="Password">
+                                <div class="col-md-12 center-block">
+                                    <div class="form-group" style="text-align:center">
+                                        <input type="text" name="password" style="" class="form-control" value="" placeholder="Password">
+                                    </div>
                                 </div>
-                            </div>
+                            </center>
                             <div class="col-md-12" style="border-bottom: 1px solid #EBEBEB;">
                                 <div class="form-group" style="text-align:center">
                                     <button class="btn btn-warning">Masuk</button>
@@ -774,7 +788,7 @@
                     </div>
                     <div class="modal-footer">
                         <p class="pull-left">Ungkapin 2015</p>
-                        <p class="pull-right">Kontak Kami</p>
+                        <p class="pull-right yellow-text">Kontak Kami</p>
                     </div>
                 </div>
             </div>
@@ -858,7 +872,7 @@
         });
 
         $(document).ready(function(){
-            $('#ungkapinOnShow').modal('show');
+            $('#ungkapinLogin').modal('show');
             $('#ungkapinTulisan,#ungkapinImage').on('shown.bs.modal', function () {
                $('#modal-ungkapin').modal('hide');
             });
