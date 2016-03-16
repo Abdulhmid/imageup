@@ -107,7 +107,6 @@
         
         <div class="clearfix"></div>
         <section>
-        <br/>
 
         <div class="row color-change col-condensed row-eq-height">
 
@@ -158,7 +157,181 @@
             </div>
           </div>
         </div>
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <img src="http://placehold.it/500x300" alt="">
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
 
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <div style="height: 137px;">
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.dsddsddsdds sddsd 6767788889898 </p>
+            </div>
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <img src="http://placehold.it/500x300" alt="">
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <img src="http://placehold.it/500x300" alt="">
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <img src="http://placehold.it/500x300" alt="">
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <div style="height: 137px;">
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.dsddsddsdds sddsd 6767788889898 </p>
+            </div>
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <img src="http://placehold.it/500x300" alt="">
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <img src="http://placehold.it/500x300" alt="">
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <div style="height: 137px;">
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.dsddsddsdds sddsd 6767788889898 </p>
+            </div>
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <img src="http://placehold.it/500x300" alt="">
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <img src="http://placehold.it/500x300" alt="">
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <div style="height: 137px;">
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.dsddsddsdds sddsd 6767788889898 </p>
+            </div>
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <img src="http://placehold.it/500x300" alt="">
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <img src="http://placehold.it/500x300" alt="">
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <div style="height: 137px;">
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.dsddsddsdds sddsd 6767788889898 </p>
+            </div>
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <img src="http://placehold.it/500x300" alt="">
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <div style="height: 137px;">
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.dsddsddsdds sddsd 6767788889898 </p>
+            </div>
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+          <div class="thumbnail" id="thumb">
+            <img src="http://placehold.it/500x300" alt="">
+            <div class="caption">
+                <p><a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a></p>
+            </div>
+          </div>
+        </div>
         <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
           <div class="thumbnail" id="thumb">
             <img src="http://placehold.it/500x300" alt="">
