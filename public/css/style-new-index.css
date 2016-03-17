@@ -1,5 +1,9 @@
 /* News Style */
 
+#overflay-action{
+  background-color: #FDFDFD;
+}
+
 .row.row-eq-height > .col-md-2{
   height: 234px;
 

@@ -120,7 +120,7 @@
                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
                     <div class="clearfix"></div>
                     <div class="row span" style="display:block">
-                        <span class="btn-bottom-content"> 
+                        <span class="btn-bottom-content" id="overflay-action"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
                             <i class="fa fa-link fa-rotate-45"></i> 
@@ -136,8 +136,8 @@
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
                     <div class="clearfix"></div>
-                    <div class="row span" style="display:block">
-                        <span class="btn-bottom-content"> 
+                    <div class="row span" style="display:block" >
+                        <span class="btn-bottom-content" id="overflay-action"> 
                             <i class="fa fa-comment"></i> 899
                             <i class="icon-eye-open"></i> 899 
                             <i class="fa fa-link fa-rotate-45"></i> 
