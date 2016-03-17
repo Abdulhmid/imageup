@@ -17,7 +17,7 @@ Route::controllers([
 
 Route::get('/landing2', function()
 {
-    return view('module.themes.index2');
+    return view('module.themes.index3');
 });
 
 
