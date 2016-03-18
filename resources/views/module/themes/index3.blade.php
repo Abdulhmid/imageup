@@ -136,7 +136,8 @@
                     <div class="panel-primary-overlay-right ">
                         <div id="content-over" > 
                             <p id="button-action-bottom">
-                                <a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Detail</a>
+                                <a href="#" class="btn btn-style-up btn-default btn-xs" role="button"
+                                data-toggle="modal" data-target="#ungkapinDetail">Detail</a>
                             </p>
                         </div>
                     </div>
@@ -162,7 +163,8 @@
                     <div class="panel-primary-overlay-right">
                         <div id="content-over" >                        
                             <p id="button-action-bottom">
-                                <a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Detail</a>
+                                <a href="#" class="btn btn-style-up btn-default btn-xs" role="button"
+                                data-toggle="modal" data-target="#ungkapinDetail" >Detail</a>
                             </p>
 
                             <p id="button-action-bottom">
@@ -191,7 +193,8 @@
                     <div class="panel-primary-overlay-right">
                         <div id="content-over"> 
                             <p id="button-action-bottom">
-                                <a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Detail</a>
+                                <a href="#" class="btn btn-style-up btn-default btn-xs" role="button"
+                                data-toggle="modal" data-target="#ungkapinDetail" >Detail</a>
                             </p>
 
                             <p id="button-action-bottom">
