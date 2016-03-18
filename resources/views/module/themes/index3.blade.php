@@ -11,6 +11,10 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{!! url('css/style-new-index.css') !!}">
         <link rel="stylesheet" type="text/css" href="{!! url('css/bootsnipp-navbar.css') !!}">
+        
+        <link rel="stylesheet" type="text/css" href="{!! url('plugins/karbonn-overlay/overlay-bootstrap.css') !!}">
+        <link rel="stylesheet" type="text/css" href="{!! url('plugins/karbonn-overlay/overlay-bootstrap.min.css') !!}">
+
         <style type="text/css">
             .btn {
                 border-radius: 0px;
@@ -111,7 +115,7 @@
             <div class="row color col-condensed row-eq-height">
 
             <?php for ($i=0; $i < 16 ; $i++) { ?>
-                <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+                <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding panel-body" id="overflay-column">
                     <div id="conten-main">
                         <?php $text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -129,12 +133,19 @@
                             </span> 
                         </div>
                     </div>
+                    <div class="panel-primary-overlay-right ">
+                        <div id="content-over" > 
+                            <p id="button-action-bottom">
+                                <a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Detail</a>
+                            </p>
+                        </div>
+                    </div>
                     <div id="action-admin">
 
                     </div>
                 </div>
 
-                <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
+                <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding panel-body" id="overflay-column">
                     <div id="conten-main">
                         <div class="row text-center">
                             <img src="http://placehold.it/500x300" alt="" style="height: 179px;max-height: 179px" class="img-responsive center-block">
@@ -146,6 +157,46 @@
                                 <i class="icon-eye-open"></i> 899 
                                 <i class="fa fa-link fa-rotate-45"></i> 
                             </span> 
+                        </div>
+                    </div>
+                    <div class="panel-primary-overlay-right">
+                        <div id="content-over" >                        
+                            <p id="button-action-bottom">
+                                <a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Detail</a>
+                            </p>
+
+                            <p id="button-action-bottom">
+                                <a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="action-admin">
+
+                    </div>
+                </div>
+                <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding panel-body" id="overflay-column">
+                    <div id="conten-main">
+                        <p style="background: none;">
+                            {!! GLobalHelpers::softTrim($text, 249) !!}
+                        </p>
+                        <div class="clearfix"></div>
+                        <div class="row span" style="display:block">
+                            <span class="btn-bottom-content" id="overflay-action"> 
+                                <i class="fa fa-comment"></i> 899
+                                <i class="icon-eye-open"></i> 899 
+                                <i class="fa fa-link fa-rotate-45"></i> 
+                            </span> 
+                        </div>
+                    </div>
+                    <div class="panel-primary-overlay-right">
+                        <div id="content-over"> 
+                            <p id="button-action-bottom">
+                                <a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Detail</a>
+                            </p>
+
+                            <p id="button-action-bottom">
+                                <a href="#" class="btn btn-style-up btn-default btn-xs" role="button">Naik</a> <a href="#" class="btn btn-default btn-xs" role="button">Hapus</a>
+                            </p>
                         </div>
                     </div>
                     <div id="action-admin">

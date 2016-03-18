@@ -18,6 +18,29 @@
   background: none;
 }
 
+#overflay-column {
+/*  -webkit-filter: grayscale(90%);
+  filter: grayscale(90%);*/
+}
+/*#overflay-column:hover {
+  background-color: rgba(28, 117, 144, 0.96);
+ -webkit-filter: initial;
+  filter: initial;
+}*/
+
+#button-action-bottom{
+  background : none;
+}
+#button-action-bottom>.btn{
+background-color: #E7E7E7;
+}
+
+#content-over{
+  background: none;
+  /*margin-top: 20px;*/
+  margin: 50px 50px 50px 50px;
+}
+
 /* end */
 
 #overflay-action{
