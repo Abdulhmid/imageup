@@ -58,7 +58,7 @@ p {
 .border-no-padding
 {
   border:1px solid; 
-  border-color: rgba(86, 85, 85, 0.33);      
+  border-color: rgba(167, 153, 153, 0.75);    
 }
 
 .row.color-change :nth-child(even){
