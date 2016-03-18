@@ -9,7 +9,14 @@
   background: none;
 }
 
+.row-eq-height .row.span>span{
+  text-align: center;
+  background: none;
+}
 
+.row-eq-height .row.span>span>i{
+  background: none;
+}
 
 /* end */
 
