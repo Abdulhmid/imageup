@@ -42,6 +42,17 @@ class GLobalHelpers {
 		return (!is_null($date)) ? (new DateTime($date))->format($format) : "-";
 	}
 
+ 	public static function softTrim($text, $count, $wrapText='..'){
+
+        if(strlen($text)>$count){
+            preg_match('/^.{0,' . $count . '}(?:.*?)\b/siu', $text, $matches);
+            $text = $matches[0];
+        }else{
+            $wrapText = '';
+        }
+        return $text . $wrapText;
+    }
+
 	public static function breadcrumb()
 	{
 		$bread = '';

@@ -20,6 +20,11 @@ Route::get('/landing2', function()
     return view('module.themes.index3');
 });
 
+Route::get('/landing3', function()
+{
+    return view('module.themes.index2');
+});
+
 
 Route::group(["middleware" => "auth"], function (){
   Route::controllers([

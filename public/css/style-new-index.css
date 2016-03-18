@@ -1,4 +1,17 @@
 /* News Style */
+.action-admin{
+  margin-top: -150px;
+}
+
+/* march 20  */
+
+#conten-main{
+  background: none;
+}
+
+
+
+/* end */
 
 #overflay-action{
   background-color: #FDFDFD;
@@ -17,10 +30,6 @@
 }
 
 
-.thumbnail {
-    padding: 0px;
-    border: 0px solid #ddd;
-}
 
 #thumb>.caption{
   background: #FCFCFC;

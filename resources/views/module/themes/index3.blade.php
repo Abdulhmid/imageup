@@ -112,36 +112,44 @@
 
             <?php for ($i=0; $i < 16 ; $i++) { ?>
                 <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
-                    <p style="background: none;"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-                    <div class="clearfix"></div>
-                    <div class="row span" style="display:block">
-                        <span class="btn-bottom-content" id="overflay-action"> 
-                            <i class="fa fa-comment"></i> 899
-                            <i class="icon-eye-open"></i> 899 
-                            <i class="fa fa-link fa-rotate-45"></i> 
-                        </span> 
+                    <div id="conten-main">
+                        <?php $text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum." ?>
+                        <p style="background: none;"> {!! GLobalHelpers::softTrim($text, 249) !!} </p>
+                        <div class="clearfix"></div>
+                        <div class="row span" style="display:block">
+                            <span class="btn-bottom-content" id="overflay-action"> 
+                                <i class="fa fa-comment"></i> 899
+                                <i class="icon-eye-open"></i> 899 
+                                <i class="fa fa-link fa-rotate-45"></i> 
+                            </span> 
+                        </div>
+                    </div>
+                    <div id="action-admin">
+
                     </div>
                 </div>
 
                 <div class="col-xs-18 col-sm-4 row-eq-height col-md-2 border-no-padding">
-                    <p style="background: none;"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-                    <div class="clearfix"></div>
-                    <div class="row span" style="display:block" >
-                        <span class="btn-bottom-content" id="overflay-action"> 
-                            <i class="fa fa-comment"></i> 899
-                            <i class="icon-eye-open"></i> 899 
-                            <i class="fa fa-link fa-rotate-45"></i> 
-                        </span> 
+                    <div id="conten-main">
+                        <div class="row text-center">
+                            <img src="http://placehold.it/500x300" alt="" style="height: 179px;max-height: 179px" class="img-responsive center-block">
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="row span" style="display:block" >
+                            <span class="btn-bottom-content" id="overflay-action"> 
+                                <i class="fa fa-comment"></i> 899
+                                <i class="icon-eye-open"></i> 899 
+                                <i class="fa fa-link fa-rotate-45"></i> 
+                            </span> 
+                        </div>
+                    </div>
+                    <div id="action-admin">
+
                     </div>
                 </div>
             <?php } ?>
