@@ -25,6 +25,11 @@ Route::get('/landing3', function()
     return view('module.themes.index2');
 });
 
+Route::get('/landing4', function()
+{
+    return view('module.themes.index4');
+});
+
 
 Route::group(["middleware" => "auth"], function (){
   Route::controllers([
