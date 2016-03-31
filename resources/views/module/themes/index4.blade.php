@@ -36,6 +36,7 @@
             }
 
             .content {
+             text-align: center;
              position: relative;
              /*width: 300px;*/
              height: 251px;
